@@ -4,6 +4,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 
 export const routes: Routes = [
   { path: '', component: OverviewComponent },
-  { path: '', component: SidebarComponent },
+  { path: 'overview', component: OverviewComponent },
+  { path: 'sidebar', component: SidebarComponent },
   { path: '**', redirectTo: '' }
 ];
