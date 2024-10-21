@@ -11,7 +11,7 @@ export class SidebarComponent {
   @Input() isOpen: boolean = false;
   @Output() closeSidebar = new EventEmitter<void>();
 
-  constructor(private router: Router) {} // Inject Router
+  constructor(private router: Router) { } // Inject Router
 
   toggleSidebar() {
     this.closeSidebar.emit();
@@ -20,5 +20,14 @@ export class SidebarComponent {
   navigateToOverview() {
     this.toggleSidebar(); // Close the sidebar
     this.router.navigate(['/overview']); // Navigate to the overview component
+  }
+  navigateToGoals() {
+    this.toggleSidebar(); // Close the sidebar
+    this.router.navigate(['/goals']); // Navigate to the goals component
+  }
+
+  navigateToNews() {
+    this.toggleSidebar(); // Close the sidebar
+    this.router.navigate(['/news']); // Navigate to the news component
   }
 }
