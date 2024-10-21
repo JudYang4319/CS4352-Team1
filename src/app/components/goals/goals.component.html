@@ -1,0 +1,19 @@
+<div class="goals-container">
+    <h1 class="goals-title">Goals</h1>
+    <button class="create-goal-button">Create a Goal</button>
+
+    <div class="goal-card" *ngFor="let goal of goals">
+        <h2 class="goal-name">{{ goal.name }}</h2>
+
+        <div class="goal-details">
+            <p>Monthly Contribution: <span class="highlight">{{ goal.monthlyContribution }}</span></p>
+            <p>Next Payment Due: <span class="highlight">{{ goal.nextPaymentDue | date: 'MMMM d, y' }}</span></p>
+
+            <div class="progress-container">
+                <div class="progress-bar" [style.width.%]="goal.progress">
+                    <span class="progress-text">{{ goal.progress }}%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
