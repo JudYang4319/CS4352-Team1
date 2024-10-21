@@ -1,0 +1,106 @@
+.goals-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-goal-button {
+    background-color: #4CAF50;
+    /* Green background */
+    border: none;
+    /* Remove borders */
+    color: white;
+    /* White text */
+    padding: 15px 32px;
+    /* Some padding */
+    text-align: center;
+    /* Centered text */
+    text-decoration: none;
+    /* No underline */
+    display: inline-block;
+    /* Get the inline-block layout */
+    font-size: 16px;
+    /* Increase font size */
+    margin: 20px 0;
+    /* Margin above and below */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    border-radius: 5px;
+    /* Rounded corners */
+    transition: background-color 0.3s;
+    /* Smooth background change */
+}
+
+.create-goal-button:hover {
+    background-color: #45a049;
+    /* Darker green on hover */
+}
+
+.goals-title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.goal-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.goal-name {
+    font-size: 1.5em;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.goal-details {
+    font-size: 1em;
+    color: #555;
+}
+
+.goal-details p {
+    margin: 5px 0;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #007bff;
+    /* A blue color to make the highlight stand out */
+}
+
+.progress-container {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 20px;
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #4caf50;
+    /* Green color for progress */
+    height: 100%;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    font-size: 0.9em;
+    border-radius: 5px 0 0 5px;
+    /* Rounded corners on the left side */
+}
+
+.progress-text {
+    position: relative;
+    padding-right: 10px;
+    /* Make sure text is visible and not cut off */
+}
