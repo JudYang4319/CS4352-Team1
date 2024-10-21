@@ -1,4 +1,4 @@
-<div class="sidenav" [class.open]="isOpen">
+<div class="sidenav" [class.open]="isOpen" [class.hidden]="isLoginPage">
     <button class="close-btn" (click)="toggleSidebar()">×</button>
     <div></div>
     <button (click)="navigateToOverview()">Overview</button>

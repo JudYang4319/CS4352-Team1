@@ -13,7 +13,7 @@ export const routes: Routes = [
   { path: 'news', component: NewsComponent },
   { path: 'overview', component: OverviewComponent },
   { path: 'sidebar', component: SidebarComponent },
-  { path: '**', redirectTo: '' }
+  //{ path: '**', redirectTo: '' },
   { path: 'login', component: LoginComponent },
   { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard] },
   //{ path: 'dailyquestion', component: DailyquestionComponent, canActivate: [AuthGuard] },

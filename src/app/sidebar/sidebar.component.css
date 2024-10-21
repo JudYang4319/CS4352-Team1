@@ -25,3 +25,11 @@
   font-size: 24px;
   cursor: pointer;
 }
+
+.login-page .sidenav {
+  display: none; /* Hide the sidebar on the login page */
+}
+
+.hidden {
+  display: none; /* Hide the sidebar */
+}
