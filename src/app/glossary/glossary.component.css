@@ -1,7 +1,7 @@
 /*Applied to overall*/
 .letterlinks 
 {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 /*Applied to each individual links*/
@@ -13,8 +13,16 @@
     margin-right: 0.5em;
 }
 
+.category
+{
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
 dt 
 {
+    font-weight: bold;
     margin-top: 2em;
     margin-bottom: 0.7em;
 }
@@ -23,4 +31,5 @@ dd
 {
     margin-left: 1em;
     margin-right: 8em;
+    margin-bottom: 1em;
 }
