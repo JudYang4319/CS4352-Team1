@@ -29,3 +29,11 @@
 button {
   display: block;
 }
+
+.login-page .sidenav {
+  display: none; /* Hide the sidebar on the login page */
+}
+
+.hidden {
+  display: none; /* Hide the sidebar */
+}

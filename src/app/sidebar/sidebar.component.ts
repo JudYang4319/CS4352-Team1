@@ -10,8 +10,13 @@ import { Router } from '@angular/router';
 export class SidebarComponent {
   @Input() isOpen: boolean = false;
   @Output() closeSidebar = new EventEmitter<void>();
+  isLoginPage: boolean = false;
 
-  constructor(private router: Router) { } // Inject Router
+  constructor(private router: Router) {
+    this.router.events.subscribe(() => {
+      this.isLoginPage = this.router.url === '/login' || this.router.url === '/signup'; // Check for both login and signup
+    });
+  }
 
   toggleSidebar() {
     this.closeSidebar.emit();
