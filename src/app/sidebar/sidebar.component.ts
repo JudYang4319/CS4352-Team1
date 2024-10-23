@@ -30,4 +30,9 @@ export class SidebarComponent {
     this.toggleSidebar(); // Close the sidebar
     this.router.navigate(['/news']); // Navigate to the news component
   }
+
+  navigateToGlossary() {
+    this.toggleSidebar(); // Close the sidebar
+    this.router.navigate(['/glossary']); // Navigate to the glossary component
+  }
 }
