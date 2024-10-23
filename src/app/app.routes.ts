@@ -15,7 +15,7 @@ export const routes: Routes = [
   { path: 'overview', component: OverviewComponent },
   { path: 'sidebar', component: SidebarComponent },
   { path: 'glossary', component: GlossaryComponent},
-  { path: '**', redirectTo: '' },
+ 
   { path: 'login', component: LoginComponent },
   { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard] },
   //{ path: 'dailyquestion', component: DailyquestionComponent, canActivate: [AuthGuard] },
