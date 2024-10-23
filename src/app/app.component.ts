@@ -5,8 +5,8 @@ import { OverviewComponent } from './components/overview/overview.component';
 import { GoalsComponent } from './components/goals/goals.component';
 import { NewsComponent } from './news/news.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { GlossaryComponent } from './glossary/glossary.component';
 import { CommonModule } from '@angular/common';
+import { GlossaryComponent } from './glossary/glossary.component';
 
 @Component({
   selector: 'app-root',
