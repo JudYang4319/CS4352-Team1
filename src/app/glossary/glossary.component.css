@@ -1,3 +1,8 @@
+h1
+{
+    font-size: 3em;
+}
+
 /* Applied to overall */
 .letterlinks 
 {
@@ -37,4 +42,12 @@ dd
     margin-left: 1em;
     margin-right: 1em;
     margin-bottom: 1em;
+}
+
+/* "Button" */
+a.toplink
+{
+    background-color: #4CAF50; color: #FFF;
+    padding: 12px;
+    position: fixed; bottom: 2em; right: 2em;
 }
