@@ -1,14 +1,69 @@
 <div class="goals-container">
     <h1 class="goals-title">Goals</h1>
-    <button class="create-goal-button">Create a Goal</button>
+    <!-- Create Goal Button -->
+    <button class="create-goal-btn" (click)="openCreateGoalModal()">Create a Goal</button>
+
+    <!-- Create Goal Modal -->
+    <div class="modal" *ngIf="isCreateGoalModalOpen">
+        <div class="modal-content">
+            <span class="close-btn" (click)="closeCreateGoalModal()">&times;</span>
+            <h2>Create a New Goal</h2>
+            <!-- Form will go here in future steps -->
+            <form>
+                <div class="form-group">
+                    <label for="goalTitle">Goal Title</label>
+                    <input type="text" id="goalTitle" [(ngModel)]="goalTitle" name="goalTitle"
+                        placeholder="Enter goal title" />
+                </div>
+
+                <div class="form-group">
+                    <label for="totalCost">Total Cost</label>
+                    <input type="number" id="totalCost" [(ngModel)]="totalCost" name="totalCost"
+                        (ngModelChange)="calculateEstimatedContribution()" placeholder="Enter total cost" />
+                </div>
+
+                <div class="form-group">
+                    <label for="startDate">Start Time Period</label>
+                    <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate"
+                        (ngModelChange)="calculateEstimatedContribution()" />
+                </div>
+
+                <div class="form-group">
+                    <label for="endDate">End Time Period</label>
+                    <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate"
+                        (ngModelChange)="calculateEstimatedContribution()" />
+                </div>
+
+                <div>
+                    <label for="paymentSchedule">Payment Schedule:</label>
+                    <select id="paymentSchedule" [(ngModel)]="paymentSchedule" name="paymentSchedule"
+                        (ngModelChange)="calculateEstimatedContribution()" required>
+                        <option value="" disabled selected>Select Payment Plan</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="biweekly">Biweekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                </div>
+
+                <div>
+                    <p>Estimated Contribution: {{ estimatedContribution !== null ? (estimatedContribution | currency) :
+                        'N/A' }}</p>
+                </div>
+
+                <button type="button" class="submit-btn" (click)="submitGoal()">Submit Goal</button>
+                
+            </form>
+        </div>
+    </div>
+
+
 
     <div class="goal-card" *ngFor="let goal of goals">
         <h2 class="goal-name">{{ goal.name }}</h2>
-
         <div class="goal-details">
-            <p>Monthly Contribution: <span class="highlight">{{ goal.monthlyContribution }}</span></p>
+            <p>{{ goal.contributionLabel }}: <span class="highlight">{{ goal.monthlyContribution | currency }}</span>
+            </p>
             <p>Next Payment Due: <span class="highlight">{{ goal.nextPaymentDue | date: 'MMMM d, y' }}</span></p>
-
             <div class="progress-container">
                 <div class="progress-bar" [style.width.%]="goal.progress">
                     <span class="progress-text">{{ goal.progress }}%</span>
@@ -16,4 +71,3 @@
             </div>
         </div>
     </div>
-</div>
