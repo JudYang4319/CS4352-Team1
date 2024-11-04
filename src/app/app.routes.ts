@@ -18,6 +18,7 @@ import { GuildcreatedComponent } from './components/guildcreated/guildcreated.co
 import { ViewGuildComponent } from './components/viewguild/viewguild.component';
 import { DebtRepaymentComponent } from './debt-repayment/debt-repayment.component';
 
+
 export const routes: Routes = [
   { path: 'goals', component: GoalsComponent },
   { path: 'news', component: NewsComponent },
