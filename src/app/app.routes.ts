@@ -7,6 +7,7 @@ import { NewsComponent } from './news/news.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { GlossaryComponent } from './glossary/glossary.component';
+import { FriendlistComponent } from './components/friendlist/friendlist.component';
 
 
 export const routes: Routes = [
@@ -15,7 +16,7 @@ export const routes: Routes = [
   { path: 'overview', component: OverviewComponent },
   { path: 'sidebar', component: SidebarComponent },
   { path: 'glossary', component: GlossaryComponent},
- 
+  { path: 'friends', component: FriendlistComponent},
   { path: 'login', component: LoginComponent },
   { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard] },
   //{ path: 'dailyquestion', component: DailyquestionComponent, canActivate: [AuthGuard] },

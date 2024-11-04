@@ -1,0 +1,144 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Container */
+.container {
+    max-width: 390px;
+    /* iPhone 13 screen width */
+    margin: 0 auto;
+    height: 100vh;
+    /* Full height */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.menu-btn,
+.home-btn {
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+/* Search Bar */
+.search-bar {
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+/* List Container */
+.list-container {
+    flex-grow: 1;
+    /* Take remaining space */
+    overflow-y: scroll;
+    /* Make it scrollable */
+}
+
+/* Friend List Styles */
+.friend-list {
+    list-style-type: none;
+}
+
+.friend-item {
+    display: flex;
+    align-items: center;
+    /* Align items vertically */
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+
+    /* Rounded corners and shadow for the friend box */
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Rank Circle */
+.rank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Circle for the rank number */
+    width: 30px;
+    height: 30px;
+
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    /* Makes it a circle */
+
+    font-weight: bold;
+}
+
+/* Profile Picture Placeholder (Circle) */
+.profile-pic {
+    width: 40px;
+    height: 40px;
+
+    /* Placeholder for profile image */
+    background-color: #d3d3d3;
+    border-radius: 50%;
+    /* Makes it a circle */
+
+    margin-left: 10px;
+    /* Space between rank and profile picture */
+}
+
+/* Friend Info (Name and Points) */
+.friend-info {
+    margin-left: 15px;
+    /* Space between profile picture and text */
+}
+
+.name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.points {
+    font-size: 14px;
+    color: gray;
+    /* Lighter color for points text */
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.back-btn,
+.invite-btn {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 20px;
+}
