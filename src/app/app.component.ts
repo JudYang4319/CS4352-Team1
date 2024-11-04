@@ -18,6 +18,9 @@ import { GlossaryComponent } from './glossary/glossary.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+navigateToOverview() {
+throw new Error('Method not implemented.');
+}
   title = 'realcents';
   isSidebarOpen: boolean = false;
   isLoginPage: boolean = false;
