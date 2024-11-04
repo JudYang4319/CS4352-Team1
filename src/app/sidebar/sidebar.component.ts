@@ -55,4 +55,9 @@ export class SidebarComponent {
     this.toggleSidebar(); // Close the sidebar
     this.router.navigate(['/transactions']); // Navigate to the transactions component
   }
+
+  navigateToFriends() {
+    this.toggleSidebar(); // Close the sidebar
+    this.router.navigate(['/friends']); // Navigate to the glossary component
+  }
 }
