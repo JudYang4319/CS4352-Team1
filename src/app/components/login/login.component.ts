@@ -18,7 +18,7 @@ export class LoginComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   onSubmit() {
-    if (this.authService.login(this.email, this.password)) {
+    if (this.authService.login(this.email, this.password) && this.email == 'user' && this.password == 'password') {
       this.router.navigate(['/overview']);
     } else {
       alert('Invalid credentials');
