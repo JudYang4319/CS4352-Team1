@@ -4,6 +4,10 @@
     text-align: center;
 }
 
+h {
+    font-size: 3em;
+}
+
 .name {
     font-size: 1.5em;
     font-weight: bold;
