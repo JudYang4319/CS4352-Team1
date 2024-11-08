@@ -1,4 +1,66 @@
-<div>
-    <img src="images/debtrepaymentimg.jpg" style="width: 200px; height: 200px"/>
+<div *ngIf="currentTab == homeTab" class="container">
+    <h2>Debt Repayment Plan</h2>
+    <img src="images/debtrepaymentimg.jpg" class="debt-image"/>
+    <p style="text-align: justify;">Debt repayment strategies are essential for effectively managing and eliminating debt. Two popular methods are the snowball and avalanche approaches. The snowball method focuses on paying off the smallest debts first to build momentum, while the avalanche method targets debts with the highest interest rates to minimize the total interest paid over time. Both methods have their advantages: the snowball approach offers psychological wins with quicker debt eliminations, while the avalanche method is more cost-efficient in the long run. Choosing the right strategy depends on individual financial priorities and emotional preferences.</p>
+    <button class="plan-button" style="margin-top: 50px !important" (click)="viewPlans()">View Plans</button>
+    <button class="plan-button" (click)="createPlanClick()">Create a Plan</button>
 </div>
-<h1>test</h1>
+<div *ngIf="currentTab == viewPlansTab" class="container">
+    <div *ngFor="let plan of customPlans">
+        {{plan.monthlyPayment}}
+    </div>
+    <button class="plan-button" (click)="backToStart()">Back to Start</button>
+</div>
+<div *ngIf="currentTab == createPlanTab" class="container">
+    <h2>Choose Plan Type</h2>
+    <button style="background-color: rgb(255, 120, 161); margin-top: 80px;" class="plan-button" (click)="avalancheClick()">Avalanche</button>
+    <button style="background-color: rgb(165, 87, 255); margin-top: 100px;" class="plan-button" (click)="snowballClick()">Snowball</button>
+    <button style="background-color: deepskyblue; margin-top: 100px; "class="plan-button" (click)="customClick()">Custom</button>
+    <button style="margin-top: 100px" class="plan-button" (click)="backToStart()">Back to Start</button>
+</div>
+<div *ngIf="currentTab == customTab" class="container">
+    <h2>Plan Details</h2>
+    <div class="input-boxes">
+        <label for="monthlyPaymentInput" style="font-size: 30px;">Monthly Payment: </label>
+        <input type="text" id="monthlyPaymentInput" [(ngModel)]="monthlyPayment" />
+    </div>
+    <div class="input-boxes">
+        <label for="expectedBonusInput" style="font-size: 30px">Expected Bonus: </label>
+        <input type="text" id="expectedBonusInput" [(ngModel)]="expectedBonus" />
+    </div>
+    <button class="plan-button" (click)="customToSelect()">Back</button>
+    <button class="plan-button" (click)="moreDetailsClick()">Next</button>
+</div>
+<div *ngIf="currentTab == moreDetailsTab" class="container">
+    <h2>More Details</h2>
+    <div class="input-boxes">
+        <label for="categoryInput" style="font-size: 30px;">Category: </label>
+        <input type="text" id="categoryInput" [(ngModel)]="category" />
+    </div>
+    <div class="input-boxes">
+        <label for="limitInput" style="font-size: 30px">Limit: </label>
+        <input type="text" id="limitInput" [(ngModel)]="limit" />
+    </div>
+    <button class="plan-button" (click)="moreDetailsToCustom()">Back</button>
+    <button class="plan-button" (click)="setMilestoneReminder()">Set Milestone</button>
+</div>
+<div *ngIf="currentTab == milestoneReminder" class="container">
+    <h2>Set Milestone</h2>
+    <h3>optional</h3>
+    <div class="input-boxes">
+        <label for="amountInput" style="font-size: 30px;">Set Amount: </label>
+        <input type="text" id="amountInput" [(ngModel)]="amount" />
+    </div>
+    <div class="input-boxes">
+        <label for="deadlineInput" style="font-size: 30px">Deadline: </label>
+        <input type="date" id="deadlineInput" [(ngModel)]="deadline" />
+    </div>
+    <h3>Set Reminder</h3>
+    <h5>optional</h5>
+    <div class="input-boxes">
+        <label for="occurenceInput" style="font-size: 30px;">Occurence: </label>
+        <input type="text" id="occurenceInput" [(ngModel)]="occurrence" />
+    </div>
+    <button class="plan-button" (click)="milestoneToDetails()">Back</button>
+    <button class="plan-button" (click)="savePlan()">Save Plan</button>
+</div>
