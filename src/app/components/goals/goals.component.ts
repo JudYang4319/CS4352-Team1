@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-goals',
@@ -10,6 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./goals.component.css']
 })
 export class GoalsComponent {
+  constructor(private router: Router) { } // Inject Router
   goals = [
     { name: 'New York Trip', contributionLabel: 'Monthly Contribution', monthlyContribution: 100, nextPaymentDue: new Date('2024-12-01'), progress: 50 },
     { name: 'Buying Mechanical Keyboard', contributionLabel: 'Monthly Contribution', monthlyContribution: 50, nextPaymentDue: new Date('2024-10-30'), progress: 75 }
@@ -23,12 +25,25 @@ export class GoalsComponent {
   paymentSchedule: string = ''; // Empty default to match the "Select Payment Plan" option
   estimatedContribution: number | null = null;
 
+  // New property to track which goal is being considered for removal
+  goalToRemove: number | null = null;
+
+  ngOnInit(): void {
+    // Load goals from local storage on component initialization
+    const savedGoals = localStorage.getItem('userGoals');
+    if (savedGoals) {
+      this.goals = JSON.parse(savedGoals);
+    }
+  }
 
   // Function to open the modal
   openCreateGoalModal(): void {
     this.isCreateGoalModalOpen = true;
   }
 
+  goToOverview(): void {
+    this.router.navigate(['/overview']);
+  }
 
   getContributionLabel(paymentSchedule: string): string {
     switch (paymentSchedule) {
@@ -88,6 +103,7 @@ export class GoalsComponent {
   }
 
 
+
   submitGoal(): void {
     console.log('Submitting Goal...');
     console.log('Goal Title:', this.goalTitle);
@@ -125,6 +141,9 @@ export class GoalsComponent {
     // Add the new goal to the goals list
     this.goals.push(newGoal);
 
+    // Save goals to local storage
+    localStorage.setItem('userGoals', JSON.stringify(this.goals));
+
     // Reset the form and close the modal
     this.resetForm();
     this.closeCreateGoalModal();
@@ -161,6 +180,23 @@ export class GoalsComponent {
     this.endDate = '';
     this.paymentSchedule = '';
     this.estimatedContribution = null;
+  }
+
+  // Prompt the user for confirmation to remove a goal
+  promptRemoveGoal(index: number): void {
+    this.goalToRemove = index;
+  }
+
+  // Confirm removal of the selected goal
+  confirmRemoveGoal(index: number): void {
+    this.goals.splice(index, 1); // Remove the goal from the array
+    localStorage.setItem('userGoals', JSON.stringify(this.goals)); // Update local storage
+    this.goalToRemove = null; // Reset the prompt
+  }
+
+  // Cancel the removal prompt
+  cancelRemoveGoal(): void {
+    this.goalToRemove = null;
   }
 
 }

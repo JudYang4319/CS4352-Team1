@@ -1,4 +1,5 @@
 <div class="goals-container">
+    <button class="home-button" (click)="goToOverview()">Home</button>
     <h1 class="goals-title">Goals</h1>
     <!-- Create Goal Button -->
     <button class="create-goal-btn" (click)="openCreateGoalModal()">Create a Goal</button>
@@ -51,14 +52,14 @@
                 </div>
 
                 <button type="button" class="submit-btn" (click)="submitGoal()">Submit Goal</button>
-                
+
             </form>
         </div>
     </div>
 
 
 
-    <div class="goal-card" *ngFor="let goal of goals">
+    <div class="goal-card" *ngFor="let goal of goals; let i = index">
         <h2 class="goal-name">{{ goal.name }}</h2>
         <div class="goal-details">
             <p>{{ goal.contributionLabel }}: <span class="highlight">{{ goal.monthlyContribution | currency }}</span>
@@ -69,5 +70,15 @@
                     <span class="progress-text">{{ goal.progress }}%</span>
                 </div>
             </div>
+        </div>
+
+        <!-- Remove Button -->
+        <button (click)="promptRemoveGoal(i)">Remove Goal</button>
+
+        <!-- Confirmation Prompt -->
+        <div *ngIf="goalToRemove === i" class="confirmation-prompt">
+            <p>Are you sure you want to remove?</p>
+            <button (click)="confirmRemoveGoal(i)">Yes</button>
+            <button (click)="cancelRemoveGoal()">No</button>
         </div>
     </div>
