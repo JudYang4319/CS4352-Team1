@@ -8,7 +8,7 @@ class CustomPlan {
   category: string;
   limit: number;
   amount: number;
-  deadline: Date;
+  deadline: Date | null;
   occurrence: string;
 
   constructor(
@@ -17,7 +17,7 @@ class CustomPlan {
     category: string,
     limit: number,
     amount: number,
-    deadline: Date,
+    deadline: Date | null,
     occurrence: string
   ) {
     this.monthlyPayment = monthlyPayment;
@@ -52,14 +52,51 @@ export class DebtRepaymentComponent {
   category: string = "";
   limit: number = 0;
   amount: number = 0;
-  deadline: Date = new Date;
+  deadline:  Date | null = null;
   occurrence: string = "";
 
-  customPlans: CustomPlan[] = [];
+  customPlans: CustomPlan[] = [
+    {
+      monthlyPayment: 200,
+      expectedBonus: 1000,
+      category: 'Personal Loan',
+      limit: 5000,
+      amount: 4000,
+      deadline: new Date('2024-12-31'),
+      occurrence: 'Monthly'
+    },
+    {
+      monthlyPayment: 150,
+      expectedBonus: 500,
+      category: 'Car Loan',
+      limit: 3000,
+      amount: 2500,
+      deadline: new Date('2025-06-30'),
+      occurrence: 'Monthly'
+    }
+  ];
+
+  categories = [
+    'Food',
+    'Entertainment',
+    'Rent',
+    'Loan Payment',
+    'Transportation',
+    'Utilities',
+    'Insurance',
+    'Healthcare',
+    'Supplies',
+    'Education'
+  ];
+  isCustomCategory: boolean = false;
   
 
   ngOnInit(): void {
     // Initialization logic if needed
+  }
+
+  onCategoryChange() {
+    this.isCustomCategory = this.category === 'Custom';
   }
 
   createPlanClick() {
@@ -110,7 +147,7 @@ export class DebtRepaymentComponent {
 
   milestoneToDetails()
   {
-    this.deadline = new Date;
+    this.deadline = null;
     this.occurrence = "";
     this.amount = 0;
     this.currentTab = this.moreDetailsTab;
