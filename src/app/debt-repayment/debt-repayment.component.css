@@ -1,0 +1,202 @@
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 390px;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.debt-image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.text-info {
+    text-align: justify;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 14px;
+}
+
+.plan-button {
+    width: 90%;
+    max-width: 340px;
+    padding: 15px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    margin: 10px 0;
+    cursor: pointer;
+    background-color: #4CAF50;
+    transition: background-color 0.3s ease;
+}
+
+.plan-button:hover {
+    opacity: 0.9;
+}
+
+.avalanche-button {
+    background-color: #FF789E;
+}
+
+.snowball-button {
+    background-color: #A557FF;
+}
+
+.custom-button {
+    background-color: #00BFFF;
+}
+
+.back-button {
+    background-color: #4CAF50;
+}
+
+.input-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.input-boxes label {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    max-width: 340px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 150, 136, 0.2);
+}
+
+#categorySelect {
+    width: 100%;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+#occurrenceSelect {
+    width: 100%;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+.plans-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.plan-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 340px;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.plan-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.plan-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.plan-details {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.plan-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.label {
+    font-weight: bold;
+    color: #555;
+    font-size: 16px;
+}
+
+.value {
+    font-size: 16px;
+    color: #333;
+}
+
+.plan-button:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    .plans-container {
+        padding: 10px;
+    }
+
+    .plan-card {
+        padding: 15px;
+    }
+
+    .plan-number {
+        font-size: 20px;
+    }
+
+    .label, .value {
+        font-size: 14px;
+    }
+}

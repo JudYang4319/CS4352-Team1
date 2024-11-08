@@ -1,0 +1,111 @@
+<div *ngIf="currentTab == homeTab" class="container">
+    <h2>Debt Repayment Plan</h2>
+    <img src="images/debtrepaymentimg.jpg" class="debt-image"/>
+    <p class="text-info">Debt repayment strategies are essential for effectively managing and eliminating debt. Two popular methods are the snowball and avalanche approaches. The snowball method focuses on paying off the smallest debts first to build momentum, while the avalanche method targets debts with the highest interest rates to minimize the total interest paid over time. Both methods have their advantages: the snowball approach offers psychological wins with quicker debt eliminations, while the avalanche method is more cost-efficient in the long run. Choosing the right strategy depends on individual financial priorities and emotional preferences.</p>
+    <button class="plan-button" (click)="viewPlans()">View Plans</button>
+    <button class="plan-button" (click)="createPlanClick()">Create a Plan</button>
+</div>
+
+<div *ngIf="currentTab === viewPlansTab" class="plans-container">
+    <div *ngFor="let plan of customPlans; let i = index" class="plan-card">
+        <div class="plan-header">
+            <h3 class="plan-number">Plan {{ i + 1 }}</h3>
+        </div>
+        <div class="plan-details">
+            <div class="plan-detail">
+                <span class="label">Monthly Payment: </span>
+                <span class="value">{{ plan.monthlyPayment | currency }}</span>
+            </div>
+            <div class="plan-detail">
+                <span class="label">Expected Bonus: </span>
+                <span class="value">{{ plan.expectedBonus | currency }}</span>
+            </div>
+            <div class="plan-detail">
+                <span class="label">Category: </span>
+                <span class="value">{{ plan.category }}</span>
+            </div>
+            <div class="plan-detail">
+                <span class="label">Limit: </span>
+                <span class="value">{{ plan.limit | currency }}</span>
+            </div>
+            <div *ngIf="plan.amount !== 0" class="plan-detail">
+                <span class="label">Amount: </span>
+                <span class="value">{{ plan.amount | currency }}</span>
+            </div>
+            <div *ngIf="plan.deadline !== null" class="plan-detail">
+                <span class="label">Deadline: </span>
+                <span class="value">{{ plan.deadline | date: 'shortDate' }}</span>
+            </div>
+            <div *ngIf="plan.occurrence !== ''" class="plan-detail">
+                <span class="label">Occurrence: </span>
+                <span class="value">{{ plan.occurrence }}</span>
+            </div>
+        </div>
+    </div>
+    <button class="plan-button" (click)="backToStart()">Back to Start</button>
+</div>
+  
+  
+
+<div *ngIf="currentTab == createPlanTab" class="container">
+    <h2>Choose Plan Type</h2>
+    <button class="plan-button avalanche-button" (click)="customClick()">Avalanche</button>
+    <button class="plan-button snowball-button" (click)="customClick()">Snowball</button>
+    <button class="plan-button custom-button" (click)="customClick()">Custom</button>
+    <button class="plan-button back-button" (click)="backToStart()">Back to Start</button>
+</div>
+
+<div *ngIf="currentTab == customTab" class="container">
+    <h2>Plan Details</h2>
+    <div class="input-boxes">
+        <label for="monthlyPaymentInput">Monthly Payment:</label>
+        <input type="text" id="monthlyPaymentInput" [(ngModel)]="monthlyPayment" />
+    </div>
+    <div class="input-boxes">
+        <label for="expectedBonusInput">Expected Bonus:</label>
+        <input type="text" id="expectedBonusInput" [(ngModel)]="expectedBonus" />
+    </div>
+    <button class="plan-button" (click)="moreDetailsClick()">Next</button>
+    <button class="plan-button" (click)="customToSelect()">Back</button>
+</div>
+
+<div *ngIf="currentTab == moreDetailsTab" class="container">
+    <h2>More Details</h2>
+    <div class="input-boxes">
+        <label for="categorySelect">Category:</label>
+        <select id="categorySelect" [(ngModel)]="category" (change)="onCategoryChange()">
+            <option *ngFor="let option of categories" [value]="option">{{ option }}</option>
+            <option value="Custom">Custom</option>
+        </select>
+        <input *ngIf="category === 'Custom'" type="text" [(ngModel)]="customCategory" placeholder="Enter custom category" />
+    </div>
+    <div class="input-boxes">
+        <label for="limitInput">Limit:</label>
+        <input type="text" id="limitInput" [(ngModel)]="limit" />
+    </div>
+    <button class="plan-button" (click)="setMilestoneReminder()">Set Milestone</button>
+    <button class="plan-button" (click)="moreDetailsToCustom()">Back</button>
+</div>
+
+<div *ngIf="currentTab == milestoneReminder" class="container">
+    <h2>Set Milestone (Optional)</h2>
+    <div class="input-boxes">
+        <label for="amountInput">Set Amount:</label>
+        <input type="text" id="amountInput" [(ngModel)]="amount" />
+    </div>
+    <div class="input-boxes">
+        <label for="deadlineInput">Deadline:</label>
+        <input type="date" id="deadlineInput" [(ngModel)]="deadline" [min]="minDate" />
+    </div>
+    <h3>Set Reminder (Optional)</h3>
+    <div class="input-boxes">
+        <label for="occurrenceSelect">Occurrence:</label>
+        <select id="occurrenceSelect" [(ngModel)]="occurrence">
+          <option value="Daily">Daily</option>
+          <option value="Weekly">Weekly</option>
+          <option value="Monthly">Monthly</option>
+        </select>
+    </div>      
+    <button class="plan-button" (click)="savePlan()">Save Plan</button>
+    <button class="plan-button" (click)="milestoneToDetails()">Back</button>
+</div>
