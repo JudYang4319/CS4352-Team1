@@ -47,10 +47,11 @@ export class DebtRepaymentComponent {
   moreDetailsTab: string = "More Details";
   milestoneReminder: string = "Milestone/Reminder"
 
-  monthlyPayment: number = 0;
-  expectedBonus: number = 0;
-  category: string = "";
-  limit: number = 0;
+  monthlyPayment: number = 200;
+  expectedBonus: number = 1000;
+  category: string = "Personal Loan";
+  customCategory: string = "";
+  limit: number = 5000;
   amount: number = 0;
   deadline:  Date | null = null;
   occurrence: string = "";
@@ -59,7 +60,7 @@ export class DebtRepaymentComponent {
     {
       monthlyPayment: 200,
       expectedBonus: 1000,
-      category: 'Personal Loan',
+      category: 'Koan Payment',
       limit: 5000,
       amount: 4000,
       deadline: new Date('2024-12-31'),
@@ -68,7 +69,7 @@ export class DebtRepaymentComponent {
     {
       monthlyPayment: 150,
       expectedBonus: 500,
-      category: 'Car Loan',
+      category: 'Rent',
       limit: 3000,
       amount: 2500,
       deadline: new Date('2025-06-30'),
@@ -89,14 +90,24 @@ export class DebtRepaymentComponent {
     'Education'
   ];
   isCustomCategory: boolean = false;
+  minDate: string;
   
-
+  constructor()
+  {
+    const today = new Date();
+    this.minDate = today.toISOString().split('T')[0];
+  }
   ngOnInit(): void {
     // Initialization logic if needed
   }
 
   onCategoryChange() {
-    this.isCustomCategory = this.category === 'Custom';
+    if (this.category === 'Custom') {
+      this.isCustomCategory = true;
+    } else {
+      this.isCustomCategory = false;
+      this.customCategory = ''; // Clear custom category input when other category is selected
+    }
   }
 
   createPlanClick() {
@@ -125,8 +136,8 @@ export class DebtRepaymentComponent {
 
   customToSelect() {
     this.currentTab = this.createPlanTab;
-    this.monthlyPayment = 0;
-    this.expectedBonus = 0;
+    this.monthlyPayment = 200;
+    this.expectedBonus = 1000;
   }
 
   moreDetailsClick() {
@@ -137,7 +148,7 @@ export class DebtRepaymentComponent {
   {
     this.currentTab = this.customTab;
     this.category = "";
-    this.limit = 0;
+    this.limit = 5000;
   }
 
   setMilestoneReminder()
@@ -155,10 +166,11 @@ export class DebtRepaymentComponent {
 
   savePlan()
   {
+    var cat = this.customCategory === "" ? this.category : this.customCategory;
     const plan = new CustomPlan(
       this.monthlyPayment,
       this.expectedBonus,
-      this.category,
+      cat,
       this.limit,
       this.amount,
       this.deadline,
