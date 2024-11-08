@@ -2,10 +2,31 @@
     width: 80%;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
     text-align: center;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    /* Green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #45a049;
+    /* Darker green */
 }
 
 .create-goal-button {
@@ -179,4 +200,67 @@
     position: relative;
     padding-right: 10px;
     /* Make sure text is visible and not cut off */
+}
+
+/* Styling for the Remove Goal Button */
+button.remove-goal-btn {
+    background-color: #ff4d4d;
+    /* Light red color for delete action */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Light shadow for depth */
+}
+
+/* Hover effect */
+button.remove-goal-btn:hover {
+    background-color: #e60000;
+    /* Darker red on hover */
+}
+
+/* Style for the confirmation prompt */
+.confirmation-prompt {
+    background-color: rgba(0, 0, 0, 0.75);
+    /* Semi-transparent dark background */
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    /* Shadow for a modal look */
+}
+
+.confirmation-prompt button {
+    background-color: #ff4d4d;
+    /* Red for "Yes" */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.confirmation-prompt button:hover {
+    background-color: #e60000;
+    /* Darker red for hover */
+}
+
+/* Style for "No" button */
+.confirmation-prompt button:last-child {
+    background-color: #ccc;
+    /* Gray for "No" */
+    color: black;
+}
+
+.confirmation-prompt button:last-child:hover {
+    background-color: #999;
+    /* Darker gray on hover */
 }
