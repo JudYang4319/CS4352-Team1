@@ -7,6 +7,7 @@ import { NewsComponent } from './news/news.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { GlossaryComponent } from './glossary/glossary.component';
+import { SettingsComponent } from './settings/settings.component';
 
 import { DebtRepaymentComponent } from './debt-repayment/debt-repayment.component';
 
@@ -17,6 +18,8 @@ export const routes: Routes = [
   { path: 'sidebar', component: SidebarComponent },
   { path: 'glossary', component: GlossaryComponent},
   { path: 'debt-repayment', component: DebtRepaymentComponent},
+  { path: 'settings', component: SettingsComponent},
+ 
   { path: 'login', component: LoginComponent },
   { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard] },
   //{ path: 'dailyquestion', component: DailyquestionComponent, canActivate: [AuthGuard] },
