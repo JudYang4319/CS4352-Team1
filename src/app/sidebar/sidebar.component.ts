@@ -40,4 +40,9 @@ export class SidebarComponent {
     this.toggleSidebar(); // Close the sidebar
     this.router.navigate(['/glossary']); // Navigate to the glossary component
   }
+
+  navigateToSettings() {
+    this.toggleSidebar(); // Close the sidebar
+    this.router.navigate(['/settings']); // Navigate to the settings component
+  }
 }
