@@ -18,6 +18,16 @@ h1
 {
     font-size: 2em;
     font-weight: bold;
+    text-decoration: underline;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/*For letters that don't have any terms*/
+.letterlinks span
+{
+    font-size: 2em;
+    font-weight: bold;
     text-decoration: none;
     margin-right: 0.5em;
     margin-bottom: 0.5em;
