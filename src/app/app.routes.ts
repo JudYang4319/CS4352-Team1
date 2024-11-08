@@ -18,7 +18,7 @@ export const routes: Routes = [
   { path: 'sidebar', component: SidebarComponent },
   { path: 'glossary', component: GlossaryComponent},
   { path: 'debt-repayment', component: DebtRepaymentComponent},
-  { path: 'settings', component: SettingsComponent},
+  { path: 'profile', component: SettingsComponent},
  
   { path: 'login', component: LoginComponent },
   { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard] },

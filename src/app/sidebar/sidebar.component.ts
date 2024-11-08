@@ -48,6 +48,6 @@ export class SidebarComponent {
 
   navigateToSettings() {
     this.toggleSidebar(); // Close the sidebar
-    this.router.navigate(['/settings']); // Navigate to the settings component
+    this.router.navigate(['/profile']); // Navigate to the settings component
   }
 }
