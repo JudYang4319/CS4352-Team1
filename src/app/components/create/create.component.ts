@@ -17,7 +17,7 @@ export class CreateComponent {
     this.router.navigate(['/flagcreator']);
   }
   saveGuild() {
-    this.router.navigate(['/overview']);
+    window.alert("Please make a custom flag");
   }
 
 }
