@@ -1,0 +1,93 @@
+.guild-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.guild-banner img {
+    width: 150px;
+}
+
+.guild-button {
+    background-color: white;
+    border: 2px solid #d3d3d3;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.button-container {
+    padding-top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.guild-button:hover {
+    background-color: #f0f0f0;
+
+}
+
+
+.png-container {
+    overflow: hidden;
+}
+
+.png-container img {
+    filter: drop-shadow(0px 1000px var(--selectedColor)) opacity(0.5);
+    transform: translateY(-1000px);
+}
+
+.tint {
+    position: relative;
+    float: left;
+    cursor: pointer;
+    background: var(--selectedColor);
+    opacity: 0.5;
+}
+
+.tint:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -20%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--selectedColor);
+}
+
+.tint:hover:before {
+    background: none;
+}
+
+img {
+    display: block;
+    transition: opacity .3s linear;
+}
+
+img:hover {
+    opacity: .5;
+    cursor: pointer;
+}
+
+.image {
+    background-image: var(--selectedIconUrl);
+    background-color: var(--selectedColor);
+    background-blend-mode: multiply;
+    position: relative;
+}
+.image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.5;
+    background-color: var(--selectedColor);
+    pointer-events: none;
+  }
