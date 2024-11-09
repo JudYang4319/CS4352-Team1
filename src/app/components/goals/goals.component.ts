@@ -46,6 +46,9 @@ export class GoalsComponent {
     this.router.navigate(['/overview']);
   }
 
+  // Current date in the required format (yyyy-MM-dd)
+  currentDate: string = new Date().toISOString().split('T')[0];
+
   getContributionLabel(paymentSchedule: string): string {
     switch (paymentSchedule) {
       case 'weekly':
@@ -106,14 +109,13 @@ export class GoalsComponent {
 
 
   submitGoal(): void {
-    console.log('Submitting Goal...');
-    console.log('Goal Title:', this.goalTitle);
-    console.log('Total Cost:', this.totalCost);
-    console.log('Start Date:', this.startDate);
-    console.log('End Date:', this.endDate);
-    console.log('Payment Schedule:', this.paymentSchedule);
+    // Check if the total cost is a valid positive number
+    if (this.totalCost !== null && this.totalCost < 0) {
+      console.log("Total cost cannot be a negative number.");
+      return; // Exit if total cost is negative
+    }
 
-    // Check if all fields are properly filled out
+    // Check if all other fields are properly filled out
     if (!this.goalTitle || !this.totalCost || !this.startDate || !this.endDate || !this.paymentSchedule) {
       alert("Please fill out all the fields.");
       return; // Exit if the form is not complete
