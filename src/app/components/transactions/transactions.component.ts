@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RewardsService } from '../../rewards/rewards.service';
 
 @Component({
   selector: 'app-transactions',
@@ -88,4 +89,13 @@ export class TransactionsComponent {
 
     this.netAmount = this.incomeAmount - this.expensesAmount;
   }
+  pointFlag: boolean = true;
+  constructor(private rewardsService: RewardsService) { }
+
+  earnPoints() {
+    this.rewardsService.addPoints(100);
+    alert('you earned 100 points');
+    this.pointFlag = false;
+  }
+
 }
