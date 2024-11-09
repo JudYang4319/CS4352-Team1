@@ -1,0 +1,187 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 375px; /* iPhone screen width */
+    height: 100%;
+    
+}
+
+/* Section Styles */
+.section {
+    width: 100%;
+    background-color: white;
+    border-radius: 0px;
+    padding: 15px;
+    
+   
+}
+    
+.icon {
+    width: 90px;
+    height: 90px;
+}
+.color-section {
+    padding-bottom: 10%;
+    padding-top: 1%;
+}
+/* Tab Button Styles */
+.tab-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab-buttons button {
+    width: 48%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid black;
+    background-color: white;
+}
+
+.tab-buttons button.active {
+    background-color: black;
+    color: white;
+}
+
+/* Icon Grid Styles */
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 0px;
+}
+
+.icon-grid img {
+    width: 100%;
+}
+
+.icon-section-content {
+    padding-top: 0%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0%;
+
+    
+}
+h2 {
+    display: flex;
+    justify-content: center;
+
+}
+h1 {
+    height: 5px;
+}
+
+/* Color Picker and Palette Styles */
+.opacity-slider {
+    margin-top: 20px;
+    position: relative;
+}
+
+.opacity-slider input[type='range'] {
+    width: calc(100% - 50px);
+    margin-top: 20px;
+
+}
+
+.color-picker {
+    width: 100%;
+    height: 50px;
+}
+
+.color-picker-container {
+    padding-bottom: 10%;
+    width: 100%;
+    height: 50px;
+}
+.color-picker-container input {
+    width: 90%;
+    height: 50px;
+}
+
+.color-palette {
+    display: flex;
+    align-items: center;
+    
+}
+
+.color-swatch {
+    width: 50px;
+    height: 50px;
+}
+
+.color-options {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    padding-top: 10px;
+    justify-content: center;
+
+    
+
+}
+
+.color-options span {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    
+}
+
+/* Button Styles */
+.buttons {
+    padding-top:10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.back-button, .save-button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.back-button {
+    background-color: #ff6b6b; /* Red */
+}
+
+.save-button {
+    background-color: #2ecc71; /* Green */
+}
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0%;
+
+}
+
+.back-btn, .save-btn {
+    width: calc(50% - 10px);
+    padding: 10px;
+}
+
+.back-btn {
+    background-color: #ff6b6b; /* Red button */
+}
+
+.save-btn {
+    background-color: #4caf50; /* Green button */
+}
+
+.back-btn, .save-btn {
+    color: white;
+    border-radius: 5px;
+}

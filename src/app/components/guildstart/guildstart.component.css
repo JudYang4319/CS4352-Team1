@@ -1,0 +1,52 @@
+.guild-start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    
+    border-radius: 10px;
+}
+
+.guild-start h1 {
+    margin-bottom: 20px;
+}
+
+.guild-start button, .guild-start input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.guild-start button {
+    background-color: #28a745; /* Green for 'Enter' */
+    color: white;
+}
+
+.guild-start button:hover {
+    background-color: #218838;
+}
+
+.guild-start input {
+    border: 1px solid #ccc;
+}
+
+.guild-start .back-button {
+    background-color: #dc3545; /* Red for 'Back' */
+}
+
+.guild-start .back-button:hover {
+    background-color: #c82333;
+}
+
+.footer {
+    position: fixed;
+    padding: 20px;
+    border-radius: 10px;
+    bottom: 0;
+    width: 90%;
+    
+}
