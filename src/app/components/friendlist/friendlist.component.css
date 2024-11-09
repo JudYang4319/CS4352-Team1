@@ -15,7 +15,7 @@ body {
     max-width: 390px;
     /* iPhone 13 screen width */
     margin: 0 auto;
-    height: 100vh;
+    height: 93vh;
     /* Full height */
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@ body {
 /* Header */
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: #fff;
     padding: 10px;
@@ -65,56 +65,51 @@ h1 {
 /* Friend List Styles */
 .friend-list {
     list-style-type: none;
+    padding: 0;
 }
 
 .friend-item {
-    display: flex;
-    align-items: center;
-    /* Align items vertically */
-    background-color: #fff;
-    padding: 15px;
     margin-bottom: 10px;
-
-    /* Rounded corners and shadow for the friend box */
-    border-radius: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Rank Circle */
+.friend-button {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.friend-button:hover {
+    background-color: #f0f0f0;
+}
+
 .rank {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* Circle for the rank number */
     width: 30px;
     height: 30px;
-
     background-color: #e0e0e0;
     border-radius: 50%;
-    /* Makes it a circle */
-
     font-weight: bold;
 }
 
-/* Profile Picture Placeholder (Circle) */
 .profile-pic {
     width: 40px;
     height: 40px;
-
-    /* Placeholder for profile image */
     background-color: #d3d3d3;
     border-radius: 50%;
-    /* Makes it a circle */
-
     margin-left: 10px;
-    /* Space between rank and profile picture */
 }
 
-/* Friend Info (Name and Points) */
 .friend-info {
     margin-left: 15px;
-    /* Space between profile picture and text */
 }
 
 .name {
@@ -125,18 +120,33 @@ h1 {
 .points {
     font-size: 14px;
     color: gray;
-    /* Lighter color for points text */
 }
 
 /* Footer */
 .footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.back-btn {
+    width: 100%;
+    max-width: 300px;
     padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .back-btn,
 .invite-btn {
+    
+    
     background-color: #e0e0e0;
     border-radius: 20px;
     border: none;
