@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlagService } from '../../services/flag.service';
 import { Router } from '@angular/router';
-import { ImageProcessingService } from '../../services/ImageProcessingService.service';
 
 @Component({
   selector: 'app-viewguild',
@@ -11,7 +10,6 @@ import { ImageProcessingService } from '../../services/ImageProcessingService.se
 export class ViewGuildComponent implements OnInit {
   public selectedColor: string | null = null; // Store the selected color
   public selectedIconId: number | null = null; // Store the selected icon ID
-  public processedImageUrl: string | null = null; // Store the processed image URL
   public icons = [
     { id: 1, url: 'https://media.discordapp.net/attachments/867118819898163232/1304878209262948453/image.png?ex=6730fe08&is=672fac88&hm=6a0bcadaa18d1ce2160f315b23a48adeadace3980694c2392f131f74759aa7e7&=&format=webp&quality=lossless&width=161&height=161' },
     { id: 2, url: 'https://media.discordapp.net/attachments/867118819898163232/1304878246675877958/image.png?ex=6730fe11&is=672fac91&hm=8224df1abbb43c47dc081cd7be072fbf9026b2e1a0dcdc7e890a1e41f7bdeb5b&=&format=webp&quality=lossless&width=161&height=161' },
@@ -26,8 +24,7 @@ export class ViewGuildComponent implements OnInit {
 
   constructor(
     private flagService: FlagService,
-    private router: Router,
-    private imageProcessingService: ImageProcessingService
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -41,7 +38,7 @@ export class ViewGuildComponent implements OnInit {
     console.log("Selected Icon ID:", this.selectedIconId);
 
     // Process the selected icon image
-    this.processSelectedIcon();
+  
   }
 
   getSelectedIconUrl() {
@@ -49,18 +46,7 @@ export class ViewGuildComponent implements OnInit {
     return selectedIcon ? selectedIcon.url : '';
   }
 
-  processSelectedIcon() {
-    const imageUrl = this.getSelectedIconUrl();
-    if (imageUrl && this.selectedColor) {
-      this.imageProcessingService.changeWhiteSpaceToColor(imageUrl, this.selectedColor)
-        .then((result) => {
-          this.processedImageUrl = result; // Store the processed image URL
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-  }
+  
 
   goToLeaderboard() {
     this.router.navigate(['/friends']);
