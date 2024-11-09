@@ -1,0 +1,15 @@
+<div class="friend-profile">
+    <div class="header">
+        <h1>{{ friend.name }}</h1>
+    </div>
+    <div class="profile-picture">
+        <img src="https://imgs.search.brave.com/E_UWBRRxi_Mth0t2pKHhoYW5627CGE77wLMeEt6qDb0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvYmFz/aWMtZGVmYXVsdC1w/ZnAtcHhpNzdxdjVv/MHp1ejhqMy5qcGc" alt="Profile Picture">
+    </div>
+    <div class="points">
+        <p>{{ friend.points }} points</p>
+    </div>
+    <div class="buttons">
+        <button class="back-button" (click)="goBack()">Back</button>
+        <button class="add-friend-button" (click)="addFriend()">Add Friend</button>
+    </div>
+</div>

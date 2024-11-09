@@ -1,0 +1,51 @@
+.friend-profile {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f5f5f5;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    height: 89vh;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.points p {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 155%;
+}
+
+.back-button,
+.add-friend-button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+.add-friend-button {
+    background-color: #4caf50; /* Green color */
+    color: white;
+}
+
+.back-button:hover,
+.add-friend-button:hover {
+    opacity: 0.8;
+}

@@ -9,6 +9,7 @@ import { GlossaryComponent } from './glossary/glossary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { FriendlistComponent } from './components/friendlist/friendlist.component';
+import { FriendProfileComponent } from './components/friend-profile/friend-profile.component';
 
 import { DebtRepaymentComponent } from './debt-repayment/debt-repayment.component';
 
@@ -25,6 +26,7 @@ export const routes: Routes = [
  { path: 'friends', component: FriendlistComponent},
   { path: 'login', component: LoginComponent },
   { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard] },
+  { path: 'friend-profile/:id', component: FriendProfileComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' }
 ];
