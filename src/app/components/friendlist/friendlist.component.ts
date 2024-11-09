@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-friendlist',
@@ -23,9 +24,6 @@ export class FriendlistComponent {
         { id: 10, name: 'Eminem', points: 2342, rank: 10 },
     ];
 
-    searchTerm: string = '';
-    filteredFriends = this.friends;
-
     constructor(private router: Router) {}
 
     goToProfile(friend: any) {
@@ -34,11 +32,5 @@ export class FriendlistComponent {
 
     goBack() {
         window.history.back();
-    }
-
-    filterFriends() {
-        this.filteredFriends = this.friends.filter(friend => 
-            friend.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-        );
     }
 }
