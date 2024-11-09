@@ -1,10 +1,11 @@
 <div class="sidenav" [class.open]="isOpen" [class.hidden]="isLoginPage">
     <button class="close-btn" (click)="toggleSidebar()">×</button>
-    <div></div>
-    <button (click)="navigateToOverview()">Overview</button>
-    <button (click)="navigateToGoals()">Goals</button>
-    <button (click)="navigateToNews()">News</button>
-    <button (click)="navigateToGlossary()">Glossary</button>
-    <button (click)="navigateToDebtRepayment()">Debt Repayment Plan</button>
-    <button (click)="navigateToSettings()">Profile</button>
+    <div class="sidenav-content">
+        <button (click)="navigateToOverview()">Overview</button>
+        <button (click)="navigateToSettings()">Profile</button>
+        <button (click)="navigateToGoals()">Goals</button>
+        <button (click)="navigateToNews()">News</button>
+        <button (click)="navigateToGlossary()">Glossary</button>
+        <button (click)="navigateToDebtRepayment()">Debt Repayment Plan</button>
+    </div>
 </div>

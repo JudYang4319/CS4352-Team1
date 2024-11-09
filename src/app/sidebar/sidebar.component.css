@@ -4,36 +4,59 @@
   position: fixed;
   z-index: 1000;
   top: 0;
-  left: -285px;
-  /* Hidden by default */
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  transition: left 0.3s;
-  padding: 15px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  left: -400px;
+  background-color: #fff;
+  color: #333;
+  transition: left 0.3s ease-in-out;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .sidenav.open {
   left: 0;
-  /* Show the sidebar */
 }
 
 .close-btn {
   background: none;
   border: none;
-  color: rgb(0, 0, 0);
-  font-size: 24px;
+  color: #333;
+  font-size: 30px;
   cursor: pointer;
+  margin-bottom: 20px;
+  align-self: flex-end;
+}
+
+.sidenav-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 button {
-  display: block;
+  background: white;
+  color: black;
+  border: none;
+  padding: 15px;
+  text-align: left;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
 }
 
-.login-page .sidenav {
-  display: none; /* Hide the sidebar on the login page */
+button:hover {
+  background-color: lightgray;
+  transform: translateX(5px);
+}
+
+button:active {
+  background-color: #388e3c;
 }
 
 .hidden {
-  display: none; /* Hide the sidebar */
+  display: none;
 }

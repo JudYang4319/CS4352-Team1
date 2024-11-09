@@ -1,0 +1,41 @@
+.header-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+  
+.open-btn, .home-btn {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+  
+.home-btn {
+    margin-left: auto;
+    padding: 0 0;
+}
+  
+.open-btn:hover, .home-btn:hover {
+    background-color: lightgray;
+    transform: translateX(5px);
+}
+  
+.open-btn:active, .home-btn:active {
+    background-color: gray;
+}
+  
+.home-icon {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 8px;
+    margin-top: -13px;
+    vertical-align: middle;
+}
+  

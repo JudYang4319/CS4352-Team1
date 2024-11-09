@@ -32,4 +32,7 @@ export class AppComponent {
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
+  navigateToHome() {
+    this.router.navigate(['/overview']);
+  }
 }
