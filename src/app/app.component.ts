@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { FlagcreatorComponent } from './components/flagcreator/flagcreator.component';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { FlagcreatorComponent } from './components/flagcreator/flagcreator.component';
+import { ColorPickerModule } from 'ngx-color-picker';
 import { OverviewComponent } from './components/overview/overview.component';
 import { GoalsComponent } from './components/goals/goals.component';
 import { NewsComponent } from './news/news.component';

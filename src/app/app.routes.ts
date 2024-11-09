@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
+
 import { OverviewComponent } from './components/overview/overview.component';
 import { GoalsComponent } from './components/goals/goals.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -36,9 +37,18 @@ export const routes: Routes = [
   { path: 'flagcreator', component: FlagcreatorComponent },
   { path: 'guildcreated', component: GuildcreatedComponent },
   { path: 'viewguild', component: ViewGuildComponent },
+  { path: 'guildstart', component: GuildstartComponent },
+  { path: 'create', component: CreateComponent },
+  { path: 'flagcreator', component: FlagcreatorComponent },
+  { path: 'guildcreated', component: GuildcreatedComponent },
+  { path: 'viewguild', component: ViewGuildComponent },
   { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard] },
   { path: 'friend-profile/:id', component: FriendProfileComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' },
+  
+  
+  
   { path: '**', redirectTo: '/login' },
   
   
