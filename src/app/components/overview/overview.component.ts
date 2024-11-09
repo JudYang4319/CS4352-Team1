@@ -1,18 +1,21 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 import { Chart, ChartConfiguration, ChartData, ChartType, registerables } from 'chart.js';
+import { CommonModule } from '@angular/common';
 Chart.register(...registerables);
 
 
 @Component({
   selector: 'app-overview',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.css'
 })
 export class OverviewComponent implements OnInit, AfterViewInit {
   @ViewChild('pieChart') private chartRef!: ElementRef<HTMLCanvasElement>;
   chart: Chart | undefined;
+  isQuizOpen: boolean = false;
 
   ngOnInit(): void {
     // Initialization logic if needed
@@ -20,6 +23,16 @@ export class OverviewComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.createChart();
+  }
+
+  openQuiz(): void
+  {
+    this.isQuizOpen = true;
+  }
+  
+  closeQuiz(): void
+  {
+    this.isQuizOpen = false;
   }
 
   createChart(): void {

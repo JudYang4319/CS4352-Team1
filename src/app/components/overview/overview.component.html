@@ -15,5 +15,11 @@
     <p>25% Food</p>
     <p>25% Entertainment</p>
   </div>
-  <button class="daily-question-button">Daily Question</button>
+  <button class="daily-question-button" (click)="openQuiz()">Daily Question</button>
+  <div class="modal" *ngIf="isQuizOpen">
+    <div class="modal-content">
+      <h1>skjdfhkjsdhk</h1>
+      <button class="close-btn" (click)="closeQuiz()">Close</button>
+    </div>
+  </div>
 </div>
