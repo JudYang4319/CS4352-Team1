@@ -20,16 +20,7 @@
 
         <div class="list-container">
             <ul class="friend-list">
-                <li class="friend-item" *ngFor="let friend of filteredFriends">
-                    <button (click)="goToProfile(friend)" class="friend-button">
-                        <span class="rank">{{ friend.rank }}</span>
-                        <div class="profile-pic"></div>
-                        <div class="friend-info">
-                            <span class="name">{{ friend.name }}</span>
-                            <span class="points">{{ friend.points }} points</span>
-                        </div>
-                    </button>
-                </li>
+                
                 <li class="friend-item">
                     <button (click)="goToProfile(friends[0])" class="friend-button">
                         <span class="rank">1</span>
@@ -158,7 +149,7 @@
         </div>
 
         <footer class="footer">
-            <button class="back-btn">Back</button>
+            <button class="back-btn" (click)="goBack()">Back</button>
         </footer>
     </div>
 </body>

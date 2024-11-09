@@ -1,0 +1,127 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the whole form */
+.container {
+    width: 375px; /* iPhone 12 Pro width */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 100%;
+}
+
+/* Header Styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-btn, .home-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+}
+
+h1 {
+    font-size: 18px;
+}
+h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Guild Form Styling */
+.guild-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    height: 100%;
+}
+
+.guild-name-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.flag-options {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flag {
+    width: 90px; 
+    height: auto;
+}
+
+.customize-btn {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+margin-top: 20%;
+}
+
+/* Privacy Options */
+.privacy-options {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10px;
+}
+
+.privacy-options label {
+    font-size: 24px;
+
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15%;
+
+}
+
+.back-btn, .save-btn {
+    width: calc(50% - 10px);
+    padding: 10px;
+}
+
+.back-btn {
+    background-color: #ff6b6b; /* Red button */
+}
+
+.save-btn {
+    background-color: #4caf50; /* Green button */
+}
+
+.back-btn, .save-btn {
+    color: white;
+    border-radius: 5px;
+}
+.footer {
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    width: calc(100% - 40px);
+    
+}

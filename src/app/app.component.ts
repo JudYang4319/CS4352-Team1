@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
+import { FlagcreatorComponent } from './components/flagcreator/flagcreator.component';
+import { ColorPickerModule } from 'ngx-color-picker';
 import { OverviewComponent } from './components/overview/overview.component';
 import { GoalsComponent } from './components/goals/goals.component';
 import { NewsComponent } from './news/news.component';
@@ -9,13 +11,11 @@ import { CommonModule } from '@angular/common';
 import { GlossaryComponent } from './glossary/glossary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
-
-
-
+import { GuildstartComponent } from './components/guildstart/guildstart.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, OverviewComponent, GoalsComponent, NewsComponent, SidebarComponent, GlossaryComponent, TransactionsComponent, SettingsComponent, CommonModule],
+  imports: [RouterOutlet, OverviewComponent, GoalsComponent, NewsComponent, SidebarComponent, GlossaryComponent, TransactionsComponent, SettingsComponent, CommonModule, GuildstartComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

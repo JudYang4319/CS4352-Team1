@@ -60,4 +60,9 @@ export class SidebarComponent {
     this.toggleSidebar(); // Close the sidebar
     this.router.navigate(['/friends']); // Navigate to the glossary component
   }
+  navigateToGuildStart() {
+    this.toggleSidebar(); // Close the sidebar
+    this.router.navigate(['/guildstart']); // Navigate to the guild start component
+  }
 }
+

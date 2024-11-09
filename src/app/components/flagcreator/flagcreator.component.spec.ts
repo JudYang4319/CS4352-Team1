@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { OverviewComponent } from './overview.component';
 
-describe('OverviewComponent', () => {
-  let component: OverviewComponent;
-  let fixture: ComponentFixture<OverviewComponent>;
+import { FlagcreatorComponent } from './flagcreator.component';
+
+describe('FlagcreatorComponent', () => {
+  let component: FlagcreatorComponent;
+  let fixture: ComponentFixture<FlagcreatorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OverviewComponent]
+      imports: [FlagcreatorComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OverviewComponent);
+    fixture = TestBed.createComponent(FlagcreatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
