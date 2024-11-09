@@ -94,3 +94,11 @@ body, html {
   cursor: pointer;
   color: #888;
 }
+
+.question {
+  text-align: left;
+}
+
+.submit-btn {
+  display: flex;
+} 
