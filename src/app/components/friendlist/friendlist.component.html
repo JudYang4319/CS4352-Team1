@@ -14,12 +14,22 @@
             <h1>Friend Find</h1>
         </header>
 
-        <div class="search-bar">
-            <input type="text" placeholder="Search" />
-        </div>
+        <!-- <div class="search-bar">
+            <input type="text" placeholder="Search" [(ngModel)]="searchTerm" (input)="filterFriends()" />
+        </div> -->
 
         <div class="list-container">
             <ul class="friend-list">
+                <li class="friend-item" *ngFor="let friend of filteredFriends">
+                    <button (click)="goToProfile(friend)" class="friend-button">
+                        <span class="rank">{{ friend.rank }}</span>
+                        <div class="profile-pic"></div>
+                        <div class="friend-info">
+                            <span class="name">{{ friend.name }}</span>
+                            <span class="points">{{ friend.points }} points</span>
+                        </div>
+                    </button>
+                </li>
                 <li class="friend-item">
                     <button (click)="goToProfile(friends[0])" class="friend-button">
                         <span class="rank">1</span>
