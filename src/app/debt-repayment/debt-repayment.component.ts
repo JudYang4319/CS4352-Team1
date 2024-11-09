@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RewardsService } from '../rewards/rewards.service';
 
 class CustomPlan {
   monthlyPayment: number;
@@ -92,7 +93,7 @@ export class DebtRepaymentComponent {
   isCustomCategory: boolean = false;
   minDate: string;
   
-  constructor()
+  constructor(private rewardsService: RewardsService)
   {
     const today = new Date();
     this.minDate = today.toISOString().split('T')[0];
@@ -186,6 +187,9 @@ export class DebtRepaymentComponent {
     this.deadline = new Date;
     this.occurrence = "";
     this.currentTab = this.viewPlansTab;
+    
+    this.rewardsService.addPoints(100);
+    alert('You earned 100 points!');
   }
 
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RewardsService } from '../../rewards/rewards.service';
 
 @Component({
   selector: 'app-goals',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./goals.component.css']
 })
 export class GoalsComponent {
-  constructor(private router: Router) { } // Inject Router
+  constructor(private router: Router, private rewardsService: RewardsService) { } // Inject Router
   goals = [
     { name: 'New York Trip', contributionLabel: 'Monthly Contribution', monthlyContribution: 100, nextPaymentDue: new Date('2024-12-01'), progress: 50 },
     { name: 'Buying Mechanical Keyboard', contributionLabel: 'Monthly Contribution', monthlyContribution: 50, nextPaymentDue: new Date('2024-10-30'), progress: 75 }
@@ -114,7 +115,7 @@ export class GoalsComponent {
 
     // Check if all fields are properly filled out
     if (!this.goalTitle || !this.totalCost || !this.startDate || !this.endDate || !this.paymentSchedule) {
-      console.log("Please fill out all the fields.");
+      alert("Please fill out all the fields.");
       return; // Exit if the form is not complete
     }
 
@@ -122,7 +123,7 @@ export class GoalsComponent {
     this.calculateEstimatedContribution();
 
     if (this.estimatedContribution === null) {
-      console.log("Unable to calculate contribution. Check input values.");
+      alert("Unable to calculate contribution. Check input values.");
       return;
     }
 
@@ -148,6 +149,9 @@ export class GoalsComponent {
     this.resetForm();
     this.closeCreateGoalModal();
     console.log("Goal submitted and modal closed.");
+
+    this.rewardsService.addPoints(100);
+    alert('You earned 100 points!');
   }
 
   closeCreateGoalModal(): void {

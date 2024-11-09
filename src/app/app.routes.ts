@@ -19,7 +19,6 @@ export const routes: Routes = [
   { path: 'glossary', component: GlossaryComponent},
   { path: 'debt-repayment', component: DebtRepaymentComponent},
   { path: 'profile', component: SettingsComponent},
- 
   { path: 'login', component: LoginComponent },
   { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard] },
   //{ path: 'dailyquestion', component: DailyquestionComponent, canActivate: [AuthGuard] },
