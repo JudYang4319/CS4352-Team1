@@ -50,4 +50,9 @@ export class SidebarComponent {
     this.toggleSidebar(); // Close the sidebar
     this.router.navigate(['/profile']); // Navigate to the settings component
   }
+
+  navigateToTransactions() {
+    this.toggleSidebar(); // Close the sidebar
+    this.router.navigate(['/transactions']); // Navigate to the transactions component
+  }
 }

@@ -18,19 +18,19 @@
 
                 <div class="form-group">
                     <label for="totalCost">Total Cost</label>
-                    <input type="number" id="totalCost" [(ngModel)]="totalCost" name="totalCost"
+                    <input type="number" id="totalCost" [(ngModel)]="totalCost" name="totalCost" [min]="0"
                         (ngModelChange)="calculateEstimatedContribution()" placeholder="Enter total cost" />
                 </div>
 
                 <div class="form-group">
                     <label for="startDate">Start Time Period</label>
-                    <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate"
+                    <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate" [min]="currentDate"
                         (ngModelChange)="calculateEstimatedContribution()" />
                 </div>
 
                 <div class="form-group">
                     <label for="endDate">End Time Period</label>
-                    <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate"
+                    <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" [min]="currentDate"
                         (ngModelChange)="calculateEstimatedContribution()" />
                 </div>
 
