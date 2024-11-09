@@ -37,7 +37,7 @@ export class ViewGuildComponent implements OnInit {
     console.log("Selected Color:", this.selectedColor);
     console.log("Selected Icon ID:", this.selectedIconId);
 
-    // Process the selected icon image
+
   
   }
 

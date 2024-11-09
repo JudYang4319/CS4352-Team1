@@ -15,7 +15,7 @@ import { GuildstartComponent } from './components/guildstart/guildstart.componen
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, OverviewComponent, GoalsComponent, NewsComponent, SidebarComponent, GlossaryComponent, TransactionsComponent, SettingsComponent, CommonModule, GuildstartComponent],
+  imports: [RouterOutlet, OverviewComponent, GoalsComponent, NewsComponent, SidebarComponent, GlossaryComponent, TransactionsComponent, SettingsComponent, CommonModule,  GuildstartComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
