@@ -2,7 +2,8 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angula
 
 import { Chart, ChartConfiguration, ChartData, ChartType, registerables } from 'chart.js';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { RewardsService } from '../../rewards/rewards.service';
 Chart.register(...registerables);
 
 // For Daily Question
@@ -25,6 +26,8 @@ export class OverviewComponent implements OnInit, AfterViewInit {
   chart: Chart | undefined;
   isQuizOpen: boolean = false;
   isAnswered: boolean = false; // Tracks if the question has been answered
+
+  constructor(private rewardsService: RewardsService) {}
 
   // Array of questions
   questions: Question[] = [
@@ -82,6 +85,7 @@ export class OverviewComponent implements OnInit, AfterViewInit {
 
   submitAnswer() {
     if(this.selectedOption === this.currentQuestion?.answer) {
+      this.rewardsService.addPoints(50);
       alert('Correct! You earned 50 points');
       this.closeQuiz();
     } else {
