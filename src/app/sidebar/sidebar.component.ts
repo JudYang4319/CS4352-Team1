@@ -45,4 +45,9 @@ export class SidebarComponent {
     this.toggleSidebar();
     this.router.navigate(['/debt-repayment']);
   }
+
+  navigateToSettings() {
+    this.toggleSidebar(); // Close the sidebar
+    this.router.navigate(['/profile']); // Navigate to the settings component
+  }
 }

@@ -1,0 +1,15 @@
+.container {
+    /*display: flex;*/
+    margin: 50px 10px;
+    text-align: center;
+}
+
+h {
+    font-size: 3em;
+}
+
+.name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px 0; /*Adds space above and below*/
+}
