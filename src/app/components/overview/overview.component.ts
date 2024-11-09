@@ -32,19 +32,63 @@ export class OverviewComponent implements OnInit, AfterViewInit {
   // Array of questions
   questions: Question[] = [
     {
-      question: 'What is the capital of France?',
-      options: ['Berlin', 'Marid', 'Paris', 'Rome'],
-      answer: 'Paris'
+      question: 'What is a credit score?',
+      options: ['A measure of your income', 'A number that represents your credit worthiness', 
+        'The amount of money you owe', 'A type of loan'],
+      answer: 'A number that represents your credit worthiness'
     },
     {
-      question: 'What is 2 + 2?',
-      options: ['3', '4', '5', '6'],
-      answer: '4'
+      question: 'What is the purpose of a budget?',
+      options: ['To track your spending and saving', 'To increase your debt', 'To avoid paying taxes', 
+        'To invest in stocks'],
+      answer: 'To track your spending and saving'
     },
     {
-      question: 'Largest ocean on Earth?',
-      options: ['Atlantic', 'Indian', 'Arctic', 'Pacific'],
-      answer: 'Pacific'
+      question: 'What does APR stand for in finance?',
+      options: ['Annual Percentage Rate', 'Average Payment Rate', 'Annual Payment Return', 'Average Price Ratio'],
+      answer: 'Annual Percentage Rate'
+    },
+    {
+      question: 'What is compound interest?',
+      options: ['Interest calculated only on the principal amount', 
+        'Interest calculated on both the principal and previously earned interest', 
+        'Interest that decreases over time', 'Interest paid only at maturity'],
+      answer: 'Interest calculated on both the principal and previously earned interest'
+    },
+    {
+      question: 'What is the primary purpose of insurance?',
+      options: ['To make money through investments', 'To protect against financial loss form unforseen events', 
+        'To pay off debts quickly', 'To save for retirement'],
+      answer: 'To protect against financial loss form unforseen events'
+    },
+    {
+      question: 'Which of the following is a benefit of having a good credit socre?',
+      options: ['Higher interest rates on loans', 'Better chances of loan approval and lower interest rates', 
+        'No need to pay bills on time', 'Increased fees for credit cards'],
+      answer: 'Better chances of loan approval and lower interest rates'
+    },
+    {
+      question: 'What is the difference between a checking account and a savings account?',
+      options: ['Checking accounts earn more interest than savings accounts', 
+        'Savings accounts are used for daily transactions, while checking accounts are for saving money', 
+        'Checking accounts are typically used for everyday expenses, while savings accounts are meant for saving money', 
+        ' There is no difference; they are the same'],
+      answer: 'Checking accounts are typically used for everyday expenses, while savings accounts are meant for saving money'
+    },
+    {
+      question: 'True or False: Student loans must be repaid even if you do not graduate.',
+      options: ['True', 'False'],
+      answer: 'True'
+    },
+    {
+      question: 'True or False: Investing in stocks always guarantees a profit.',
+      options: ['True', 'False'],
+      answer: 'False'
+    },
+    {
+      question: 'True or False: Getting a loan temporarily decreases your credit score.',
+      options: ['True', 'False'],
+      answer: 'True'
     }
   ];
 
