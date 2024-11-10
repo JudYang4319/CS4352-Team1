@@ -1,6 +1,6 @@
 <button class="open-btn" (click)="toggleSidebar()" *ngIf="!isLoginPage">&#9776;</button>
 <app-sidebar [isOpen]="isSidebarOpen" (closeSidebar)="toggleSidebar()"></app-sidebar>
-  <button class="home-btn"  justify-content: right>&#8962;</button>
+  <button class="home-btn" (click)= "navigateToHome()"  justify-content: right>&#8962;</button>
 <!-- This will display routed components -->
 <router-outlet></router-outlet>
   
