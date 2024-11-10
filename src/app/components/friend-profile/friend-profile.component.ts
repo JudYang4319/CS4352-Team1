@@ -3,17 +3,21 @@ import { ActivatedRoute } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-friend-profile',
   templateUrl: './friend-profile.component.html',
-  styleUrls: ['./friend-profile.component.css']
+  styleUrls: ['./friend-profile.component.css'],
+  standalone: true,
+  imports: [CommonModule, RouterModule]
 })
 export class FriendProfileComponent implements OnInit {
   friend: any;
+  enabled: boolean = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const friendId = this.route.snapshot.paramMap.get('id');
@@ -43,7 +47,8 @@ export class FriendProfileComponent implements OnInit {
 
   addFriend() {
     // Logic to add friend
-    alert(`Added ${this.friend.name} as a friend!`);
+    //alert(`Added ${this.friend.name} as a friend!`);
+    this.enabled = !this.enabled;
   }
   goBack() {
     window.history.back();
