@@ -4,6 +4,7 @@
   <button class="home-btn" style="padding-right: 20px" (click)="navigateToHome()">&#8962;</button>
 </div>
 <app-sidebar [isOpen]="isSidebarOpen" (closeSidebar)="toggleSidebar()"></app-sidebar>
+  <button class="home-btn" (click)= "navigateToHome()"  justify-content: right>&#8962;</button>
 <!-- This will display routed components -->
 <div class= "page">
   <router-outlet></router-outlet>

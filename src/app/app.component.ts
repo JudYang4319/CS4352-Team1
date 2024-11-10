@@ -16,11 +16,12 @@ import { GoalsComponent } from './components/goals/goals.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, OverviewComponent, GoalsComponent, NewsComponent, SidebarComponent, GlossaryComponent, TransactionsComponent, SettingsComponent, CommonModule, GuildstartComponent, FlagcreatorComponent, CreateAccountComponent],
+  imports: [RouterOutlet, OverviewComponent, GoalsComponent, NewsComponent, SidebarComponent, GlossaryComponent, TransactionsComponent, SettingsComponent, CommonModule,  GuildstartComponent, FlagcreatorComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
 
   title = 'realcents';
   isSidebarOpen: boolean = false;
