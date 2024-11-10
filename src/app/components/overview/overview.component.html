@@ -15,11 +15,31 @@
     <p>25% Food</p>
     <p>25% Entertainment</p>
   </div>
-  <button class="daily-question-button" (click)="openQuiz()">Daily Question</button>
+
+  <!-- Daily Questions -->
+   
+  <button class="daily-question-button" (click)="loadRandomQuestion()" *ngIf="!isAnswered">Daily Question</button>
   <div class="modal" *ngIf="isQuizOpen">
     <div class="modal-content">
-      <h1>skjdfhkjsdhk</h1>
+      <h1>Daily Question</h1> 
+      
+      <p class="question">{{currentQuestion?.question}}</p>
+    
+      <div class="question" *ngFor="let option of currentQuestion?.options">
+        <label>
+          <input type="radio" name="option" [value]="option" [(ngModel)]="selectedOption" />
+          {{ option }}
+        </label>
+      </div>
+      <p></p> <!-- For space between the last answer choice and the submit button -->
+
+      <div class="submit-btn">
+        <button (click)="submitAnswer()" [disabled]="!selectedOption">Submit Answer</button>
+      </div>
+    
       <button class="close-btn" (click)="closeQuiz()">Close</button>
     </div>
+  
   </div>
+
 </div>
