@@ -60,6 +60,7 @@ export class TransactionsComponent {
         category: this.incomeCategory
       });
       this.updateAmounts();
+      this.earnPoints();
       this.closeTransactionModal();
     }
   }
@@ -73,6 +74,7 @@ export class TransactionsComponent {
         category: this.expenseCategory
       });
       this.updateAmounts();
+      this.earnPoints();
       this.closeTransactionModal();
     }
   }
