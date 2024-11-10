@@ -10,6 +10,7 @@
     </div>
     <div class="buttons">
         <button class="back-button" (click)="goBack()">Back</button>
-        <button class="add-friend-button" (click)="addFriend()">Add Friend</button>
+        <button class="add-friend-button" (click)="addFriend()">{{ enabled ? 'Friend Added' : 'Add Friend' }}</button>
+        
     </div>
 </div>

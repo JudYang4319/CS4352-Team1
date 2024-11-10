@@ -49,3 +49,7 @@
 .add-friend-button:hover {
     opacity: 0.8;
 }
+.darkened {
+    background-color: gray; /* Change to your desired dark color */
+    color: white; /* Change text color if needed */
+}
