@@ -15,14 +15,12 @@ import { GuildstartComponent } from './components/guildstart/guildstart.componen
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, OverviewComponent, GoalsComponent, NewsComponent, SidebarComponent, GlossaryComponent, TransactionsComponent, SettingsComponent, CommonModule,  GuildstartComponent],
+  imports: [RouterOutlet, OverviewComponent, GoalsComponent, NewsComponent, SidebarComponent, GlossaryComponent, TransactionsComponent, SettingsComponent, CommonModule,  GuildstartComponent, FlagcreatorComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-navigateToOverview() {
-throw new Error('Method not implemented.');
-}
+
   title = 'realcents';
   isSidebarOpen: boolean = false;
   isLoginPage: boolean = false;
