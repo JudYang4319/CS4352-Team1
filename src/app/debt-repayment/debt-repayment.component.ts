@@ -61,8 +61,28 @@ export class DebtRepaymentComponent {
   deadline: Date | null = null;
   
   occurrence: string = "";
-  customPlans: CustomPlan[] = [];
-  
+
+  customPlans: CustomPlan[] = [
+    {
+      monthlyPayment: 200,
+      expectedBonus: 1000,
+      category: 'Loan Payment',
+      limit: 5000,
+      amount: 4000,
+      deadline: new Date('2024-12-31'),
+      occurrence: 'Monthly'
+    },
+    {
+      monthlyPayment: 150,
+      expectedBonus: 500,
+      category: 'Rent',
+      limit: 3000,
+      amount: 2500,
+      deadline: new Date('2025-06-30'),
+      occurrence: 'Monthly'
+    }
+  ];
+
   categories = [
     'Food',
     'Entertainment',
