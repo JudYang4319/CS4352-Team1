@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { FlagcreatorComponent } from './components/flagcreator/flagcreator.component';
 import { ColorPickerModule } from 'ngx-color-picker';
@@ -14,6 +14,7 @@ import { CreateAccountComponent } from './components/createaccount/createaccount
 
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { GuildstartComponent } from './components/guildstart/guildstart.component';
+import { filter, map, mergeMap } from 'rxjs';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -27,10 +28,30 @@ export class AppComponent {
   isSidebarOpen: boolean = false;
   isLoginPage: boolean = false;
 
-  constructor(private router: Router) {
+  pageTitle: string = "Overview";
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.router.events.subscribe(() => {
       this.isLoginPage = this.router.url === '/login' || this.router.url === '/signup';
     });
+  }
+
+  ngOnInit() {
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map(() => this.activatedRoute),
+        map((route) => {
+          while (route.firstChild) {
+            route = route.firstChild;
+          }
+          return route;
+        }),
+        mergeMap((route) => route.data) // Get `data` from route configuration
+      )
+      .subscribe((data) => {
+        this.pageTitle = data['title'] || 'Default Title';
+      });
   }
 
   toggleSidebar() {
