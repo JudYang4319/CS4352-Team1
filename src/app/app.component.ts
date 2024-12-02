@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
@@ -10,9 +11,6 @@ import { CreateAccountComponent } from './components/createaccount/createaccount
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { GuildstartComponent } from './components/guildstart/guildstart.component';
 import { filter, map, mergeMap } from 'rxjs';
-import { OverviewComponent } from './components/overview/overview.component';
-import { FlagcreatorComponent } from './components/flagcreator/flagcreator.component';
-import { GoalsComponent } from './components/goals/goals.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -28,7 +26,6 @@ export class AppComponent {
   isLoginPage: boolean = false;
 
   pageTitle: string = "Overview";
-
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.router.events.subscribe(() => {
@@ -53,7 +50,6 @@ export class AppComponent {
         this.pageTitle = data['title'] || 'Default Title';
       });
   }
-
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
