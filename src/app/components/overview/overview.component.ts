@@ -115,9 +115,15 @@ export class OverviewComponent implements OnInit, AfterViewInit {
   
   closeQuiz(): void
   {
-    this.isAnswered = true;
-    this.isQuizOpen = false;
-    this.currentQuestion = null; // Clear the current question
+    if(this.isAnswered)
+    {
+      this.isQuizOpen = false;
+      this.currentQuestion = null; // Clear the current question
+    }
+    else
+    {
+      this.isQuizOpen = false;
+    }
   }
 
   loadRandomQuestion() {
@@ -131,6 +137,7 @@ export class OverviewComponent implements OnInit, AfterViewInit {
     if(this.selectedOption === this.currentQuestion?.answer) {
       this.rewardsService.addPoints(50);
       alert('Correct! You earned 50 points');
+      this.isAnswered = true;
       this.closeQuiz();
     } else {
       alert('Wrong answer. Try again.');
