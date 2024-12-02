@@ -61,7 +61,7 @@ export class DebtRepaymentComponent {
     {
       monthlyPayment: 200,
       expectedBonus: 1000,
-      category: 'Koan Payment',
+      category: 'Loan Payment',
       limit: 5000,
       amount: 4000,
       deadline: new Date('2024-12-31'),
