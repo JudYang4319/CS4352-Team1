@@ -1,12 +1,10 @@
-h1
-{
+h1 {
     text-align: center;
     font-size: 3em;
 }
 
 /* Applied to overall */
-.letterlinks 
-{
+.letterlinks {
     margin-bottom: 50px;
     margin-right: 1em;
     /* For better control and allow wrapping of links */
@@ -15,8 +13,7 @@ h1
 }
 
 /*Applied to each individual links*/
-.letterlinks a 
-{
+.letterlinks a {
     font-size: 2em;
     font-weight: bold;
     text-decoration: underline;
@@ -25,8 +22,7 @@ h1
 }
 
 /*For letters that don't have any terms*/
-.letterlinks span
-{
+.letterlinks span {
     font-size: 2em;
     font-weight: bold;
     text-decoration: none;
@@ -35,36 +31,34 @@ h1
     color: #707C80;
 }
 
-.category
-{
+.category {
     font-size: 2em;
     font-weight: bold;
     margin-top: 50px;
 }
 
-dt 
-{
+dt {
     font-weight: bold;
     margin-top: 2em;
     margin-bottom: 0.7em;
 }
 
-dd
-{
+dd {
     margin-left: 1em;
     margin-right: 1em;
     margin-bottom: 1em;
 }
 
 /* "Button" */
-.toplink
-{
-    background-color: #4CAF50; color: #FFF;
+.toplink {
+    background-color: #4CAF50;
+    color: #FFF;
     padding: 12px;
-    position: fixed; bottom: 2em; right: 2em;
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
 }
 
-article
-{
+article {
     padding-bottom: 50px;
 }

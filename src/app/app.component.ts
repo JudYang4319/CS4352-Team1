@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
@@ -28,6 +29,7 @@ export class AppComponent {
 
   pageTitle: string = "Overview";
 
+
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.router.events.subscribe(() => {
       this.isLoginPage = this.router.url === '/login' || this.router.url === '/signup';
@@ -50,7 +52,8 @@ export class AppComponent {
       .subscribe((data) => {
         this.pageTitle = data['title'] || 'Default Title';
       });
-  }
+    }
+  
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
@@ -59,3 +62,4 @@ export class AppComponent {
     this.router.navigate(['/overview']);
   }
 }
+
