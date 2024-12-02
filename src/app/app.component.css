@@ -1,36 +1,57 @@
-.home-btn{
+.home-btn {
     font-size: 37px;
     background-color: transparent;
     border: none;
-}
-.open-btn {
-    font-size: 24px;
-    background-color: transparent;
-    border: none;
-}
-.header-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.open-btn, .home-btn {
-    background-color: #ffffff;
     color: rgb(0, 0, 0);
-    border: none;
     padding: 10px 20px;
-
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.home-btn {
-    margin-left: auto;
-    padding: 0 0;
-    margin-left: 70%;
+.open-btn {
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.page {
+    margin-top: 65px;
+    box-sizing: border-box;
+}
+
+.header-buttons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px 20px;
+    box-sizing: border-box;
+}
+
+.header-buttons .open-btn,
+.header-buttons .home-btn {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.page-title {
+    margin-top: 4px;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold; 
+    color: rgb(0, 0, 0);
 }
 
 .open-btn:hover, .home-btn:hover {
