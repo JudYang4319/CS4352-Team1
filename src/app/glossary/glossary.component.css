@@ -50,11 +50,15 @@ dd {
 }
 
 /* "Button" */
-.toplink
-{
-    background-color: #4CAF50; color: #FFF;
+.toplink {
+    background-color: #4CAF50;
+    color: #FFF;
     padding: 12px;
     position: fixed;
     bottom: 2em;
     right: 2em;
+}
+
+article {
+    padding-bottom: 50px;
 }
