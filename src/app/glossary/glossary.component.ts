@@ -14,6 +14,10 @@ export class GlossaryComponent {
   pointFlag: boolean = true;
   constructor(private rewardsService: RewardsService) {}
 
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }  
+
   earnPoints()
   {
     this.rewardsService.addPoints(100);

@@ -7,16 +7,15 @@
 <body onload="document.documentElement.style.scrollBehavior='smooth'">
     <div class="containter">
 
-        <article id="top">
-            <header>
+        <article>
+            <!-- <header>
                 <h1>Glossary</h1>
-            </header>
-            <button *ngIf="pointFlag" (click)="earnPoints()">Earn Points</button>
+            </header> -->
 
             <!--Add a button to go back to the top-->
-            <a href="/glossary#top" class="toplink">Back to Top</a>
-
-            <section class="letterlinks">
+            <button class="toplink" (click)="scrollToTop()">Back to Top</button>
+            <!-- <section id ="top" > </section> -->
+            <section class="letterlinks" style="margin-top: 80px !important;" id = "letterlink" >
                 <!-- Remove the / in between glossary and # because it'll look for a new page -->
                 <a href="/glossary#A">A</a>
                 <a href="/glossary#B">B</a>
@@ -46,6 +45,8 @@
                 <span>Z</span>
 
             </section>
+
+            <button *ngIf="pointFlag" (click)="earnPoints()">Earn Points</button>
 
             <!-- Dialogue list-->
             <dl>
