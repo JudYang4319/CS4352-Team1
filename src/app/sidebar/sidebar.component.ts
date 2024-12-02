@@ -40,4 +40,9 @@ export class SidebarComponent {
     this.toggleSidebar(); // Close the sidebar
     this.router.navigate(['/glossary']); // Navigate to the glossary component
   }
+
+  navigateToDebtRepayment() {
+    this.toggleSidebar();
+    this.router.navigate(['/debt-repayment']);
+  }
 }
