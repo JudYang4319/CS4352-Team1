@@ -43,9 +43,6 @@ body, html {
   }
   
   .daily-question-button {
-         
-        
-    position: fixed;
     bottom: 10%; 
     width: 70%;
     height: 7%;
