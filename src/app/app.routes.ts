@@ -64,11 +64,4 @@ export const routes: Routes = [
   { path: 'friend-profile/:id', component: FriendProfileComponent, data: { title: 'Friend Profile' } },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' },
-
-
-
-  { path: '**', redirectTo: '/login' },
-
-
-
 ];
