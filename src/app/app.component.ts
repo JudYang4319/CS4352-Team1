@@ -4,17 +4,11 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
-import { GlossaryComponent } from './glossary/glossary.component';
-import { SettingsComponent } from './settings/settings.component';
-import { CreateAccountComponent } from './components/createaccount/createaccount.component';
-
-import { TransactionsComponent } from './components/transactions/transactions.component';
-import { GuildstartComponent } from './components/guildstart/guildstart.component';
 import { filter, map, mergeMap } from 'rxjs';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, OverviewComponent, GoalsComponent, NewsComponent, SidebarComponent, GlossaryComponent, TransactionsComponent, SettingsComponent, CommonModule,  GuildstartComponent, FlagcreatorComponent, CreateAccountComponent],
+  imports: [RouterOutlet, SidebarComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

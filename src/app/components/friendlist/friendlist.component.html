@@ -10,14 +10,6 @@
 
 <body>
     <div class="container">
-        <header class="header">
-            <h1>Friend Find</h1>
-        </header>
-
-        <div class="search-bar">
-            <input type="text" [(ngModel)]="searchTerm" (input)="filterFriends()" placeholder="Search friends...">
-        </div>
-
         <div class="list-container">
             <ul class="friend-list">
                 <li *ngFor="let friend of filteredFriends" class="friend-item">
