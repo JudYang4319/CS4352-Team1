@@ -32,6 +32,7 @@ h1
     text-decoration: none;
     margin-right: 0.5em;
     margin-bottom: 0.5em;
+    color: #707C80;
 }
 
 .category
@@ -61,4 +62,9 @@ dd
     background-color: #4CAF50; color: #FFF;
     padding: 12px;
     position: fixed; bottom: 2em; right: 2em;
+}
+
+article
+{
+    padding-bottom: 50px;
 }
