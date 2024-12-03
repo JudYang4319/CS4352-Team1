@@ -28,7 +28,7 @@ export class NewsComponent {
     },
     {
       title: 'Understanding Personal Finance: The Basics',
-      url: 'https://example.com/understanding-personal-finance',
+      url: 'https://www.m1cu.org/news/articles/the-basics-of-personal-finance-a-beginners-guide-to-financial-literacy',
       summary: 'A brief overview of personal finance principles that everyone should know.',
     },
   ];

@@ -1,15 +1,15 @@
 /* Container for centering */
 .container {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top: 15px;
   text-align: center;
-  /* Center text and elements */
 }
 
 /* Title */
 .title {
   font-size: 2rem;
+  /* Increased font size */
   margin-bottom: 20px;
 }
 
@@ -18,36 +18,70 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  /* Slightly larger gap between fields */
   align-items: center;
-  /* Center the items horizontally */
-  margin-bottom: 30px;
-  /* Space between output fields and the button */
+  margin-bottom: 25px;
+}
+
+/* Box styling for each output field */
+.output-field {
+  background-color: #f9f9f9;
+  /* Light gray background */
+  border: 1px solid #ddd;
+  /* Subtle border */
+  border-radius: 6px;
+  /* Rounded corners */
+  padding: 15px;
+  /* Increased padding for a spacious feel */
+  width: 90%;
+  /* Adjusted width */
+  max-width: 350px;
+  /* Increased max width */
+  display: flex;
+  flex-direction: column;
+  /* Stack label and input vertically */
+  align-items: flex-start;
+  /* Align content to the left */
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+  /* Slightly stronger shadow */
 }
 
 /* Styling the output field labels */
 .output-field label {
   font-weight: bold;
+  font-size: 1rem;
+  /* Larger font size for labels */
+  margin-bottom: 8px;
 }
 
 /* Styling the output field input boxes */
 .output-field input {
-  padding: 8px;
+  padding: 10px;
+  /* Increased padding */
   font-size: 1rem;
-  width: 80%;
-  /* Makes the inputs take up 80% of the container's width */
-  max-width: 300px;
+  /* Larger font size */
+  width: 100%;
+  /* Full width within the box */
+  border: 1px solid #bbb;
+  /* Subtle border for the input */
+  border-radius: 4px;
+  /* Slightly larger rounded corners */
+  box-sizing: border-box;
 }
 
 /* Centered Add Transaction Button */
 .btn {
-  padding: 10px 20px;
+  padding: 12px 24px;
+  /* Larger button */
+  font-size: 1rem;
+  /* Increased font size */
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  /* Slightly larger rounded corners */
   cursor: pointer;
   margin-top: 20px;
-  /* Adds space between button and output fields */
 }
 
 /* Modal and content styling */
@@ -64,58 +98,86 @@
   z-index: 1000;
 }
 
-/* Styling modal content */
 .modal-content {
   background-color: white;
-  padding: 30px;
-  border-radius: 5px;
-  width: 300px;
+  padding: 25px;
+  /* Increased padding */
+  border-radius: 6px;
+  /* Slightly larger rounded corners */
+  width: 320px;
+  /* Increased width */
   text-align: center;
   position: relative;
 }
 
-/* Close button for modal */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 8px;
+  right: 8px;
   background: none;
   border: none;
   font-size: 1.5rem;
+  /* Larger close button */
   cursor: pointer;
 }
 
-/* Input styling inside modal */
-.modal-content input {
+.modal-content input,
+.modal-content select {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 12px;
+  /* Increased padding */
+  margin: 12px 0;
+  /* Spacing between fields */
   font-size: 1rem;
+  /* Larger font size */
+  border: 1px solid #bbb;
+  /* Subtle border */
+  border-radius: 4px;
+  /* Rounded corners */
+  box-sizing: border-box;
+  /* Consistent box sizing */
+}
+
+.modal-content label {
+  font-weight: bold;
+  font-size: 1rem;
+  display: block;
+  /* Ensures the label is above the input */
+  margin-bottom: 6px;
 }
 
 .modal-content button {
-  padding: 10px;
+  padding: 12px;
+  font-size: 1rem;
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 /* Styling the transaction cards */
 .transaction-card {
   background-color: #f4f4f4;
-  padding: 15px;
-  margin: 10px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  /* Increased padding for a spacious look */
+  margin: 12px;
+  /* Larger margin between cards */
+  border-radius: 10px;
+  /* Increased rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  /* Enhanced shadow */
 }
 
 .transaction-card h3 {
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  /* Increased font size */
+  margin-bottom: 8px;
 }
 
 .transaction-card p {
-  margin: 5px 0;
+  font-size: 1rem;
+  /* Larger text size */
+  margin: 6px 0;
 }
