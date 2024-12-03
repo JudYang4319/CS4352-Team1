@@ -112,11 +112,13 @@ export class GoalsComponent {
     // Check if the total cost is a valid positive number
     if (this.totalCost !== null && this.totalCost < 0) {
       console.log("Total cost cannot be a negative number.");
+      alert("Total cost cannot be a negative number.");
       return; // Exit if total cost is negative
     }
 
     // Check if all other fields are properly filled out
     if (!this.goalTitle || !this.totalCost || !this.startDate || !this.endDate || !this.paymentSchedule) {
+      console.log("Form submission failed: Please fill out all the fields.");
       alert("Please fill out all the fields.");
       return; // Exit if the form is not complete
     }
@@ -125,6 +127,7 @@ export class GoalsComponent {
     this.calculateEstimatedContribution();
 
     if (this.estimatedContribution === null) {
+      console.log("Unable to calculate contribution. Check input values.");
       alert("Unable to calculate contribution. Check input values.");
       return;
     }
@@ -190,11 +193,13 @@ export class GoalsComponent {
 
   // Prompt the user for confirmation to remove a goal
   promptRemoveGoal(index: number): void {
+    console.log(`Prompting removal for goal at index: ${index}`);
     this.goalToRemove = index;
   }
 
   // Confirm removal of the selected goal
   confirmRemoveGoal(index: number): void {
+    console.log(`Confirming removal for goal at index: ${index}`);
     this.goals.splice(index, 1); // Remove the goal from the array
     localStorage.setItem('userGoals', JSON.stringify(this.goals)); // Update local storage
     this.goalToRemove = null; // Reset the prompt
@@ -202,6 +207,7 @@ export class GoalsComponent {
 
   // Cancel the removal prompt
   cancelRemoveGoal(): void {
+    console.log("Removal prompt cancelled.");
     this.goalToRemove = null;
   }
 
