@@ -155,6 +155,7 @@ export class GoalsComponent {
       console.log("Total cost cannot be a negative number.");
       alert("Total cost cannot be a negative number.");
       return; // Exit if total cost is negative
+      return;
     }
 
     if (!this.goalTitle || !this.totalCost || !this.startDate || !this.endDate || !this.paymentSchedule) {
