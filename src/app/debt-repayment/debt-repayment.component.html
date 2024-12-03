@@ -3,10 +3,17 @@
     <p class="text-info">Debt repayment strategies are essential for effectively managing and eliminating debt. Two popular methods are the snowball and avalanche approaches. The snowball method focuses on paying off the smallest debts first to build momentum, while the avalanche method targets debts with the highest interest rates to minimize the total interest paid over time. Both methods have their advantages: the snowball approach offers psychological wins with quicker debt eliminations, while the avalanche method is more cost-efficient in the long run. Choosing the right strategy depends on individual financial priorities and emotional preferences.</p>
     <button class="plan-button" (click)="viewPlans()">Create Plan</button>
     <button class="plan-button" (click)="currentTab = plansTab">Your Plans</button>
+    <button class="plan-button" (click)="viewPlans()">Create Plan</button>
+    <button class="plan-button" (click)="currentTab = plansTab">Your Plans</button>
 </div>
 
 <div *ngIf="currentTab == createPlanTab" class="container">
     <h2>Choose Plan Type</h2>
+    <button class="plan-button avalanche-button" (click)="customClick('Avalanche')">Avalanche</button>
+    <button class="plan-button snowball-button" (click)="customClick('Snowball')">Snowball</button>
+    <button class="plan-button custom-button" (click)="customClick('Custom')">Custom</button>
+    <!-- <button class="plan-button back-button" (click)="backToStart()">Back to Start</button> -->
+    <button class="plan-button back-button" (click)="currentTab = homeTab">Back</button>
     <button class="plan-button avalanche-button" (click)="customClick('Avalanche')">Avalanche</button>
     <button class="plan-button snowball-button" (click)="customClick('Snowball')">Snowball</button>
     <button class="plan-button custom-button" (click)="customClick('Custom')">Custom</button>
@@ -37,9 +44,8 @@
             <label for="limitInput">Limit:</label>
             <input type="number" id="limitInput" [(ngModel)]="limit" name="limit" required />
         </div>
-        <h3>Set Milestones</h3>
         <div class="form-group">
-            <label for="amountInput">Milestone Amount:</label>
+            <label for="amountInput">Amount:</label>
             <input type="number" id="amountInput" [(ngModel)]="amount" name="amount" required />
         </div>
         <div class="form-group">
@@ -47,7 +53,7 @@
             <input type="date" id="deadlineInput" [(ngModel)]="deadline" name="deadline" [min]="minDate" required />
         </div>
         <div class="form-group">
-            <label for="occurrenceSelect">Reminder Occurrence:</label>
+            <label for="occurrenceSelect">Occurrence:</label>
             <select id="occurrenceSelect" [(ngModel)]="occurrence" name="occurrence" required>
                 <option value="Daily">Daily</option>
                 <option value="Weekly">Weekly</option>

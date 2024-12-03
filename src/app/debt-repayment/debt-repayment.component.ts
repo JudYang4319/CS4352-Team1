@@ -160,18 +160,16 @@ export class DebtRepaymentComponent {
     this.resetForm();
     this.rewardsService.addPoints(100);
     alert('You earned 100 points!');
-    
-    this.currentTab = this.plansTab;
   }
-
   resetForm(): void {
     this.monthlyPayment = 200;
     this.expectedBonus = 1000;
-    this.category = "Loan Payment";
+    this.category = "Personal Loan";
     this.customCategory = "";
     this.limit = 5000;
     this.amount = 0;
     this.deadline = null;
     this.occurrence = "";
   }
+
 }
