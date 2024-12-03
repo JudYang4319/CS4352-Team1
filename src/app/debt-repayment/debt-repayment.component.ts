@@ -52,7 +52,7 @@ export class DebtRepaymentComponent {
   // Form fields
   monthlyPayment: number = 200;
   expectedBonus: number = 1000;
-  category: string = "Personal Loan";
+  category: string = "Loan Payment";
   customCategory: string = "";
   limit: number = 5000;
   amount: number = 0;
@@ -167,7 +167,7 @@ export class DebtRepaymentComponent {
   resetForm(): void {
     this.monthlyPayment = 200;
     this.expectedBonus = 1000;
-    this.category = "Personal Loan";
+    this.category = "Loan Payment";
     this.customCategory = "";
     this.limit = 5000;
     this.amount = 0;
