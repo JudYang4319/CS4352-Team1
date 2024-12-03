@@ -1,44 +1,37 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FriendService } from '../../services/friend.service';
 
 @Component({
   selector: 'app-friendlist',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './friendlist.component.html',
   styleUrls: ['./friendlist.component.css']
 })
 export class FriendlistComponent {
-    friends = [
-        { id: 1, name: 'Drake', points: 2569, rank: 1 },
-        { id: 2, name: 'Kendrick Lamar', points: 2342, rank: 2 },
-        { id: 3, name: 'Cardi B', points: 3453, rank: 3 },
-        { id: 4, name: 'Travis Scott', points: 3463, rank: 4 },
-        { id: 5, name: 'Lil Baby', points: 2569, rank: 5 },
-        { id: 6, name: 'Doja Cat', points: 2342, rank: 6 },
-        { id: 7, name: 'J. Cole', points: 2569, rank: 7 },
-        { id: 8, name: 'Lil Nas X', points: 2342, rank: 8 },
-        { id: 9, name: 'Nicki Minaj', points: 2569, rank: 9 },
-        { id: 10, name: 'Eminem', points: 2342, rank: 10 },
-    ];
+  friends: { id: number; name: string; points: number; rank: number; added: boolean }[] = [];
+  searchTerm: string = '';
+  filteredFriends: { id: number; name: string; points: number; rank: number; }[] = [];
 
-    searchTerm: string = '';
-    filteredFriends = this.friends;
+  constructor(private router: Router, private friendService: FriendService) {
+    this.friends = this.friendService.getAllFriends();
+    this.filteredFriends = this.friends;
+  }
 
-    constructor(private router: Router) {}
+  goToProfile(friend: any) {
+    this.router.navigate(['/friend-profile', friend.id]);
+  }
 
-    goToProfile(friend: any) {
-        this.router.navigate(['/friend-profile', friend.id]);
-    }
+  goBack() {
+    window.history.back();
+  }
 
-    goBack() {
-        window.history.back();
-    }
-
-    filterFriends() {
-        this.filteredFriends = this.friends.filter(friend => 
-            friend.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-        );
-    }
+  filterFriends() {
+    this.filteredFriends = this.friends.filter(friend => 
+      friend.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
 }

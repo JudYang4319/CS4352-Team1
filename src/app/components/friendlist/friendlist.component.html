@@ -14,110 +14,23 @@
             <h1>Friend Find</h1>
         </header>
 
+        <div class="search-bar">
+            <input type="text" [(ngModel)]="searchTerm" (input)="filterFriends()" placeholder="Search friends...">
+        </div>
+
         <div class="list-container">
             <ul class="friend-list">
-                
-                <li class="friend-item">
-                    <button (click)="goToProfile(friends[0])" class="friend-button">
-                        <span class="rank">1</span>
+                <li *ngFor="let friend of filteredFriends" class="friend-item">
+                    <button (click)="goToProfile(friend)" class="friend-button">
+                        <span class="rank">{{ friend.rank }}</span>
                         <div class="profile-pic"></div>
                         <div class="friend-info">
-                            <span class="name">Drake</span>
-                            <span class="points"> 2569 points</span>
-                        </div>
-                    </button>
-                </li>
-                <li class="friend-item">
-                    <button (click)="goToProfile(friends[1])" class="friend-button">
-                        <span class="rank">2</span>
-                        <div class="profile-pic"></div>
-                        <div class="friend-info">
-                            <span class="name">Kendrick Lamar</span>
-                            <span class="points"> 2342 points</span>
-                        </div>
-                    </button>
-                </li>
-                <li class="friend-item">
-                    <button (click)="goToProfile(friends[2])" class="friend-button">
-                        <span class="rank">3</span>
-                        <div class="profile-pic"></div>
-                        <div class="friend-info">
-                            <span class="name">Cardi B</span>
-                            <span class="points"> 3453 points</span>
-                        </div>
-                    </button>
-                </li>
-                <li class="friend-item">
-                    <button (click)="goToProfile(friends[3])" class="friend-button">
-                        <span class="rank">4</span>
-                        <div class="profile-pic"></div>
-                        <div class="friend-info">
-                            <span class="name">Travis Scott</span>
-                            <span class="points"> 3463 points</span>
-                        </div>
-                    </button>
-                </li>
-                <li class="friend-item">
-                    <button (click)="goToProfile(friends[4])" class="friend-button">
-                        <span class="rank">5</span>
-                        <div class="profile-pic"></div>
-                        <div class="friend-info">
-                            <span class="name">Lil Baby</span>
-                            <span class="points"> 2569 points</span>
-                        </div>
-                    </button>
-                </li>
-                <li class="friend-item">
-                    <button (click)="goToProfile(friends[5])" class="friend-button">
-                        <span class="rank">6</span>
-                        <div class="profile-pic"></div>
-                        <div class="friend-info">
-                            <span class="name">Doja Cat</span>
-                            <span class="points"> 76 points</span>
-                        </div>
-                    </button>
-                </li>
-                <li class="friend-item">
-                    <button (click)="goToProfile(friends[6])" class="friend-button">
-                        <span class="rank">7</span>
-                        <div class="profile-pic"></div>
-                        <div class="friend-info">
-                            <span class="name">J. Cole</span>
-                            <span class="points"> 2345 points</span>
-                        </div>
-                    </button>
-                </li>
-                <li class="friend-item">
-                    <button (click)="goToProfile(friends[7])" class="friend-button">
-                        <span class="rank">8</span>
-                        <div class="profile-pic"></div>
-                        <div class="friend-info">
-                            <span class="name">Lil Nas X</span>
-                            <span class="points"> 1234 points</span>
-                        </div>
-                    </button>
-                </li>
-                <li class="friend-item">
-                    <button (click)="goToProfile(friends[8])" class="friend-button">
-                        <span class="rank">9</span>
-                        <div class="profile-pic"></div>
-                        <div class="friend-info">
-                            <span class="name">Nicki Minaj</span>
-                            <span class="points"> 4567 points</span>
-                        </div>
-                    </button>
-                </li>
-                <li class="friend-item">
-                    <button (click)="goToProfile(friends[9])" class="friend-button">
-                        <span class="rank">10</span>
-                        <div class="profile-pic"></div>
-                        <div class="friend-info">
-                            <span class="name">Eminem</span>
-                            <span class="points"> 5678 points</span>
-                        </div>
-                    </button>
-                </li>
+                            <span class="name">{{ friend.name }}</span>
+                            <span class="points">{{ " " + friend.points }} points</span>
 
+                        </div>
+                    </button>
+                </li>
             </ul>
         </div>
 

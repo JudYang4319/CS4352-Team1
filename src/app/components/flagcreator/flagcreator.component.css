@@ -82,7 +82,7 @@ h2 {
 
 }
 h1 {
-    height: 5px;
+    height: 50px;
 }
 
 /* Color Picker and Palette Styles */
@@ -99,19 +99,35 @@ h1 {
 
 .color-picker {
     width: 100%;
-    height: 50px;
+    height: 150px;
 }
 
 .color-picker-container {
     padding-bottom: 10%;
     width: 100%;
-    height: 50px;
+    height: 100px;
 }
 .color-picker-container input {
     width: 90%;
-    height: 50px;
+    height: 200px;
+}
+.guild-button {
+    background-color: white;
+    border: 2px solid #d3d3d3;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
 }
 
+/* src/app/components/flagcreator/flagcreator.component.css */
+.icon {
+    transition: filter 0.3s ease; /* Smooth transition */
+}
+
+.icon.selected {
+    filter: brightness(0.5); /* Darken the icon */
+}
 .color-palette {
     display: flex;
     align-items: center;
@@ -161,6 +177,27 @@ h1 {
 .save-button {
     background-color: #2ecc71; /* Green */
 }
+.action-buttons icon{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40%;
+
+}
+.action-buttons top{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40%;
+
+}
+
+.action-buttons colors{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0%;
+
+}
+
+
 .action-buttons {
     display: flex;
     justify-content: space-between;

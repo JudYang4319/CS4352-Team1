@@ -14,71 +14,83 @@
 
     <div class="container">
         <!-- Icon Selection Section -->
-         
+
         <div class="section">
             <h1 style="text-align: center;">Flag Creator</h1>
             
-            <div class="icon-section-content">
-                <h2>Select an Icon</h2>
-                <div class="icon-grid">
-                    <button class="icon" (click)="selectIcon(1)" [style.filter]="'hue-rotate(' + selectedColor + ')'" >
-                        <img src="https://media.discordapp.net/attachments/867118819898163232/1304878209262948453/image.png?ex=6730fe08&is=672fac88&hm=6a0bcadaa18d1ce2160f315b23a48adeadace3980694c2392f131f74759aa7e7&=&format=webp&quality=lossless&width=161&height=161" alt="Icon 1">
-                    </button>
-                    <button class="icon" (click)="selectIcon(2)" [style.filter]="'hue-rotate(' + selectedColor + ')'" >
-                        <img src="https://media.discordapp.net/attachments/867118819898163232/1304878246675877958/image.png?ex=6730fe11&is=672fac91&hm=8224df1abbb43c47dc081cd7be072fbf9026b2e1a0dcdc7e890a1e41f7bdeb5b&=&format=webp&quality=lossless&width=161&height=161" alt="Icon 2">
-                    </button>
-                    <button class="icon" (click)="selectIcon(3)" [style.filter]="'hue-rotate(' + selectedColor + ')'"           >
-                        <img src="https://media.discordapp.net/attachments/867118819898163232/1304878287788441620/image.png?ex=6730fe1b&is=672fac9b&hm=68de048661fff9ce243d7d7cf6de0ba60d45a7035234fbfaebae6dcd0cf68ce5&=&format=webp&quality=lossless&width=161&height=161" alt="Icon 3">
-                    </button>
-                    <button class="icon" (click)="selectIcon(4)" [style.filter]="'hue-rotate(' + selectedColor + ')'"                       >
-                        <img src="https://media.discordapp.net/attachments/867118819898163232/1304878583805775985/image.png?ex=6730fe61&is=672face1&hm=c1f869d66721704e44fac775441ef0f9824a557b5e96a8cdf7b31a675cf1e206&=&format=webp&quality=lossless&width=161&height=161" alt="Icon 4">
-                    </button>
-                    <button class="icon" (click)="selectIcon(5)" [style.filter]="'hue-rotate(' + selectedColor + ')'"                       >
-                        <img src="https://media.discordapp.net/attachments/867118819898163232/1304878584049172600/image.png?ex=6730fe61&is=672face1&hm=ce3fa18aa8d45c8f1f3a00b36f1eb552da069e41a336a2824f91a0fbe278b787&=&format=webp&quality=lossless&width=161&height=161" alt="Icon 5">
-                    </button>
-                    <button class="icon" (click)="selectIcon(6)" [style.filter]="'hue-rotate(' + selectedColor + ')'"                       >
-                        <img src="https://media.discordapp.net/attachments/867118819898163232/1304878584326000700/image.png?ex=6730fe61&is=672face1&hm=592880198c7d94ef44de2d0af7ff15f96d4b0eb8b9b8debcd1933b5f1c2d1435&=&format=webp&quality=lossless&width=161&height=161" alt="Icon 6">
-                    </button>
-                    <button class="icon" (click)="selectIcon(7)" [style.filter]="'hue-rotate(' + selectedColor + ')'"                       >
-                        <img src="https://media.discordapp.net/attachments/867118819898163232/1304878584598364241/image.png?ex=6730fe62&is=672face2&hm=adccc415d9e7031dfdb7c261bad9b381db516c3b6a4d84bc5c8a1abf7b75a322&=&format=webp&quality=lossless&width=161&height=161" alt="Icon 7">
-                    </button>
-                    <button class="icon" (click)="selectIcon(8)" [style.filter]="'hue-rotate(' + selectedColor + ')'"                       >
-                        <img src="https://media.discordapp.net/attachments/867118819898163232/1304878584841900042/image.png?ex=6730fe62&is=672face2&hm=79183e29e3c4fc0d7570b2ea0bcf46aac3450e8910ed04812d9ab0e8bf017fc1&=&format=webp&quality=lossless&width=161&height=161" alt="Icon 8">
-                    </button>
-                    <button class="icon" (click)="selectIcon(9)" [style.filter]="'hue-rotate(' + selectedColor + ')'"                       >
-                        <img src="https://media.discordapp.net/attachments/867118819898163232/1304878585072582759/image.png?ex=6730fe62&is=672face2&hm=134c00a085960134bee378730b095d7fee212f14d353cbd0af7e208b9dadfc3d&=&format=webp&quality=lossless&width=161&height=161" alt="Icon 9">
-                    </button>
-                </div>
-            </div>
-            <div class="color-section-container">
-            <div class="color-section">
-            <h2>Select a Color</h2>
-            <div class="color-picker-container">
-                <input [(colorPicker)]="selectedColor" [style.background]="selectedColor" class="color-picker" />
-            </div>
-            <div class="opacity-slider">
-                <label>Opacity</label>
-                <input type="range" min="0" max="100" value="100">
-                <span>100%</span>
+            <div class="action-buttons top">
+                <button class="guild-button" (click)="showIcons = true">Show Icons</button>
+                <button class="guild-button" (click)="showIcons = false">Show Colors</button>
             </div>
 
-            <div class="color-palette">
-                <!-- <div class="color-swatch" [style.background]="selectedColor"></div> -->
-                <div class="color-options">
-                    <span style="background-color: black;" (click)="selectedColor = '#000000'"></span>
-                    <span style="background-color: blue;" (click)="selectedColor = '#0000FF'"></span>
-                    <span style="background-color: green;" (click)="selectedColor = '#008000'"></span>
-                    <span style="background-color: yellow;" (click)="selectedColor = '#FFFF00'"></span>
-                    <span style="background-color: red;" (click)="selectedColor = '#FF0000'"></span>
-                    <!-- Add more colors as needed -->
+            <div *ngIf="showIcons" class="icon-section-content">
+                <h2>Select an Icon</h2>
+                <div class="icon-grid" style="padding-bottom: 60%;">
+                    <button class="icon" (click)="selectIcon(1)" [ngClass]="{'selected': selectedIconId === 1}" [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                        <img src="/images/iconart/image.png" alt="Icon 1">
+                    </button>
+                    <button class="icon" (click)="selectIcon(2)" [ngClass]="{'selected': selectedIconId === 2}" [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                        <img src="/images/iconart/image2.png" alt="Icon 2">
+                    </button>
+                    <button class="icon" (click)="selectIcon(3)" [ngClass]="{'selected': selectedIconId === 3}" [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                        <img src="/images/iconart/image3.png" alt="Icon 3">
+                    </button>
+                    <button class="icon" (click)="selectIcon(4)" [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                        <img src="/images/iconart/image4.png" alt="Icon 4">
+                    </button>
+                    <button class="icon" (click)="selectIcon(5)" [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                        <img src="/images/iconart/image5.png" alt="Icon 5">
+                    </button>
+                    <button class="icon" (click)="selectIcon(6)" [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                        <img src="/images/iconart/image6.png" alt="Icon 6">
+                    </button>
+                    <button class="icon" (click)="selectIcon(7)" [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                        <img src="/images/iconart/image7.png" alt="Icon 7">
+                    </button>
+                    <button class="icon" (click)="selectIcon(8)" [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                        <img src="/images/iconart/image8.png" alt="Icon 8">
+                    </button>
+                    <button class="icon" (click)="selectIcon(9)" [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                        <img src="/images/iconart/image9.png" alt="Icon 9">
+                    </button>
+                </div>
+                <div class="action-buttons colors">
+                    <button class="back-btn" (click)="goBack()">Back</button>
+                    <button class="save-btn" (click)="saveFlag()">Save</button>
                 </div>
             </div>
-        </div>
-        </div>
-            <div class="action-buttons">
-                <button class="back-btn" (click)="goBack()">Back</button>
-                <button class="save-btn" (click)="saveFlag()" >Save</button>
+
+            <div *ngIf="!showIcons" class="color-section-container">
+                <div class="color-section">
+                    <h2>Select a Color</h2>
+                    <div class="color-picker-container" style="padding-bottom: 50%;">
+                        <input [(colorPicker)]="selectedColor" [style.background]="selectedColor"
+                            class="color-picker" />
+                    </div>
+                    <div class="opacity-slider"style="padding-bottom: 20%;">
+                        <label>Opacity</label>
+                        <input type="range" min="0" max="100" [(ngModel)]="opacityValue">
+                        <span>{{ opacityValue }}</span>
+                    </div>
+
+                    <div class="color-palette">
+                        <!-- <div class="color-swatch" [style.background]="selectedColor"></div> -->
+                        <div class="color-options">
+                            <span style="background-color: black;" (click)="selectColor('#000000')"></span>
+                            <span style="background-color: blue;" (click)="selectColor('#0000FF')"></span>
+                            <span style="background-color: green;" (click)="selectColor('#008000')"></span>
+                            <span style="background-color: yellow;" (click)="selectColor('#FFFF00')"></span>
+                            <span style="background-color: red;" (click)="selectColor('#FF0000')"></span>
+                            <!-- Add more colors as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="back-btn" (click)="goBack()">Back</button>
+                    <button class="save-btn" (click)="saveFlag()">Save</button>
+                </div>
             </div>
+            
         </div>
 
         <!-- Color Selection Section -->

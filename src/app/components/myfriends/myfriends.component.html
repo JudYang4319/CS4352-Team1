@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Find</title>
+    <link rel="stylesheet" href="myfriends.component.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>My Friends</h1>
+        </header>
+
+        <div class="search-bar">
+            <input type="text" [(ngModel)]="searchTerm" (input)="filterFriends()" placeholder="Search my friends...">
+        </div>
+
+        <div class="list-container">
+            <ul class="friend-list">
+                <ng-container *ngFor="let friend of filteredFriends">
+                    <li *ngIf="friend.added" class="friend-item">
+                        <button (click)="goToProfile(friend)" class="friend-button">
+                            <span class="rank">{{ friend.rank }}</span>
+                            <div class="profile-pic"></div>
+                            <div class="friend-info">
+                                <span class="name">{{ friend.name }}</span>
+                                <span class="points">{{ " " + friend.points }} points</span>
+                            </div>
+                        </button>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+
+        <footer class="footer">
+            <button class="back-btn" (click)="goBack()">Back</button>
+        </footer>
+    </div>
+</body>
+
+</html>

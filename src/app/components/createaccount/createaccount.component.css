@@ -1,0 +1,101 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color: #f0f2f5;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.login-container {
+  max-width: 390px;
+  width: 90%;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+  
+  /* Center the container */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.app-logo {
+  width: 240px;
+  margin-bottom: 10px;
+}
+
+input {
+  width: calc(100% - 32px); /* Adjust for padding */
+  padding: 14px 16px;
+  margin: 6px 0;
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  font-size: 17px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.login-button:hover {
+  background-color: #166fe5;
+}
+
+.forgot-password {
+  color: #1877f2;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  margin-top: 16px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.divider-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #dadde1;
+}
+
+.divider-text {
+  padding: 0 10px;
+  color: #96999e;
+  font-size: 13px;
+}
+
+.create-account-button {
+  background-color: #0760c5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 14px 16px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.create-account-button:hover {
+  background-color: #1900ff;
+}
+
+.meta-footer {
+  margin-top: 28px;
+  color: #737373;
+  font-size: 14px;
+}

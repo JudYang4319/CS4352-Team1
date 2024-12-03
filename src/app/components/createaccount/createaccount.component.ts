@@ -3,16 +3,15 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { CreateAccountComponent } from '../createaccount/createaccount.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: './CreateAccount.component.html',
+  styleUrl: './CreateAccount.component.css'
 })
-export class LoginComponent {
+export class CreateAccountComponent {
   email: string = '';
   password: string = '';
 
@@ -28,6 +27,5 @@ export class LoginComponent {
 
   createAccount() {
     // Implement signup logic or navigation to signup page
-    this.router.navigate(['./createaccount']);
   }
 }

@@ -68,5 +68,9 @@ export class SidebarComponent {
     this.toggleSidebar(); // Close the sidebar
     this.router.navigate(['/viewguild']); // Navigate to the view guild component
   }
+  navigateToMyFriends(){
+    this.toggleSidebar();
+    this.router.navigate(['/myfriends']);
+  }
 }
 
