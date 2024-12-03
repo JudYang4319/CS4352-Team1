@@ -9,6 +9,7 @@ import { CreateAccountComponent } from './components/createaccount/createaccount
 import { NewsComponent } from './news/news.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { GuildstartComponent } from './components/guildstart/guildstart.component';
+import { filter, map, mergeMap } from 'rxjs';
 import { OverviewComponent } from './components/overview/overview.component';
 import { FlagcreatorComponent } from './components/flagcreator/flagcreator.component';
 import { GoalsComponent } from './components/goals/goals.component';
@@ -50,32 +51,16 @@ export class AppComponent {
       .subscribe((data) => {
         this.pageTitle = data['title'] || 'Default Title';
       });
-  });
-}
-
-  ngOnInit() {
-    this.router.events
-      .pipe(
-        filter((event) => event instanceof NavigationEnd),
-        map(() => this.activatedRoute),
-        map((route) => {
-          while (route.firstChild) {
-            route = route.firstChild;
-          }
-          return route;
-        }),
-        mergeMap((route) => route.data) // Get `data` from route configuration
-      )
-      .subscribe((data) => {
-        this.pageTitle = data['title'] || 'Default Title';
-      });
   }
 
-toggleSidebar() {
-  this.isSidebarOpen = !this.isSidebarOpen;
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+  navigateToHome() {
+    this.router.navigate(['/overview']);
+  }
+
 }
-navigateToHome() {
-  this.router.navigate(['/overview']);
-}
-}
+
 
