@@ -18,6 +18,8 @@ import { CreateComponent } from './components/create/create.component';
 import { GuildcreatedComponent } from './components/guildcreated/guildcreated.component';
 import { ViewGuildComponent } from './components/viewguild/viewguild.component';
 import { DebtRepaymentComponent } from './debt-repayment/debt-repayment.component';
+import { CreateAccountComponent } from './components/createaccount/createaccount.component';
+import { MyFriendsComponent } from './components/myfriends/myfriends.component';
 
 
 export const routes: Routes = [
@@ -30,7 +32,7 @@ export const routes: Routes = [
   { path: 'profile', component: SettingsComponent },
   { path: 'glossary', component: GlossaryComponent },
   { path: 'transactions', component: TransactionsComponent }, // Correct route
- { path: 'friends', component: FriendlistComponent},
+  { path: 'friends', component: FriendlistComponent },
   { path: 'login', component: LoginComponent },
   { path: 'guildstart', component: GuildstartComponent },
   { path: 'create', component: CreateComponent },
@@ -41,16 +43,18 @@ export const routes: Routes = [
   { path: 'create', component: CreateComponent },
   { path: 'flagcreator', component: FlagcreatorComponent },
   { path: 'guildcreated', component: GuildcreatedComponent },
+  { path: 'createaccount', component: CreateAccountComponent },
+  { path: 'myfriends', component: MyFriendsComponent },
   { path: 'viewguild', component: ViewGuildComponent },
   { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard] },
   { path: 'friend-profile/:id', component: FriendProfileComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' },
-  
-  
-  
+
+
+
   { path: '**', redirectTo: '/login' },
-  
-  
-  
+
+
+
 ];

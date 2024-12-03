@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FriendService } from '../../services/friend.service';
 
 @Component({
   selector: 'app-friend-profile',
@@ -17,39 +15,33 @@ export class FriendProfileComponent implements OnInit {
   friend: any;
   enabled: boolean = false;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private friendService: FriendService) { }
 
   ngOnInit(): void {
+    this.loadFriend();
+  }
+
+  loadFriend() {
     const friendId = this.route.snapshot.paramMap.get('id');
-    // Fetch the friend's data based on the ID
     if (friendId) {
-      this.friend = this.getFriendById(friendId);
+      this.friend = this.friendService.getAllFriends().find(friend => friend.id === parseInt(friendId));
+      this.enabled = this.friend?.added;
+      
     }
   }
 
-  getFriendById(id: string) {
-    // Replace this with actual data fetching logic
-    const friends = [
-      { id: 1, name: 'Drake', points: 2569 },
-      { id: 2, name: 'Kendrick Lamar', points: 2342 },
-      { id: 3, name: 'Cardi B', points: 3453 },
-      { id: 4, name: 'Travis Scott', points: 3463 },
-      { id: 5, name: 'Lil Baby', points: 2569 },
-      { id: 6, name: 'Doja Cat', points: 2342 },
-      { id: 7, name: 'J. Cole', points: 2569 },
-      { id: 8, name: 'Lil Nas X', points: 2342 },
-      { id: 9, name: 'Nicki Minaj', points: 2569 },
-      { id: 10, name: 'Eminem', points: 2342 },
-      // ... other friends
-    ];
-    return friends.find(friend => friend.id === parseInt(id));
-  }
-
   addFriend() {
-    // Logic to add friend
-    //alert(`Added ${this.friend.name} as a friend!`);
-    this.enabled = !this.enabled;
-  }
+    this.enabled = !this.enabled; // Toggle the button state
+    if (!this.friend.added) {
+        this.friendService.addFriend(this.friend); // Call the service to add the friend
+        this.friend.added = true; // Update the friend object directly
+        this.enabled = true; // Set enabled to true since the friend is now added
+        console.log('Friend added:', this.friend);
+    } else {
+        console.log('Friend is already added:', this.friend);
+    }
+}
+
   goBack() {
     window.history.back();
   }
