@@ -229,7 +229,7 @@ export class GoalsComponent {
     this.goals.splice(index, 1); // Remove the goal from the array
     localStorage.setItem('userGoals', JSON.stringify(this.goals)); // Update local storage
     this.goalToRemove = null; // Reset the prompt
-    this.goals.splice(index, 1);
+    // this.goals.splice(index, 1);
     localStorage.setItem('userGoals', JSON.stringify(this.goals));
     this.goalToRemove = null;
   }
