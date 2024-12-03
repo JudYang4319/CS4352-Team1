@@ -13,35 +13,6 @@
     display: flex;
     justify-content: center;
 }
-
-.container {
-    width: 100%;
-    max-width: 390px;
-    height: 100vh;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.debt-image {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.text-info {
-    text-align: justify;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #555;
-    font-size: 14px;
-}
-
 .plan-button {
     width: 90%;
     max-width: 2700px;
@@ -152,10 +123,14 @@ input:focus {
     align-items: center;
     justify-content: center; 
     width: 100%; 
-    height: 100%;
+    height: auto; 
     box-sizing: border-box;
     margin: 0; 
     padding: 20px; 
+}
+
+.form-group{
+    text-align: left;
 }
 
 .plan-card {

@@ -37,7 +37,6 @@ class CustomPlan {
   imports: [CommonModule, FormsModule],
   templateUrl: './debt-repayment.component.html',
   styleUrls: ['./debt-repayment.component.css']
-  
 })
 export class DebtRepaymentComponent {
   // Tab management
@@ -50,7 +49,6 @@ export class DebtRepaymentComponent {
   // Plan selection
   selectedPlan: string = '';
   
-  
   // Form fields
   monthlyPayment: number = 200;
   expectedBonus: number = 1000;
@@ -59,30 +57,8 @@ export class DebtRepaymentComponent {
   limit: number = 5000;
   amount: number = 0;
   deadline: Date | null = null;
-  
   occurrence: string = "";
-
-  customPlans: CustomPlan[] = [
-    {
-      monthlyPayment: 200,
-      expectedBonus: 1000,
-      category: 'Loan Payment',
-      limit: 5000,
-      amount: 4000,
-      deadline: new Date('2024-12-31'),
-      occurrence: 'Monthly'
-    },
-    {
-      monthlyPayment: 150,
-      expectedBonus: 500,
-      category: 'Rent',
-      limit: 3000,
-      amount: 2500,
-      deadline: new Date('2025-06-30'),
-      occurrence: 'Monthly'
-    }
-  ];
-
+  customPlans: CustomPlan[] = [];
   categories = [
     'Food',
     'Entertainment',
@@ -98,21 +74,16 @@ export class DebtRepaymentComponent {
   isCustomCategory: boolean = false;
   minDate: string;
 
-
   constructor(private rewardsService: RewardsService) {
     const today = new Date();
     this.minDate = today.toISOString().split('T')[0];
   }
-
-  
 
   // Tab navigation methods
   viewPlans(): void {
     this.currentTab = this.createPlanTab;
   }
 
-
-  
   createPlanClick(): void {
     this.currentTab = this.formTab;
   }
@@ -130,8 +101,6 @@ export class DebtRepaymentComponent {
     this.isCustomCategory = this.category === 'Custom';
   }
 
-
-    // Proceed with creating the plan if all validations pass
   submitPlan(): void {
     // Validate that all required fields are filled
     if (!this.monthlyPayment || this.monthlyPayment < 0) {
@@ -185,14 +154,21 @@ export class DebtRepaymentComponent {
         this.amount,
         this.deadline,
         this.occurrence
+        this.monthlyPayment,
+        this.expectedBonus,
+        this.isCustomCategory ? this.customCategory : this.category,
+        this.limit,
+        this.amount,
+        this.deadline,
+        this.occurrence
     );
-
 
     this.customPlans.push(plan);
     this.resetForm();
-    this.resetForm();
     this.rewardsService.addPoints(100);
     alert('You earned 100 points!');
+    
+    this.currentTab = this.plansTab;
   }
 
   resetForm(): void {
@@ -205,5 +181,4 @@ export class DebtRepaymentComponent {
     this.deadline = null;
     this.occurrence = "";
   }
-
 }
