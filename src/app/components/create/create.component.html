@@ -15,7 +15,7 @@
         <!-- Guild Creation Form -->
         <div class="guild-form" >
             <h2>Create/Edit New Guild</h2>
-            <input type="text" placeholder="Enter Guild Name" class="guild-name-input">
+            <input type="text" placeholder="Enter Guild Name" class="guild-name-input" required #guildNameInput>
 
             <!-- Choose Guild Flag -->
             <h3>Choose Guild Flag</h3>
@@ -30,8 +30,8 @@
 <div class="footer">
             <!-- Privacy Options -->
             <div class="privacy-options" >
-                <label><input type="radio" name="privacy" value="private"> Private</label>
-                <label><input type="radio" name="privacy" value="public"> Public</label>
+                <label><input type="radio" name="privacy" value="private" required> Private</label>
+                <label><input type="radio" name="privacy" value="public" required> Public</label>
             </div>
 
             <!-- Action Buttons -->
