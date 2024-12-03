@@ -264,3 +264,63 @@ button.remove-goal-btn:hover {
     background-color: #999;
     /* Darker gray on hover */
 }
+
+/* Button Styles */
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    /* Green */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #388E3C;
+    /* Darker Green */
+}
+
+.btn-secondary {
+    background-color: #007bff;
+    /* Blue */
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #0062cc;
+    /* Darker Blue */
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    /* Red */
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    /* Darker Red */
+}
+
+/* Other Aesthetic Improvements */
+.goals-container {
+    /* ... (existing styles) */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+.goal-card {
+    /* ... (existing styles) */
+    border: 1px solid #ddd;
+    /* Lighter border */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
+}
