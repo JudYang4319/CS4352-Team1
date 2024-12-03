@@ -6,10 +6,13 @@ import { CommonModule } from '@angular/common';
 import { GlossaryComponent } from './glossary/glossary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CreateAccountComponent } from './components/createaccount/createaccount.component';
-
+import { NewsComponent } from './news/news.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { GuildstartComponent } from './components/guildstart/guildstart.component';
 import { filter, map, mergeMap } from 'rxjs';
+import { OverviewComponent } from './components/overview/overview.component';
+import { FlagcreatorComponent } from './components/flagcreator/flagcreator.component';
+import { GoalsComponent } from './components/goals/goals.component';
 @Component({
   selector: 'app-root',
   standalone: true,
