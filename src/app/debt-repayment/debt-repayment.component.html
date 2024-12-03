@@ -48,8 +48,9 @@
             <label for="limitInput">Limit:</label>
             <input type="number" id="limitInput" [(ngModel)]="limit" name="limit" required />
         </div>
+        <h3>Set Milestones</h3>
         <div class="form-group">
-            <label for="amountInput">Amount:</label>
+            <label for="amountInput">Milestone Amount:</label>
             <input type="number" id="amountInput" [(ngModel)]="amount" name="amount" required />
         </div>
         <div class="form-group">
@@ -57,7 +58,7 @@
             <input type="date" id="deadlineInput" [(ngModel)]="deadline" name="deadline" [min]="minDate" required />
         </div>
         <div class="form-group">
-            <label for="occurrenceSelect">Occurrence:</label>
+            <label for="occurrenceSelect">Reminder Occurrence:</label>
             <select id="occurrenceSelect" [(ngModel)]="occurrence" name="occurrence" required>
                 <option value="Daily">Daily</option>
                 <option value="Weekly">Weekly</option>
