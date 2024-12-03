@@ -155,7 +155,6 @@ export class GoalsComponent {
       console.log("Total cost cannot be a negative number.");
       alert("Total cost cannot be a negative number.");
       return; // Exit if total cost is negative
-      return;
     }
 
     if (!this.goalTitle || !this.totalCost || !this.startDate || !this.endDate || !this.paymentSchedule) {
@@ -229,7 +228,6 @@ export class GoalsComponent {
     this.goals.splice(index, 1); // Remove the goal from the array
     localStorage.setItem('userGoals', JSON.stringify(this.goals)); // Update local storage
     this.goalToRemove = null; // Reset the prompt
-
   }
 
   cancelRemoveGoal(): void {
