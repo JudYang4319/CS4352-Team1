@@ -1,40 +1,39 @@
 <div class="goals-container">
     <!-- Create Goal Button -->
-    <button class="create-goal-btn" (click)="openCreateGoalModal()">Create a Goal</button>
+    <button class="btn-primary" (click)="openCreateGoalModal()">Create a Goal</button>
 
     <!-- Create Goal Modal -->
-    <div class="modal" *ngIf="isCreateGoalModalOpen">
+    <div class="modal" *ngIf="isCreateGoalModalOpen" aria-labelledby="createGoalModalTitle" role="dialog">
         <div class="modal-content">
-            <span class="close-btn" (click)="closeCreateGoalModal()">&times;</span>
-            <h2>Create a New Goal</h2>
-            <!-- Form will go here in future steps -->
-            <form>
+            <button class="close-btn" (click)="closeCreateGoalModal()" aria-label="Close">&times;</button>
+            <h2 id="createGoalModalTitle">Create a New Goal</h2>
+            <form (ngSubmit)="submitGoal()">
                 <div class="form-group">
                     <label for="goalTitle">Goal Title</label>
                     <input type="text" id="goalTitle" [(ngModel)]="goalTitle" name="goalTitle"
-                        placeholder="Enter goal title" />
+                        placeholder="Enter goal title" required />
                 </div>
 
                 <div class="form-group">
                     <label for="totalCost">Total Cost</label>
                     <input type="number" id="totalCost" [(ngModel)]="totalCost" name="totalCost" [min]="0"
-                        (ngModelChange)="calculateEstimatedContribution()" placeholder="Enter total cost" />
+                        (ngModelChange)="calculateEstimatedContribution()" placeholder="Enter total cost" required />
                 </div>
 
                 <div class="form-group">
-                    <label for="startDate">Start Time Period</label>
+                    <label for="startDate">Start Date</label>
                     <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate" [min]="currentDate"
-                        (ngModelChange)="calculateEstimatedContribution()" />
+                        (ngModelChange)="calculateEstimatedContribution()" required />
                 </div>
 
                 <div class="form-group">
-                    <label for="endDate">End Time Period</label>
+                    <label for="endDate">End Date</label>
                     <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" [min]="currentDate"
-                        (ngModelChange)="calculateEstimatedContribution()" />
+                        (ngModelChange)="calculateEstimatedContribution()" required />
                 </div>
 
-                <div>
-                    <label for="paymentSchedule">Payment Schedule:</label>
+                <div class="form-group">
+                    <label for="paymentSchedule">Payment Schedule</label>
                     <select id="paymentSchedule" [(ngModel)]="paymentSchedule" name="paymentSchedule"
                         (ngModelChange)="calculateEstimatedContribution()" required>
                         <option value="" disabled selected>Select Payment Plan</option>
@@ -44,39 +43,67 @@
                     </select>
                 </div>
 
-                <div>
-                    <p>Estimated Contribution: {{ estimatedContribution !== null ? (estimatedContribution | currency) :
-                        'N/A' }}</p>
+                <div class="form-group">
+                    <p>Estimated Contribution:
+                        <span>{{ estimatedContribution !== null ? (estimatedContribution | currency) : 'N/A' }}</span>
+                    </p>
                 </div>
 
-                <button type="button" class="submit-btn" (click)="submitGoal()">Submit Goal</button>
-
+                <button type="submit" class="btn-primary">Submit Goal</button>
             </form>
         </div>
     </div>
 
-
-
-    <div class="goal-card" *ngFor="let goal of goals; let i = index">
+    <!-- Goals List -->
+    <div *ngFor="let goal of goals; let i = index" class="goal-card">
         <h2 class="goal-name">{{ goal.name }}</h2>
         <div class="goal-details">
-            <p>{{ goal.contributionLabel }}: <span class="highlight">{{ goal.monthlyContribution | currency }}</span>
+            <p>Total Cost:
+                <span class="highlight">{{ goal.totalCost | currency }}</span>
             </p>
-            <p>Next Payment Due: <span class="highlight">{{ goal.nextPaymentDue | date: 'MMMM d, y' }}</span></p>
+            <p>Amount Paid:
+                <span class="highlight">{{ (goal.progress / 100) * goal.totalCost | currency }}</span>
+            </p>
+            <p>{{ goal.contributionLabel }}:
+                <span class="highlight">{{ goal.monthlyContribution | currency }}</span>
+            </p>
+            <p>Next Payment Due:
+                <span class="highlight">{{ goal.nextPaymentDue | date: 'MMMM d, y' }}</span>
+            </p>
             <div class="progress-container">
-                <div class="progress-bar" [style.width.%]="goal.progress">
-                    <span class="progress-text">{{ goal.progress }}%</span>
+                <div class="progress-bar" [style.width.%]="(goal.progress | number: '1.2-2')">
+                    <span class="progress-text">{{ goal.progress | number: '1.2-2' }}%</span>
                 </div>
             </div>
         </div>
 
-        <!-- Remove Button -->
-        <button (click)="promptRemoveGoal(i)">Remove Goal</button>
+        <!-- Add Payment Button -->
+        <button class="btn-secondary" (click)="openAddPaymentModal(goal)">Add Payment</button>
 
-        <!-- Confirmation Prompt -->
-        <div *ngIf="goalToRemove === i" class="confirmation-prompt">
+        <!-- Add Payment Modal -->
+        <div class="modal" *ngIf="goal.isPaymentModalOpen" aria-labelledby="addPaymentModalTitle" role="dialog">
+            <div class="modal-content">
+                <button class="close-btn" (click)="closeAddPaymentModal(goal)" aria-label="Close">&times;</button>
+                <h2 id="addPaymentModalTitle">Add Payment for {{ goal.name }}</h2>
+                <form (ngSubmit)="submitPayment(goal)">
+                    <div class="form-group">
+                        <label for="paymentAmount">Payment Amount</label>
+                        <input type="number" id="paymentAmount" [(ngModel)]="goal.paymentAmount" name="paymentAmount"
+                            placeholder="Enter payment amount" required />
+                    </div>
+                    <button type="submit" class="btn-primary">Submit Payment</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Remove Goal Button -->
+        <button class="btn-danger" (click)="promptRemoveGoal(i)">Remove Goal</button>
+
+        <!-- Remove Confirmation Prompt -->
+        <div class="confirmation-prompt" *ngIf="goalToRemove === i">
             <p>Are you sure you want to remove?</p>
-            <button (click)="confirmRemoveGoal(i)">Yes</button>
-            <button (click)="cancelRemoveGoal()">No</button>
+            <button class="btn-primary" (click)="confirmRemoveGoal(i)">Yes</button>
+            <button class="btn-secondary" (click)="cancelRemoveGoal()">No</button>
         </div>
     </div>
+</div>

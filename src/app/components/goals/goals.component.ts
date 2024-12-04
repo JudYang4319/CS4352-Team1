@@ -4,6 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RewardsService } from '../../rewards/rewards.service';
 
+interface Goal {
+  name: string;
+  contributionLabel: string;
+  monthlyContribution: number;
+  nextPaymentDue: Date;
+  progress: number;
+  isPaymentModalOpen: boolean;
+  paymentAmount: number | null;
+  totalCost: number;  // Total cost of the goal
+}
+
 @Component({
   selector: 'app-goals',
   standalone: true,
@@ -12,32 +23,78 @@ import { RewardsService } from '../../rewards/rewards.service';
   styleUrls: ['./goals.component.css']
 })
 export class GoalsComponent {
-  constructor(private router: Router, private rewardsService: RewardsService) { } // Inject Router
+  submitPayment(goal: Goal): void {
+    // Ensure payment amount is valid
+    if (goal.paymentAmount !== null && goal.paymentAmount > 0) {
+      if (goal.paymentAmount > goal.totalCost - goal.progress * (goal.totalCost / 100)) {
+        alert("Payment amount cannot exceed the remaining cost of the goal.");
+        return;
+      }
+      // Update the progress based on the payment amount
+      const totalPaid = goal.progress * (goal.totalCost / 100);  // Calculate the current paid amount
+
+      const newPaidAmount = totalPaid + goal.paymentAmount;
+
+      // Calculate the new progress percentage
+      const newProgress = Math.min((newPaidAmount / goal.totalCost) * 100, 100); // Ensure it doesn't exceed 100%
+
+      // Update the progress bar and store it in localStorage
+
+      goal.progress = newProgress;
+      goal.paymentAmount = null; // Reset payment amount after submitting
+      localStorage.setItem('userGoals', JSON.stringify(this.goals));
+      goal.isPaymentModalOpen = false; // Save changes to localStorage
+    } else {
+      alert("Please enter a valid payment amount.");
+    }
+  }
+  constructor(private router: Router, private rewardsService: RewardsService) { }
+
+  addPaymentModal: Goal | null = null; // Ensure this starts as null
   goals = [
-    { name: 'New York Trip', contributionLabel: 'Monthly Contribution', monthlyContribution: 100, nextPaymentDue: new Date('2024-12-01'), progress: 50 },
-    { name: 'Buying Mechanical Keyboard', contributionLabel: 'Monthly Contribution', monthlyContribution: 50, nextPaymentDue: new Date('2024-10-30'), progress: 75 }
+    {
+      name: 'New York Trip',
+      contributionLabel: 'Monthly Contribution',
+      monthlyContribution: 100,
+      nextPaymentDue: new Date('2024-12-01'), progress: 50,
+      isPaymentModalOpen: false,
+      paymentAmount: null,
+      totalCost: 2000,
+    },
+    {
+      name: 'Buying Mechanical Keyboard',
+      contributionLabel: 'Monthly Contribution',
+      monthlyContribution: 50,
+      nextPaymentDue: new Date('2024-10-30'),
+      progress: 75,
+      isPaymentModalOpen: false,
+      paymentAmount: null,
+      totalCost: 200
+    }
   ];
 
   isCreateGoalModalOpen: boolean = false;
+  isPaymentModalOpen: boolean = false;
   goalTitle: string = '';
   totalCost: number | null = null;
   startDate: string = '';
   endDate: string = '';
-  paymentSchedule: string = ''; // Empty default to match the "Select Payment Plan" option
+  paymentSchedule: string = '';
   estimatedContribution: number | null = null;
 
-  // New property to track which goal is being considered for removal
+  goalToAddPayment: number | null = null;
+  paymentAmount: number | null = null;
+
   goalToRemove: number | null = null;
 
   ngOnInit(): void {
-    // Load goals from local storage on component initialization
     const savedGoals = localStorage.getItem('userGoals');
     if (savedGoals) {
       this.goals = JSON.parse(savedGoals);
     }
+    this.addPaymentModal = this.goals[0];
   }
 
-  // Function to open the modal
   openCreateGoalModal(): void {
     this.isCreateGoalModalOpen = true;
   }
@@ -46,7 +103,6 @@ export class GoalsComponent {
     this.router.navigate(['/overview']);
   }
 
-  // Current date in the required format (yyyy-MM-dd)
   currentDate: string = new Date().toISOString().split('T')[0];
 
   getContributionLabel(paymentSchedule: string): string {
@@ -63,19 +119,10 @@ export class GoalsComponent {
   }
 
   calculateEstimatedContribution(): void {
-    console.log('Calculating Estimated Contribution...');
-    console.log('Total Cost:', this.totalCost);
-    console.log('Start Date:', this.startDate);
-    console.log('End Date:', this.endDate);
-    console.log('Payment Schedule:', this.paymentSchedule);
-
     if (this.totalCost && this.startDate && this.endDate && this.paymentSchedule) {
       const start = new Date(this.startDate);
       const end = new Date(this.endDate);
-
-      // Calculate the total months between start and end dates
       const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
-      console.log('Total Months:', totalMonths);
 
       if (totalMonths <= 0) {
         this.estimatedContribution = null;
@@ -83,14 +130,12 @@ export class GoalsComponent {
       }
 
       let totalPayments: number;
-
-      // Determine number of payments based on the schedule
       switch (this.paymentSchedule) {
         case 'weekly':
-          totalPayments = totalMonths * 4; // Assume 4 weeks per month
+          totalPayments = totalMonths * 4;
           break;
         case 'biweekly':
-          totalPayments = totalMonths * 2; // Assume 2 biweekly periods per month
+          totalPayments = totalMonths * 2;
           break;
         case 'monthly':
           totalPayments = totalMonths;
@@ -99,31 +144,26 @@ export class GoalsComponent {
           totalPayments = totalMonths;
       }
 
-      // Calculate estimated contribution per payment period
       this.estimatedContribution = this.totalCost / totalPayments;
     } else {
       this.estimatedContribution = null;
     }
   }
 
-
-
   submitGoal(): void {
-    // Check if the total cost is a valid positive number
     if (this.totalCost !== null && this.totalCost < 0) {
       console.log("Total cost cannot be a negative number.");
       alert("Total cost cannot be a negative number.");
       return; // Exit if total cost is negative
+
     }
 
-    // Check if all other fields are properly filled out
     if (!this.goalTitle || !this.totalCost || !this.startDate || !this.endDate || !this.paymentSchedule) {
       console.log("Form submission failed: Please fill out all the fields.");
       alert("Please fill out all the fields.");
-      return; // Exit if the form is not complete
+      return;
     }
 
-    // Calculate estimated contribution
     this.calculateEstimatedContribution();
 
     if (this.estimatedContribution === null) {
@@ -132,41 +172,30 @@ export class GoalsComponent {
       return;
     }
 
-    // Prepare the new goal object
     const newGoal = {
       name: this.goalTitle,
       contributionLabel: this.getContributionLabel(this.paymentSchedule),
-      monthlyContribution: this.estimatedContribution ?? 0, // Ensure a valid number is set
+      monthlyContribution: this.estimatedContribution ?? 0,
       nextPaymentDue: this.calculateNextPaymentDate(),
-      progress: 0 // Default progress
+      progress: 0,
+      isPaymentModalOpen: false,  // Set the default state for the modal
+      paymentAmount: null,
+      totalCost: this.totalCost
     };
 
-    // Log the new goal object
-    console.log('New Goal:', newGoal);
-
-    // Add the new goal to the goals list
     this.goals.push(newGoal);
-
-    // Save goals to local storage
     localStorage.setItem('userGoals', JSON.stringify(this.goals));
-
-    // Reset the form and close the modal
     this.resetForm();
     this.closeCreateGoalModal();
-    console.log("Goal submitted and modal closed.");
 
     this.rewardsService.addPoints(100);
     alert('You earned 100 points!');
   }
 
   closeCreateGoalModal(): void {
-    console.log("Closing Create Goal Modal");
     this.isCreateGoalModalOpen = false;
   }
 
-
-
-  // Helper method to calculate the next payment due date (assuming a simple logic for demonstration)
   calculateNextPaymentDate(): Date {
     const start = new Date(this.startDate);
     switch (this.paymentSchedule) {
@@ -181,7 +210,6 @@ export class GoalsComponent {
     }
   }
 
-  // Helper method to reset the form fields after submission
   resetForm(): void {
     this.goalTitle = '';
     this.totalCost = null;
@@ -191,24 +219,49 @@ export class GoalsComponent {
     this.estimatedContribution = null;
   }
 
-  // Prompt the user for confirmation to remove a goal
   promptRemoveGoal(index: number): void {
     console.log(`Prompting removal for goal at index: ${index}`);
     this.goalToRemove = index;
   }
 
-  // Confirm removal of the selected goal
   confirmRemoveGoal(index: number): void {
     console.log(`Confirming removal for goal at index: ${index}`);
     this.goals.splice(index, 1); // Remove the goal from the array
     localStorage.setItem('userGoals', JSON.stringify(this.goals)); // Update local storage
     this.goalToRemove = null; // Reset the prompt
+    // this.goals.splice(index, 1);
+    localStorage.setItem('userGoals', JSON.stringify(this.goals));
+    this.goalToRemove = null;
   }
 
-  // Cancel the removal prompt
   cancelRemoveGoal(): void {
     console.log("Removal prompt cancelled.");
     this.goalToRemove = null;
   }
 
+  openAddPaymentModal(goal: any): void {
+    goal.isPaymentModalOpen = true;
+  }
+
+  closeAddPaymentModal(goal: any): void {
+    goal.isPaymentModalOpen = false;
+  }
+  promptAddPayment(index: number): void {
+    this.goalToAddPayment = index;
+    this.paymentAmount = null;
+  }
+
+  confirmAddPayment(): void {
+    if (this.goalToAddPayment !== null && this.paymentAmount !== null) {
+      this.goals[this.goalToAddPayment].progress += this.paymentAmount;
+      localStorage.setItem('userGoals', JSON.stringify(this.goals));
+      this.goalToAddPayment = null;
+      this.paymentAmount = null;
+    }
+  }
+
+  cancelAddPayment(): void {
+    this.goalToAddPayment = null;
+    this.paymentAmount = null;
+  }
 }
