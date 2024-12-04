@@ -8,8 +8,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-login',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './CreateAccount.component.html',
-  styleUrl: './CreateAccount.component.css'
+  templateUrl: './createaccount.component.html',
+  styleUrl: './createaccount.component.css'
 })
 export class CreateAccountComponent {
   email: string = '';
