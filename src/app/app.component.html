@@ -1,5 +1,5 @@
-<div class="header-buttons">
-  <button class="open-btn" (click)="toggleSidebar()" *ngIf="!isLoginPage">&#9776;</button>
+<div class="header-buttons" *ngIf="!isLoginPage">
+  <button class="open-btn" (click)="toggleSidebar()">&#9776;</button>
   <div class="page-title">{{pageTitle}}</div>
   <button class="home-btn" style="padding-right: 20px" (click)="navigateToHome()">&#8962;</button>
 </div>
