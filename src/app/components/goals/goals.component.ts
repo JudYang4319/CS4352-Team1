@@ -92,7 +92,11 @@ export class GoalsComponent {
     if (savedGoals) {
       this.goals = JSON.parse(savedGoals);
     }
-    this.addPaymentModal = this.goals[0];
+
+    // Forcefully close payment modals for all goals
+    this.goals.forEach(goal => goal.isPaymentModalOpen = false);
+
+    this.addPaymentModal = this.goals[0]; // Optional initialization
   }
 
   openCreateGoalModal(): void {
