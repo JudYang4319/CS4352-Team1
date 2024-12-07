@@ -37,7 +37,7 @@ class CustomPlan {
   imports: [CommonModule, FormsModule],
   templateUrl: './debt-repayment.component.html',
   styleUrls: ['./debt-repayment.component.css']
-  styleUrls: ['./debt-repayment.component.css']
+  
 })
 export class DebtRepaymentComponent {
   // Tab management
@@ -50,16 +50,6 @@ export class DebtRepaymentComponent {
   // Plan selection
   selectedPlan: string = '';
   
-  // Form fields
-  // Tab management
-  currentTab: string = 'homeTab';
-  homeTab: string = 'homeTab';
-  createPlanTab: string = 'createPlanTab';
-  formTab: string = 'formTab';
-  plansTab: string = 'plansTab';
-
-  // Plan selection
-  selectedPlan: string = '';
   
   // Form fields
   monthlyPayment: number = 200;
@@ -69,10 +59,10 @@ export class DebtRepaymentComponent {
   limit: number = 5000;
   amount: number = 0;
   deadline: Date | null = null;
-  deadline: Date | null = null;
+  
   occurrence: string = "";
   customPlans: CustomPlan[] = [];
-  customPlans: CustomPlan[] = [];
+  
   categories = [
     'Food',
     'Entertainment',
@@ -88,21 +78,21 @@ export class DebtRepaymentComponent {
   isCustomCategory: boolean = false;
   minDate: string;
 
-  constructor(private rewardsService: RewardsService) {
 
   constructor(private rewardsService: RewardsService) {
     const today = new Date();
     this.minDate = today.toISOString().split('T')[0];
   }
 
-  // Tab navigation methods
-  viewPlans(): void {
+  
 
   // Tab navigation methods
   viewPlans(): void {
     this.currentTab = this.createPlanTab;
   }
 
+
+  
   createPlanClick(): void {
     this.currentTab = this.formTab;
   }
@@ -110,69 +100,16 @@ export class DebtRepaymentComponent {
   customClick(planType: string): void {
     this.selectedPlan = planType;
     this.currentTab = this.formTab;
-  createPlanClick(): void {
-    this.currentTab = this.formTab;
   }
 
-  customClick(planType: string): void {
-    this.selectedPlan = planType;
-    this.currentTab = this.formTab;
-  }
-
-  backToStart(): void {
   backToStart(): void {
     this.currentTab = this.homeTab;
   }
 
   onCategoryChange() {
     this.isCustomCategory = this.category === 'Custom';
-  onCategoryChange() {
-    this.isCustomCategory = this.category === 'Custom';
   }
 
-  submitPlan(): void {
-    // Validate that all required fields are filled
-    if (!this.monthlyPayment || this.monthlyPayment < 0) {
-        console.log("Invalid monthly payment.");
-        alert("Please enter a valid monthly payment.");
-        return;
-    }
-
-    if (!this.expectedBonus || this.expectedBonus < 0) {
-        console.log("Invalid expected bonus.");
-        alert("Please enter a valid expected bonus.");
-        return;
-    }
-
-    if (!this.category && !this.customCategory) {
-        console.log("Category is required.");
-        alert("Please select or enter a category.");
-        return;
-    }
-
-    if (!this.limit || this.limit < 0) {
-        console.log("Invalid limit.");
-        alert("Please enter a valid limit.");
-        return;
-    }
-
-    if (!this.amount || this.amount < 0) {
-        console.log("Invalid amount.");
-        alert("Please enter a valid amount.");
-        return;
-    }
-
-    if (!this.deadline) {
-        console.log("Deadline is required.");
-        alert("Please select a deadline.");
-        return;
-    }
-
-    if (!this.occurrence) {
-        console.log("Occurrence is required.");
-        alert("Please select an occurrence.");
-        return;
-    }
 
     // Proceed with creating the plan if all validations pass
   submitPlan(): void {
@@ -228,13 +165,6 @@ export class DebtRepaymentComponent {
         this.amount,
         this.deadline,
         this.occurrence
-        this.monthlyPayment,
-        this.expectedBonus,
-        this.isCustomCategory ? this.customCategory : this.category,
-        this.limit,
-        this.amount,
-        this.deadline,
-        this.occurrence
     );
 
 
@@ -244,6 +174,7 @@ export class DebtRepaymentComponent {
     this.rewardsService.addPoints(100);
     alert('You earned 100 points!');
   }
+
   resetForm(): void {
     this.monthlyPayment = 200;
     this.expectedBonus = 1000;
