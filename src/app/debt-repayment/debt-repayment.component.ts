@@ -154,13 +154,6 @@ export class DebtRepaymentComponent {
         this.amount,
         this.deadline,
         this.occurrence
-        this.monthlyPayment,
-        this.expectedBonus,
-        this.isCustomCategory ? this.customCategory : this.category,
-        this.limit,
-        this.amount,
-        this.deadline,
-        this.occurrence
     );
 
     this.customPlans.push(plan);
