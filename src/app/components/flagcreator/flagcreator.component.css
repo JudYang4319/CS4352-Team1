@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    
     background-color: #ffffff;
 }
 
@@ -22,6 +22,7 @@ body {
 /* Section Styles */
 .section {
     width: 100%;
+    height: 100%;
     background-color: white;
     border-radius: 0px;
     padding: 15px;
@@ -34,8 +35,8 @@ body {
     height: 90px;
 }
 .color-section {
-    padding-bottom: 10%;
-    padding-top: 1%;
+    padding-bottom: 0%;
+    padding-top: 0%;
 }
 /* Tab Button Styles */
 .tab-buttons {
@@ -60,7 +61,7 @@ body {
 .icon-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 15px;
     margin-top: 0px;
 }
 
@@ -103,13 +104,13 @@ h1 {
 }
 
 .color-picker-container {
-    padding-bottom: 10%;
+    /* padding-bottom: 10%; */
     width: 100%;
     height: 100px;
 }
 .color-picker-container input {
-    width: 90%;
-    height: 200px;
+    width: 100%;
+    height: 100%;
 }
 .guild-button {
     background-color: white;
@@ -143,7 +144,7 @@ h1 {
     display: flex;
     width: 100%;
     gap: 30px;
-    padding-top: 10px;
+    padding-top: 20px;
     justify-content: center;
 
     
@@ -151,8 +152,8 @@ h1 {
 }
 
 .color-options span {
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
 
     
@@ -204,6 +205,8 @@ h1 {
     margin-top: 0%;
 
 }
+
+
 
 .back-btn, .save-btn {
     width: calc(50% - 10px);

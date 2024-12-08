@@ -124,15 +124,15 @@ h1 {
 
 /* Footer */
 .footer {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
 .back-btn {
-    width: 100%;
-    max-width: 300px;
-    padding: 10px;
+    width: auto;
+    padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
     background-color: #e0e0e0;

@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { FlagService } from '../services/flag.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,7 +13,7 @@ export class SidebarComponent {
   @Output() closeSidebar = new EventEmitter<void>();
   isLoginPage: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private flagService: FlagService) {
     this.router.events.subscribe(() => {
       this.isLoginPage = this.router.url === '/login' || this.router.url === '/signup'; // Check for both login and signup
     });
@@ -66,7 +67,11 @@ export class SidebarComponent {
   }
   navigateToViewGuild() {
     this.toggleSidebar(); // Close the sidebar
-    this.router.navigate(['/viewguild']); // Navigate to the view guild component
+    if (this.flagService.getGuildName()) {
+      this.router.navigate(['/viewguild']); // Navigate to the view guild component
+    } else {
+      alert('Please join or create a guild first.');
+    }
   }
   navigateToMyFriends(){
     this.toggleSidebar();

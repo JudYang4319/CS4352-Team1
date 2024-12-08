@@ -1,23 +1,61 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { FlagService } from '../../services/flag.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './create.component.html',
   styleUrl: './create.component.css'
 })
 export class CreateComponent {
-  constructor(private router: Router) {}
+  @ViewChild('guildNameInput') guildNameInput!: ElementRef;
+
+  selectedColor: string | null = null;
+  selectedFlag: string | null = null;
+  selectedIconId: number | null = null;
+
+  constructor(private router: Router, private flagService: FlagService) {}
+
+  selectFlag(flag: string) {
+    this.selectedFlag = flag;
+    this.selectedIconId = this.getIconIdFromFlag(flag);
+    this.flagService.setFlag(null, this.selectedIconId);
+    console.log(`Selected Flag: ${flag}`);
+  }
+
+  getIconIdFromFlag(flag: string): number | null {
+    switch (flag) {
+        case 'green': return 10;
+        case 'blue': return 11;
+        case 'pink': return 12;
+        default: return null;
+    }
+  }
+
   goBack() {
     this.router.navigate(['/overview']);
   }
+
   goToCustomize() {
     this.router.navigate(['/flagcreator']);
   }
-  saveGuild() {
-    window.alert("Please create a custom flag");
+
+  goToViewGuild(){
+    this.router.navigate(['/viewguild'])
   }
 
+  saveGuild() {
+    if (!this.selectedIconId) {
+      window.alert("Please select a flag");
+      return;
+    }
+    const guildName = this.guildNameInput.nativeElement.value;
+    this.flagService.setGuildName(guildName);
+    window.alert("Flag saved successfully");
+    this.goToViewGuild();
+  }
 }

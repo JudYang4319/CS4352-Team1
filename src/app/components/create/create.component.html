@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"> 
     <title>Guild Creation</title>
     <link rel="stylesheet" href="./create.component.css">
 </head>
@@ -13,34 +13,50 @@
 
 
         <!-- Guild Creation Form -->
-        <div class="guild-form" >
+        <div class="guild-form">
             <h2>Create/Edit New Guild</h2>
             <input type="text" placeholder="Enter Guild Name" class="guild-name-input" required #guildNameInput>
 
             <!-- Choose Guild Flag -->
             <h3>Choose Guild Flag</h3>
             <div class="flag-options">
-                <img src="/images/greenflag.PNG" alt="Green Flag" class="flag" >
-                <img src="/images/blueflag.PNG" alt="Blue Flag" class="flag">
-                <img src="/images/pinkflag.PNG" alt="Pink Flag" class="flag">
+                <button (click)="selectFlag('green')" [ngClass]="{'selected': selectedIconId === 10}">
+                    <img src="/images/greenflag.PNG" alt="Green Flag" class="flag">
+                </button>
+                <button (click)="selectFlag('blue')" [ngClass]="{'selected': selectedIconId === 11}">
+                    <img src="/images/blueflag.PNG" alt="Blue Flag" class="flag">
+                </button>
+                <button (click)="selectFlag('pink')" [ngClass]="{'selected': selectedIconId === 12}">
+                    <img src="/images/pinkflag.PNG" alt="Pink Flag" class="flag">
+                </button>
+
+                <!-- <button class="icon" (click)="selectIcon(1)" [ngClass]="{'selected': selectedIconId === 1}" [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                    <img src="/images/iconart/image.png" alt="Icon 1">
+                </button> -->
             </div>
 
             <!-- Customize Flag Button -->
             <button class="customize-btn" (click)="goToCustomize()">Customize Flag</button>
-<div class="footer">
-            <!-- Privacy Options -->
-            <div class="privacy-options" >
-                <label><input type="radio" name="privacy" value="private" required> Private</label>
-                <label><input type="radio" name="privacy" value="public" required> Public</label>
-            </div>
 
-            <!-- Action Buttons -->
-            
+            <div class="bottom">
+                <div class="privacy-options">
+                    <label><input type="radio" name="privacy" value="private" required> Private</label>
+                    <label><input type="radio" name="privacy" value="public" required> Public</label>
+                </div>
+
+                <!-- Action Buttons -->
+
                 <div class="action-buttons">
                     <button class="back-btn" (click)="goBack()">Back</button>
                     <button class="save-btn" (click)="saveGuild()">Save</button>
                 </div>
+
             </div>
+
+            <!-- <div class="footer">
+
+                
+            </div> -->
 
         </div>
     </div>

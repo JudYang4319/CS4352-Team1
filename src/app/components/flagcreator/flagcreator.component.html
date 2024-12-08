@@ -1,102 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
+    <!-- Icon Selection Section -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Icon Selector</title>
-    <link rel="stylesheet" href="./flagcreator.component.css">
-</head>
-
-<body>
-
-    <div class="container">
-        <!-- Icon Selection Section -->
-
-        <div class="section">
-            <h1 style="text-align: center;">Flag Creator</h1>
-            
-            <div class="action-buttons top">
-                <button class="guild-button" (click)="showIcons = true">Show Icons</button>
-                <button class="guild-button" (click)="showIcons = false">Show Colors</button>
-            </div>
-
-            <div *ngIf="showIcons" class="icon-section-content">
-                <h2>Select an Icon</h2>
-                <div class="icon-grid" style="padding-bottom: 60%;">
-                    <button class="icon" (click)="selectIcon(1)" [ngClass]="{'selected': selectedIconId === 1}" [style.filter]="'hue-rotate(' + selectedColor + ')'">
-                        <img src="/images/iconart/image.png" alt="Icon 1">
-                    </button>
-                    <button class="icon" (click)="selectIcon(2)" [ngClass]="{'selected': selectedIconId === 2}" [style.filter]="'hue-rotate(' + selectedColor + ')'">
-                        <img src="/images/iconart/image2.png" alt="Icon 2">
-                    </button>
-                    <button class="icon" (click)="selectIcon(3)" [ngClass]="{'selected': selectedIconId === 3}" [style.filter]="'hue-rotate(' + selectedColor + ')'">
-                        <img src="/images/iconart/image3.png" alt="Icon 3">
-                    </button>
-                    <button class="icon" (click)="selectIcon(4)" [style.filter]="'hue-rotate(' + selectedColor + ')'">
-                        <img src="/images/iconart/image4.png" alt="Icon 4">
-                    </button>
-                    <button class="icon" (click)="selectIcon(5)" [style.filter]="'hue-rotate(' + selectedColor + ')'">
-                        <img src="/images/iconart/image5.png" alt="Icon 5">
-                    </button>
-                    <button class="icon" (click)="selectIcon(6)" [style.filter]="'hue-rotate(' + selectedColor + ')'">
-                        <img src="/images/iconart/image6.png" alt="Icon 6">
-                    </button>
-                    <button class="icon" (click)="selectIcon(7)" [style.filter]="'hue-rotate(' + selectedColor + ')'">
-                        <img src="/images/iconart/image7.png" alt="Icon 7">
-                    </button>
-                    <button class="icon" (click)="selectIcon(8)" [style.filter]="'hue-rotate(' + selectedColor + ')'">
-                        <img src="/images/iconart/image8.png" alt="Icon 8">
-                    </button>
-                    <button class="icon" (click)="selectIcon(9)" [style.filter]="'hue-rotate(' + selectedColor + ')'">
-                        <img src="/images/iconart/image9.png" alt="Icon 9">
-                    </button>
-                </div>
-                <div class="action-buttons colors">
-                    <button class="back-btn" (click)="goBack()">Back</button>
-                    <button class="save-btn" (click)="saveFlag()">Save</button>
-                </div>
-            </div>
-
-            <div *ngIf="!showIcons" class="color-section-container">
-                <div class="color-section">
-                    <h2>Select a Color</h2>
-                    <div class="color-picker-container" style="padding-bottom: 50%;">
-                        <input [(colorPicker)]="selectedColor" [style.background]="selectedColor"
-                            class="color-picker" />
-                    </div>
-                    <div class="opacity-slider"style="padding-bottom: 20%;">
-                        <label>Opacity</label>
-                        <input type="range" min="0" max="100" [(ngModel)]="opacityValue">
-                        <span>{{ opacityValue }}</span>
-                    </div>
-
-                    <div class="color-palette">
-                        <!-- <div class="color-swatch" [style.background]="selectedColor"></div> -->
-                        <div class="color-options">
-                            <span style="background-color: black;" (click)="selectColor('#000000')"></span>
-                            <span style="background-color: blue;" (click)="selectColor('#0000FF')"></span>
-                            <span style="background-color: green;" (click)="selectColor('#008000')"></span>
-                            <span style="background-color: yellow;" (click)="selectColor('#FFFF00')"></span>
-                            <span style="background-color: red;" (click)="selectColor('#FF0000')"></span>
-                            <!-- Add more colors as needed -->
-                        </div>
-                    </div>
-                </div>
-                <div class="action-buttons">
-                    <button class="back-btn" (click)="goBack()">Back</button>
-                    <button class="save-btn" (click)="saveFlag()">Save</button>
-                </div>
-            </div>
-            
+    <div class="section">
+        <div class="action-buttons top">
+            <button class="guild-button" (click)="showIcons = true">Show Icons</button>
+            <button class="guild-button" (click)="showIcons = false">Show Colors</button>
         </div>
 
-        <!-- Color Selection Section -->
+        <div *ngIf="showIcons" class="icon-section-content">
+            <h2>Select an Icon</h2>
+            <div class="icon-grid" style="padding-bottom: 60%;">
+                <button class="icon" (click)="selectIcon(1)" [ngClass]="{'selected': selectedIconId === 1}"
+                    [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                    <img src="/images/iconart/image.png" alt="Icon 1">
+                </button>
+                <button class="icon" (click)="selectIcon(2)" [ngClass]="{'selected': selectedIconId === 2}"
+                    [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                    <img src="/images/iconart/image2.png" alt="Icon 2">
+                </button>
+                <button class="icon" (click)="selectIcon(3)" [ngClass]="{'selected': selectedIconId === 3}"
+                    [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                    <img src="/images/iconart/image3.png" alt="Icon 3">
+                </button>
+                <button class="icon" (click)="selectIcon(4)" [ngClass]="{'selected': selectedIconId === 4}"
+                    [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                    <img src="/images/iconart/image4.png" alt="Icon 4">
+                </button>
+                <button class="icon" (click)="selectIcon(5)" [ngClass]="{'selected': selectedIconId === 5}"
+                    [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                    <img src="/images/iconart/image5.png" alt="Icon 5">
+                </button>
+                <button class="icon" (click)="selectIcon(6)" [ngClass]="{'selected': selectedIconId === 6}"
+                    [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                    <img src="/images/iconart/image6.png" alt="Icon 6">
+                </button>
+                <button class="icon" (click)="selectIcon(7)" [ngClass]="{'selected': selectedIconId === 7}"
+                    [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                    <img src="/images/iconart/image7.png" alt="Icon 7">
+                </button>
+                <button class="icon" (click)="selectIcon(8)" [ngClass]="{'selected': selectedIconId === 8}"
+                    [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                    <img src="/images/iconart/image8.png" alt="Icon 8">
+                </button>
+                <button class="icon" (click)="selectIcon(9)" [ngClass]="{'selected': selectedIconId === 9}"
+                    [style.filter]="'hue-rotate(' + selectedColor + ')'">
+                    <img src="/images/iconart/image9.png" alt="Icon 9">
+                </button>
+            </div>
+            <div class="action-buttons colors">
+                <button class="back-btn" (click)="goBack()">Back</button>
+                <button class="save-btn" (click)="saveFlag()">Save</button>
+            </div>
+        </div>
 
+        <div *ngIf="!showIcons" class="color-section-container">
+            <div class="color-section">
+                <h2>Select a Color</h2>
+                <div class="color-palette">
+                    <div class="color-options"> <span style="background-color: black;"
+                            (click)="selectColor('#000000')"></span>
+                        <span style="background-color: blue;" (click)="selectColor('#0000FF')"></span>
+                        <span style="background-color: green;" (click)="selectColor('#008000')"></span>
+                        <span style="background-color: yellow;" (click)="selectColor('#FFFF00')"></span>
+                        <span style="background-color: red;" (click)="selectColor('#FF0000')"></span>
+                    </div>
+                </div>
+                <div class="color-palette">
+                    <div class="color-options">
+                        <span style="background-color: #e52165;" (click)="selectColor('#e52165')"></span>
+                        <span style="background-color: #0d1137;" (click)="selectColor('#0d1137')"></span>
+                        <span style="background-color: #d72631;" (click)="selectColor('#d72631')"></span>
+                        <span style="background-color: #a2d5c6;" (click)="selectColor('#a2d5c6')"></span>
+                        <span style="background-color: #077b8a;" (click)="selectColor('#077b8a')"></span>
+                    </div>
+                </div>
+                <div class="color-palette">
+                    <div class="color-options">
+                        <span style="background-color: #cf1578;" (click)="selectColor('#cf1578')"></span>
+                        <span style="background-color: #e8d21d;" (click)="selectColor('#e8d21d')"></span>
+                        <span style="background-color: #039fbe;" (click)="selectColor('#039fbe')"></span>
+                        <span style="background-color: #b20238;" (click)="selectColor('#b20238')"></span>
+                        <span style="background-color: #e75874;" (click)="selectColor('#e75874')"></span>
+                    </div>
+                </div>
+                <div class="color-palette">
+                    <div class="color-options">
+                        <span style="background-color: #8a307f;" (click)="selectColor('#8a307f')"></span>
+                        <span style="background-color: #79a7d3;" (click)="selectColor('#79a7d3')"></span>
+                        <span style="background-color: #6883bc;" (click)="selectColor('#6883bc')"></span>
+                        <span style="background-color: #1d3c45;" (click)="selectColor('#1d3c45')"></span>
+                        <span style="background-color: #d2601a;" (click)="selectColor('#d2601a')"></span>
+                    </div>
+                </div>
+                <div class="color-palette">
+                    <div class="color-options">
+                        <span style="background-color: #aed6dc;" (click)="selectColor('#aed6dc')"></span>
+                        <span style="background-color: #ff9a8d;" (click)="selectColor('#ff9a8d')"></span>
+                        <span style="background-color: #4a536b;" (click)="selectColor('#4a536b')"></span>
+                        <span style="background-color: #da68a0;" (click)="selectColor('#da68a0')"></span>
+                        <span style="background-color: #77c593;" (click)="selectColor('#77c593')"></span>
+                    </div>
+                </div>
+                <div class="color-palette">
+                    <div class="color-options">
+                        <span style="background-color: #316879;" (click)="selectColor('#316879')"></span>
+                        <span style="background-color: #f47a60;" (click)="selectColor('#f47a60')"></span>
+                        <span style="background-color: #7fe7dc;" (click)="selectColor('#7fe7dc')"></span>
+                        <span style="background-color: #ced7d8;" (click)="selectColor('#ced7d8')"></span>
+                        <span style="background-color: #d902ee;" (click)="selectColor('#d902ee')"></span>
+                    </div>
+                </div>
+                <div class="color-palette">
+                    <div class="color-options">
+                        <span style="background-color: #ffcce7;" (click)="selectColor('#ffcce7')"></span>
+                        <span style="background-color: #daf2dc;" (click)="selectColor('#daf2dc')"></span>
+                        <span style="background-color: #81b7d2;" (click)="selectColor('#81b7d2')"></span>
+                        <span style="background-color: #4d5198;" (click)="selectColor('#4d5198')"></span>
+                        <span style="background-color: #ddc3a5;" (click)="selectColor('#ddc3a5')"></span>
+                    </div>
+                </div>
+                <div class = "footer">
+                    <div class="action-buttons bot" style="padding-top:40px">
+                        <button class="back-btn" (click)="goBack()">Back</button>
+                        <button class="save-btn" (click)="saveFlag()">Save</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
     </div>
-    <script src="script.js"></script>
-</body>
-
-</html>
+</div>

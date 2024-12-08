@@ -4,7 +4,7 @@ import { GoalsComponent } from './components/goals/goals.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NewsComponent } from './news/news.component';
 import { LoginComponent } from './components/login/login.component';
-import { AuthGuard } from './guards/auth.guard';
+
 import { GlossaryComponent } from './glossary/glossary.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
@@ -29,7 +29,7 @@ export const routes: Routes = [
   { path: 'debt-repayment', component: DebtRepaymentComponent, data: { title: 'Debt Repayment' } },
   { path: 'profile', component: SettingsComponent, data: { title: 'Profile' } },
   { path: 'transactions', component: TransactionsComponent, data: { title: 'Transactions' } },
-  { path: 'friends', component: FriendlistComponent, data: { title: 'Friends' } },
+  { path: 'friends', component: FriendlistComponent, data: { title: 'Friend Find' } },
   { path: 'login', component: LoginComponent, data: { title: 'Login' } },
   { path: 'guildstart', component: GuildstartComponent, data: { title: 'Guild Start' } },
   { path: 'create', component: CreateComponent, data: { title: 'Create' } },

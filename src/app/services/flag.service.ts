@@ -6,9 +6,10 @@ import { Injectable } from '@angular/core';
 export class FlagService {
   private color: string | null = null;
   private iconId: number | null = null;
+  private guildName: string | null = null;
 
-  setFlag(color: string, iconId: number) {
-    this.color = color;
+  setFlag(color: string | null, iconId: number | null) {
+    this.color = color || '#FFFFFF';
     this.iconId = iconId;
   }
 
@@ -19,5 +20,14 @@ export class FlagService {
   clearFlag() {
     this.color = null;
     this.iconId = null;
+    this.guildName = null;
+  }
+
+  setGuildName(name: string | null) {
+    this.guildName = name;
+  }
+
+  getGuildName() {
+    return this.guildName;
   }
 }
