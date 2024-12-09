@@ -18,7 +18,11 @@ export class CreateComponent {
   selectedFlag: string | null = null;
   selectedIconId: number | null = null;
 
-  constructor(private router: Router, private flagService: FlagService) {}
+  constructor(private router: Router, private flagService: FlagService) {
+    const flag = this.flagService.getFlag();
+    this.selectedColor = flag.color;
+    this.selectedIconId = flag.iconId;
+  }
 
   selectFlag(flag: string) {
     this.selectedFlag = flag;
