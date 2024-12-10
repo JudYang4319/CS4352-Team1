@@ -4,6 +4,7 @@ import { Chart, ChartConfiguration, ChartData, ChartType, registerables } from '
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RewardsService } from '../../rewards/rewards.service';
+import { TransactionService } from '../../services/transaction.service';
 Chart.register(...registerables);
 
 // For Daily Question
@@ -26,8 +27,15 @@ export class OverviewComponent implements OnInit, AfterViewInit {
   chart: Chart | undefined;
   isQuizOpen: boolean = false;
   isAnswered: boolean = false; // Tracks if the question has been answered
+  expenses: any[];
+  expensePercentage: any[];
 
-  constructor(private rewardsService: RewardsService) {}
+  constructor(private rewardsService: RewardsService, private transactionService: TransactionService) {
+    this.expenses = transactionService.getAllExpenses();
+    const totalAmount = this.expenses.reduce((sum, element) => sum + element.amount, 0);
+    this.expensePercentage = this.expenses.map(expense => Math.round((expense.amount / totalAmount) * 100));
+    //console.log(this.expensePercentage);
+  }
 
   // Array of questions
   questions: Question[] = [
@@ -149,20 +157,42 @@ export class OverviewComponent implements OnInit, AfterViewInit {
         const ctx = this.chartRef.nativeElement.getContext('2d');
         if (ctx) {
             const data: ChartData = {
-                labels: ['Rent', 'Student Loans', 'Food', 'Entertainment'],
+               labels: this.expenses.map(expense => expense.category),
                 datasets: [{
-                    data: [25, 25, 25, 25],
+                    data: this.expensePercentage,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.8)',
-                        'rgba(54, 162, 235, 0.8)',
-                        'rgba(255, 206, 86, 0.8)',
-                        'rgba(75, 192, 192, 0.8)'
+                      'rgba(255, 99, 132, 0.8)',  // red
+                      'rgba(54, 162, 235, 0.8)',  // blue
+                      'rgba(255, 206, 86, 0.8)',  // yellow
+                      'rgba(75, 192, 192, 0.8)',  // green
+                      'rgba(153, 102, 255, 0.8)', // purple
+                      'rgba(255, 159, 64, 0.8)',  // orange
+                      'rgba(255, 99, 71, 0.8)',   // tomato red
+                      'rgba(0, 255, 255, 0.8)',   // cyan
+                      'rgba(255, 165, 0, 0.8)',   // orange
+                      'rgba(34, 193, 195, 0.8)',  // turquoise
+                      'rgba(253, 29, 29, 0.8)',   // red
+                      'rgba(102, 51, 153, 0.8)',  // violet
+                      'rgba(0, 204, 255, 0.8)',   // sky blue
+                      'rgba(255, 99, 255, 0.8)',  // pink
+                      'rgba(34, 193, 195, 0.8)'   // teal
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)'
+                      'rgba(255, 99, 132, 1)',  // red
+                      'rgba(54, 162, 235, 1)',  // blue
+                      'rgba(255, 206, 86, 1)',  // yellow
+                      'rgba(75, 192, 192, 1)',  // green
+                      'rgba(153, 102, 255, 1)', // purple
+                      'rgba(255, 159, 64, 1)',  // orange
+                      'rgba(255, 99, 71, 1)',   // tomato red
+                      'rgba(0, 255, 255, 1)',   // cyan
+                      'rgba(255, 165, 0, 1)',   // orange
+                      'rgba(34, 193, 195, 1)',  // turquoise
+                      'rgba(253, 29, 29, 1)',   // red
+                      'rgba(102, 51, 153, 1)',  // violet
+                      'rgba(0, 204, 255, 1)',   // sky blue
+                      'rgba(255, 99, 255, 1)',  // pink
+                      'rgba(34, 193, 195, 1)'   // teal
                     ],
                     borderWidth: 1
                 }]

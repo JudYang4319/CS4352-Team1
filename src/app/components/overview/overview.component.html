@@ -5,15 +5,12 @@
     <i class="home-icon"></i>
   </div> -->
 
-  <h1>October</h1>
+  <h1>December</h1>
   <div class="pie-chart-container">
     <canvas #pieChart></canvas>
   </div>
-  <div class="expenses">
-    <p>25% Rent</p>
-    <p>25% Student Loans</p>
-    <p>25% Food</p>
-    <p>25% Entertainment</p>
+  <div class="expenses" *ngFor="let expense of expenses">
+    <p>${{expense.amount}} {{expense.category}}</p>
   </div>
 
   <!-- Daily Questions -->

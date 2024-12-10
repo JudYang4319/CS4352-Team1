@@ -129,7 +129,7 @@ export class DebtRepaymentComponent {
 
     if (!this.amount || this.amount < 0) {
         console.log("Invalid amount.");
-        alert("Please enter a valid Milestone amount.");
+        alert("Please enter a valid Milestone amount. Must be greater than 0.");
         return;
     }
 
