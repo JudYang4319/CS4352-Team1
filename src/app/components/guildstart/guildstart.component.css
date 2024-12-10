@@ -22,7 +22,7 @@
 }
 
 .guild-start button {
-    background-color: #28a745; /* Green for 'Enter' */
+    background-color: #4CAF50; /* Green for 'Enter' */
     color: white;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .guild-start .back-button {
-    background-color: #dc3545; /* Red for 'Back' */
+    background-color: #ff6b6b; /* Red for 'Back' */
 }
 
 .guild-start .back-button:hover {

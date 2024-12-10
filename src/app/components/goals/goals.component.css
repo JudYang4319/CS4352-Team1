@@ -204,7 +204,7 @@
 
 /* Styling for the Remove Goal Button */
 button.remove-goal-btn {
-    background-color: #ff4d4d;
+    background-color: #ff6b6b;
     /* Light red color for delete action */
     color: white;
     border: none;
@@ -237,7 +237,7 @@ button.remove-goal-btn:hover {
 }
 
 .confirmation-prompt button {
-    background-color: #ff4d4d;
+    background-color: #ff6b6b;
     /* Red for "Yes" */
     color: white;
     border: none;
@@ -300,7 +300,7 @@ button.remove-goal-btn:hover {
 }
 
 .btn-danger {
-    background-color: #dc3545;
+    background-color: #ff6b6b;
     /* Red */
     color: white;
 }

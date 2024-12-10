@@ -33,19 +33,19 @@
 }
 
 .avalanche-button {
-    background-color: #FF789E;
+    background-color: #00BFFF;
 }
 
 .snowball-button {
     background-color: #A557FF;
 }
 
-.custom-button {
-    background-color: #00BFFF;
+.custom-button .submit-button {
+    background-color: #4CAF50;
 }
 
 .back-button {
-    background-color: #4CAF50;
+    background-color: #ff6b6b;
 }
 
 
