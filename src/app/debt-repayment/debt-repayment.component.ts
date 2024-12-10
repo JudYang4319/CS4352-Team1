@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RewardsService } from '../rewards/rewards.service';
+import { PlansService } from '../services/plans.service';
 
 class CustomPlan {
   monthlyPayment: number;
@@ -74,14 +75,15 @@ export class DebtRepaymentComponent {
   isCustomCategory: boolean = false;
   minDate: string;
 
-  constructor(private rewardsService: RewardsService) {
+  constructor(private rewardsService: RewardsService, private planService: PlansService) {
     const today = new Date();
     this.minDate = today.toISOString().split('T')[0];
   }
 
   // Tab navigation methods
   viewPlans(): void {
-    this.currentTab = this.createPlanTab;
+    this.currentTab = this.plansTab;
+    this.customPlans = this.planService.getPlans();
   }
 
   createPlanClick(): void {
@@ -156,11 +158,13 @@ export class DebtRepaymentComponent {
         this.occurrence
     );
 
-    this.customPlans.push(plan);
+    //this.customPlans.push(plan);
     this.resetForm();
     this.rewardsService.addPoints(100);
+    this.planService.addPlan(plan);
     alert('Plan saved. You earned 100 points!');
     
+    this.customPlans = this.planService.getPlans();
     this.currentTab = this.plansTab;
   }
 
