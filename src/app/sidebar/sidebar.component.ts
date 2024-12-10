@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlagService } from '../services/flag.service';
 
@@ -76,6 +76,18 @@ export class SidebarComponent {
   navigateToMyFriends(){
     this.toggleSidebar();
     this.router.navigate(['/myfriends']);
+  }
+
+  // Host Listener to detect clicks outside the sidebar
+  @HostListener('document:click', ['$event']) 
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const sidebarElement = document.querySelector('.sdenav');
+
+    // Check if tapping occurs outside the sidebar and it's open
+    if(this.isOpen && sidebarElement && !sidebarElement.contains(target)) {
+      this.closeSidebar.emit(); // Closses the sidebar if it's tapped outside
+    }
   }
 }
 
