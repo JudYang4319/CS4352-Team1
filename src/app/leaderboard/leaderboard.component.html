@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Find</title>
+    <link rel="stylesheet" href="leaderboard.component.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- <header class="header">
+            <h1>My Friends</h1>
+        </header> -->
+
+        <div class="list-container" style="padding-top: 30px;">
+            <ul class="friend-list">
+                <ng-container *ngFor="let friend of filteredFriends; let i = index">
+                    <li *ngIf="friend.added" class="friend-item">
+                        <button (click)="goToProfile(friend)" class="friend-button">
+                            <span *ngIf="i === 0" class="rank" style="background-color: goldenrod !important;">{{ i + 1 }}</span>
+                            <span *ngIf="i === 1" class="rank" style="background-color: silver !important;">{{ i + 1 }}</span>
+                            <span *ngIf="i === 2" class="rank" style="background-color: rgb(169, 110, 47) !important;">{{ i + 1 }}</span>
+                            <span *ngIf="i > 2" class="rank" style="background-color: white !important;">{{ i + 1 }}</span>
+                            <div class="profile-pic"></div>
+                            <div class="friend-info">
+                                <span class="name">{{ friend.name }}</span>
+                                <span class="points">{{ " " + friend.points }} points</span>
+                            </div>
+                        </button>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+
+        <footer class="footer">
+            <button class="back-btn" (click)="goBack()">Back</button>
+        </footer>
+    </div>
+</body>
+
+</html>

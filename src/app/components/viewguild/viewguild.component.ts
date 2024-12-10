@@ -53,10 +53,8 @@ export class ViewGuildComponent implements OnInit {
     return selectedIcon ? selectedIcon.url : '';
   }
 
-  
-
   goToLeaderboard() {
-    this.router.navigate(['/friends']);
+    this.router.navigate(['/leaderboard']);
   }
 
   editGuildSettings() {
