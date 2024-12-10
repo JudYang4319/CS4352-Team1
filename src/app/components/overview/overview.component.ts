@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RewardsService } from '../../rewards/rewards.service';
 import { TransactionService } from '../../services/transaction.service';
+import { Router } from '@angular/router';
 Chart.register(...registerables);
 
 // For Daily Question
@@ -30,7 +31,7 @@ export class OverviewComponent implements OnInit, AfterViewInit {
   expenses: any[];
   expensePercentage: any[];
 
-  constructor(private rewardsService: RewardsService, private transactionService: TransactionService) {
+  constructor(private router: Router, private rewardsService: RewardsService, private transactionService: TransactionService) {
     this.expenses = transactionService.getAllExpenses();
     const totalAmount = this.expenses.reduce((sum, element) => sum + element.amount, 0);
     this.expensePercentage = this.expenses.map(expense => Math.round((expense.amount / totalAmount) * 100));
@@ -113,6 +114,11 @@ export class OverviewComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.createChart();
+  }
+
+  goToTransactions()
+  {
+    this.router.navigate(['/transactions']);
   }
 
   openQuiz(): void
