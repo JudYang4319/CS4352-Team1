@@ -18,6 +18,7 @@ import { ViewGuildComponent } from './components/viewguild/viewguild.component';
 import { DebtRepaymentComponent } from './debt-repayment/debt-repayment.component';
 import { CreateAccountComponent } from './components/createaccount/createaccount.component';
 import { MyFriendsComponent } from './components/myfriends/myfriends.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 
 export const routes: Routes = [
@@ -39,6 +40,7 @@ export const routes: Routes = [
   { path: 'myfriends', component: MyFriendsComponent, data: { title: 'My Friends' }  },
   { path: 'viewguild', component: ViewGuildComponent, data: { title: 'View Guild' } },
   { path: 'friend-profile/:id', component: FriendProfileComponent, data: { title: 'Friend Profile' } },
+  { path: 'leaderboard', component: LeaderboardComponent, data: { title: 'Leaderboard' } },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' },
 ];
