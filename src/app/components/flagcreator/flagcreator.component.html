@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin: 0 auto;">
     <!-- Icon Selection Section -->
 
     <div class="section">
@@ -56,9 +56,20 @@
         <div *ngIf="!showIcons" class="color-section-container">
             <div class="color-section">
                 <h2>Select a Color</h2>
-                <div class="color-palette">
-                    <div class="color-options"> <span style="background-color: black;"
-                            (click)="selectColor('#000000')"></span>
+                <div *ngFor="let colorGroup of colorGroups">
+                    <div class="color-palette">
+                      <div class="color-options">
+                        <span *ngFor="let color of colorGroup"
+                              [ngStyle]="{'background-color': color}"
+                              (click)="selectColor(color)"
+                              [ngClass]="{'selected': selectedColor === color}">
+                        </span>
+                      </div>
+                    </div>
+                  </div>                  
+                <!-- <div class="color-palette">
+                    <div class="color-options"> 
+                        <span style="background-color: black;" (click)="selectColor('#000000')"></span>
                         <span style="background-color: blue;" (click)="selectColor('#0000FF')"></span>
                         <span style="background-color: green;" (click)="selectColor('#008000')"></span>
                         <span style="background-color: yellow;" (click)="selectColor('#FFFF00')"></span>
@@ -118,7 +129,7 @@
                         <span style="background-color: #4d5198;" (click)="selectColor('#4d5198')"></span>
                         <span style="background-color: #ddc3a5;" (click)="selectColor('#ddc3a5')"></span>
                     </div>
-                </div>
+                </div> -->
                 <div class = "footer">
                     <div class="action-buttons bot" style="padding-top:40px">
                         <button class="back-btn" (click)="goBack()">Back</button>

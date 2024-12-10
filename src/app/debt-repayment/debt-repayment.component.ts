@@ -129,19 +129,19 @@ export class DebtRepaymentComponent {
 
     if (!this.amount || this.amount < 0) {
         console.log("Invalid amount.");
-        alert("Please enter a valid amount.");
+        alert("Please enter a valid Milestone amount.");
         return;
     }
 
     if (!this.deadline) {
         console.log("Deadline is required.");
-        alert("Please select a deadline.");
+        alert("Please select a Milestone deadline.");
         return;
     }
 
     if (!this.occurrence) {
         console.log("Occurrence is required.");
-        alert("Please select an occurrence.");
+        alert("Please select a reminder occurrence for your Milestone.");
         return;
     }
 
@@ -159,7 +159,7 @@ export class DebtRepaymentComponent {
     this.customPlans.push(plan);
     this.resetForm();
     this.rewardsService.addPoints(100);
-    alert('You earned 100 points!');
+    alert('Plan saved. You earned 100 points!');
     
     this.currentTab = this.plansTab;
   }

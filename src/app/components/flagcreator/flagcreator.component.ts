@@ -17,6 +17,16 @@ export class FlagcreatorComponent {
   public showIcons: boolean = true;
   public opacityValue: number = 100;
 
+  colorGroups: string[][] = [
+    ['#000000', '#0000FF', '#008000', '#FFFF00', '#FF0000'],
+    ['#e52165', '#0d1137', '#d72631', '#a2d5c6', '#077b8a'],
+    ['#cf1578', '#e8d21d', '#039fbe', '#b20238', '#e75874'],
+    ['#8a307f', '#79a7d3', '#6883bc', '#1d3c45', '#d2601a'],
+    ['#aed6dc', '#ff9a8d', '#4a536b', '#da68a0', '#77c593'],
+    ['#316879', '#f47a60', '#7fe7dc', '#ced7d8', '#d902ee'],
+    ['#ffcce7', '#daf2dc', '#81b7d2', '#4d5198', '#ddc3a5']
+  ];
+
   constructor(private router: Router, private flagService: FlagService) {}
 
   goBack() {
@@ -25,7 +35,7 @@ export class FlagcreatorComponent {
 
   saveFlag() {
     if (this.selectedIconId === null) {
-      console.error("No icon selected!");
+      alert("No icon selected!");
       return;
     }
 

@@ -20,15 +20,15 @@
             <!-- Choose Guild Flag -->
             <h3>Choose Guild Flag</h3>
             <div class="flag-options">
-                <button (click)="selectFlag('green')" [ngClass]="{'selected': selectedIconId === 10}">
+                <button class="green-flag-btn" (click)="selectFlag('green')" [ngClass]="{'selected': selectedIconId === 10}">
                     <img src="/images/greenflag.PNG" alt="Green Flag" class="flag">
                 </button>
-                <button (click)="selectFlag('blue')" [ngClass]="{'selected': selectedIconId === 11}">
+                <button class="blue-flag-btn" (click)="selectFlag('blue')" [ngClass]="{'selected': selectedIconId === 11}">
                     <img src="/images/blueflag.PNG" alt="Blue Flag" class="flag">
                 </button>
-                <button (click)="selectFlag('pink')" [ngClass]="{'selected': selectedIconId === 12}">
+                <button class="pink-flag-btn" (click)="selectFlag('pink')" [ngClass]="{'selected': selectedIconId === 12}">
                     <img src="/images/pinkflag.PNG" alt="Pink Flag" class="flag">
-                </button>
+                </button>                
 
                 <!-- <button class="icon" (click)="selectIcon(1)" [ngClass]="{'selected': selectedIconId === 1}" [style.filter]="'hue-rotate(' + selectedColor + ')'">
                     <img src="/images/iconart/image.png" alt="Icon 1">
