@@ -32,9 +32,13 @@ body, html {
     margin: 0 auto;
   }
   
-  .expenses {
+.expenses {
     width: 100%;
     text-align: center;
+  }
+
+  .expense {
+    margin-bottom: 5px;
   }
   
   .total-expenses {

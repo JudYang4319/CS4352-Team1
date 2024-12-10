@@ -5,17 +5,16 @@
     <i class="home-icon"></i>
   </div> -->
 
-  <h1>October</h1>
+  <h1>December</h1>
   <div class="pie-chart-container">
     <canvas #pieChart></canvas>
   </div>
-  <div class="expenses">
-    <p>25% Rent</p>
-    <p>25% Student Loans</p>
-    <p>25% Food</p>
-    <p>25% Entertainment</p>
+  <h3>List of Expenses</h3>
+  <div class="expenses" *ngFor="let expense of expenses">
+    <div class="expense">${{expense.amount}} {{expense.category}}</div>
   </div>
 
+  <button class="daily-question-button" style="margin-bottom: 20px; margin-top: 20px;" (click)="goToTransactions()">Add Expenses</button>
   <!-- Daily Questions -->
    
   <button class="daily-question-button" (click)="loadRandomQuestion()" *ngIf="!isAnswered">Daily Question</button>

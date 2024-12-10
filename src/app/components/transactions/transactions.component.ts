@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RewardsService } from '../../rewards/rewards.service';
+import { TransactionService } from '../../services/transaction.service';
 
 @Component({
   selector: 'app-transactions',
@@ -25,7 +26,12 @@ export class TransactionsComponent {
   expenseInputAmount: number = 0;
   expenseCategory: string = '';
 
-  transactionHistory: { type: string, amount: number, category: string }[] = [];
+  transactionHistory: { type: string, amount: number, category: string }[] = [
+    { type: 'Expense', amount: 1000, category: 'Rent'},
+    { type: 'Expense', amount: 400, category: 'Student Loans'},
+    { type: 'Expense', amount: 100, category: 'Food'},
+    { type: 'Expense', amount: 50, category: 'Entertainment'}
+  ];
 
   // Open the transaction modal
   openTransactionModal() {
@@ -73,6 +79,7 @@ export class TransactionsComponent {
         amount: this.expenseInputAmount,
         category: this.expenseCategory
       });
+      this.transactionService.addExpense(this.expenseInputAmount, this.expenseCategory);
       this.updateAmounts();
       this.earnPoints();
       this.closeTransactionModal();
@@ -92,7 +99,7 @@ export class TransactionsComponent {
     this.netAmount = this.incomeAmount - this.expensesAmount;
   }
   pointFlag: boolean = true;
-  constructor(private rewardsService: RewardsService) { }
+  constructor(private rewardsService: RewardsService, private transactionService: TransactionService) { }
 
   earnPoints() {
     this.rewardsService.addPoints(100);

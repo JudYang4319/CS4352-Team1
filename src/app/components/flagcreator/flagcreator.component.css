@@ -146,18 +146,42 @@ h1 {
     gap: 30px;
     padding-top: 20px;
     justify-content: center;
-
-    
-
 }
 
 .color-options span {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-
-    
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
+
+/* Add a checkmark when selected */
+.color-options span::after {
+    content: '✔'; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); 
+    color: white; 
+    font-size: 20px; 
+    font-weight: bold;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Show the checkmark when selected */
+.color-options span.selected::after {
+    transform: translate(-50%, -50%) scale(1); 
+    opacity: 1;
+}
+
+/* Optional: Slight enlargement of the selected color */
+.color-options span.selected {
+    transform: scale(1.1);
+}
+
 
 /* Button Styles */
 .buttons {
