@@ -70,9 +70,9 @@
             <p>Expected Bonus: {{ plan.expectedBonus | currency }}</p>
             <p>Category: {{ plan.category }}</p>
             <p>Limit: {{ plan.limit | currency }}</p>
-            <p>Amount: {{ plan.amount | currency }}</p>
-            <p>Deadline: {{ plan.deadline | date: 'shortDate' }}</p>
-            <p>Occurrence: {{ plan.occurrence }}</p>
+            <p>Milestone Amount: {{ plan.amount | currency }}</p>
+            <p>Milestone Deadline: {{ plan.deadline | date: 'shortDate' }}</p>
+            <p>Milestone Reminder Occurrence: {{ plan.occurrence }}</p>
         </div>
     </div>
     <div *ngIf="customPlans.length === 0">
