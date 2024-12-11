@@ -15,11 +15,13 @@
     </div>
 
     <div class="guild-details"style = "padding-top: 30%;">
+        <h3 *ngIf="guildName" style="text-align: center;">{{ guildName }}</h3>
+        
         <div class="image" >
             <img [src]="getSelectedIconUrl()" alt="Selected Icon" [style.backgroundColor]="selectedColor" width="250" height="250">
         </div>
+
     </div>  
-    <h2 *ngIf="guildName">{{ guildName }}</h2>
 
     <div class = "button-container">
         <button class="guild-button" (click)="goToLeaderboard()">View Leaderboard</button>

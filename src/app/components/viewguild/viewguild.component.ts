@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FlagService } from '../../services/flag.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewguild',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './viewguild.component.html',
   styleUrls: ['./viewguild.component.css']
 })
@@ -37,15 +40,13 @@ export class ViewGuildComponent implements OnInit {
     this.selectedColor = flag.color;
     this.selectedIconId = flag.iconId;
     this.guildName = this.flagService.getGuildName(); // Retrieve the guild name
-    document.documentElement.style.setProperty('--selectedColor', this.selectedColor);
 
     // Log the values to ensure they are set correctly
     console.log("Selected Color:", this.selectedColor);
     console.log("Selected Icon ID:", this.selectedIconId);
     console.log("Guild Name:", this.guildName); // Log the guild name
 
-
-  
+    document.documentElement.style.setProperty('--selectedColor', this.selectedColor);
   }
 
   getSelectedIconUrl() {

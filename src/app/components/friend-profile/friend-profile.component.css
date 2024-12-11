@@ -1,12 +1,15 @@
 .friend-profile {
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
     border-radius: 15px;
     background-color: #f5f5f5;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    height: 89vh;
+    height: 777px;
 }
 
 .header h1 {
@@ -26,9 +29,9 @@
 }
 
 .buttons {
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
-    margin-top: 155%;
 }
 
 .back-button,

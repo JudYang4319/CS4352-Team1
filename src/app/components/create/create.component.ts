@@ -58,11 +58,12 @@ export class CreateComponent {
       return;
     }
     const guildName = this.guildNameInput.nativeElement.value;
+    this.flagService.setGuildName(guildName);
     if (!guildName) {
       window.alert("Please enter a name");
       return;
     }
-    this.flagService.setGuildName(guildName);
+    
     window.alert("Flag saved successfully");
     this.goToViewGuild();
   }
