@@ -28,6 +28,6 @@ export class TransactionService {
   }
 
   getAllExpenses() {
-    return this.expenses;
+    return [...this.expenses];
   }
 }

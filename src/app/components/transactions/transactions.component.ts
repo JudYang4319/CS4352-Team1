@@ -36,6 +36,7 @@ export class TransactionsComponent {
 
   ngOnInit() {
     this.updateAmounts();
+    this.transactionHistory = this.transactionService.getAllExpenses();
   }
 
   // Open the transaction modal
