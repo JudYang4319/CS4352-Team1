@@ -30,8 +30,14 @@ export class TransactionsComponent {
     { type: 'Expense', amount: 1000, category: 'Rent'},
     { type: 'Expense', amount: 400, category: 'Student Loans'},
     { type: 'Expense', amount: 100, category: 'Food'},
-    { type: 'Expense', amount: 50, category: 'Entertainment'}
+    { type: 'Expense', amount: 50, category: 'Entertainment'},
+    { type: 'Income', amount: 2000, category: 'Job'}
   ];
+
+  ngOnInit() {
+    this.transactionHistory = this.transactionService.getAllExpenses();
+    this.updateAmounts();
+  }
 
   // Open the transaction modal
   openTransactionModal() {
@@ -65,9 +71,12 @@ export class TransactionsComponent {
         amount: this.incomeInputAmount,
         category: this.incomeCategory
       });
-      this.updateAmounts();
+      this.transactionService.addIncome(this.incomeInputAmount, this.incomeCategory);
+      //this.updateAmounts();
       this.earnPoints();
       this.closeTransactionModal();
+      this.transactionHistory = this.transactionService.getAllExpenses();
+      this.updateAmounts();
     }
   }
 
@@ -80,9 +89,10 @@ export class TransactionsComponent {
         category: this.expenseCategory
       });
       this.transactionService.addExpense(this.expenseInputAmount, this.expenseCategory);
-      this.updateAmounts();
       this.earnPoints();
       this.closeTransactionModal();
+      this.transactionHistory = this.transactionService.getAllExpenses();
+      this.updateAmounts();
     }
   }
 

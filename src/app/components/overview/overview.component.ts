@@ -32,7 +32,7 @@ export class OverviewComponent implements OnInit, AfterViewInit {
   expensePercentage: any[];
 
   constructor(private router: Router, private rewardsService: RewardsService, private transactionService: TransactionService) {
-    this.expenses = transactionService.getAllExpenses();
+    this.expenses = transactionService.getAllExpenses().filter(expense => expense.type === 'Expense');
     const totalAmount = this.expenses.reduce((sum, element) => sum + element.amount, 0);
     this.expensePercentage = this.expenses.map(expense => Math.round((expense.amount / totalAmount) * 100));
     //console.log(this.expensePercentage);
