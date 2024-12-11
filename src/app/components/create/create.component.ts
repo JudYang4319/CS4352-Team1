@@ -41,7 +41,7 @@ export class CreateComponent {
   }
 
   goBack() {
-    this.router.navigate(['/overview']);
+    this.router.navigate(['/guildstart']);
   }
 
   goToCustomize() {

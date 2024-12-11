@@ -1,6 +1,11 @@
 <div *ngIf="currentTab == homeTab" class="container">
     <img src="images/debtrepaymentimg.jpg" class="debt-image"/>
-    <p class="text-info">Debt repayment strategies are essential for effectively managing and eliminating debt. Two popular methods are the snowball and avalanche approaches. The snowball method focuses on paying off the smallest debts first to build momentum, while the avalanche method targets debts with the highest interest rates to minimize the total interest paid over time. Both methods have their advantages: the snowball approach offers psychological wins with quicker debt eliminations, while the avalanche method is more cost-efficient in the long run. Choosing the right strategy depends on individual financial priorities and emotional preferences.</p>
+    <div class="text-info">
+    <p>Debt repayment strategies are essential for effectively managing and eliminating debt. Two popular methods are the snowball and avalanche approaches.</p>
+    <p>The snowball method focuses on paying off the smallest debts first to build momentum, while the avalanche method targets debts with the highest interest rates to minimize the total interest paid over time.</p> 
+    <p>Both methods have their advantages: the snowball approach offers psychological wins with quicker debt eliminations, while the avalanche method is more cost-efficient in the long run.</p> 
+    <p>Choosing the right strategy depends on individual financial priorities and emotional preferences.</p>
+    </div>
     <button class="plan-button" (click)="currentTab = createPlanTab">Create Plan</button>
     <button class="plan-button" (click)="viewPlans()">Your Plans</button>
 </div>
@@ -37,8 +42,25 @@
             <label for="limitInput">Limit:</label>
             <input type="number" id="limitInput" [(ngModel)]="limit" name="limit" required />
         </div>
-        <h3>Set Milestones</h3>
-        <p>You can set a dollar amount to be repaid by your deadline as a milestone. You can also select reminders leading up to your milestone.</p>
+
+        <br>
+        <br>
+
+        <h3>Set Milestones
+        <button class="transparent-button" type="button" (click)="loadInfo()">
+            <img src="images/info.png" alt="information icon">
+        </button>
+        </h3>
+        <div class="modal" *ngIf="isInfoOpen">
+            <div class="modal-content">
+                <h1>What is a Milestone?</h1>
+                <p>A Milestone is a specific dollar amount that you aim to repay by a certain deadline. 
+                    Setting milestones helps you track your progress and stay motivated on your debt repayment journey.</p>
+                <p>You can set a dollar amount to be repaid by your deadline as a milestone. You can also select reminders leading up to your milestone.</p>
+                <button class="close-btn" (click)="closeInfo()">Close</button>
+            </div>
+        </div>
+        
         <div class="form-group">
             <label for="amountInput">Milestone Amount:</label>
             <input type="number" id="amountInput" [(ngModel)]="amount" name="amount" required />
@@ -55,7 +77,7 @@
                 <option value="Monthly">Monthly</option>
             </select>
         </div>
-        <button type="submit" class="plan-button back-button">Submit Plan</button>
+        <button type="submit" class="plan-button submit-button">Submit Plan</button>
     </form>
 
     <button class="plan-button back-button" (click)="currentTab = createPlanTab">Back</button>
