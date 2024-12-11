@@ -17,11 +17,17 @@ export class CreateComponent {
   selectedColor: string | null = null;
   selectedFlag: string | null = null;
   selectedIconId: number | null = null;
+  name: string | null = null;
 
   constructor(private router: Router, private flagService: FlagService) {
     const flag = this.flagService.getFlag();
     this.selectedColor = flag.color;
     this.selectedIconId = flag.iconId;
+  }
+
+  ngOnInit()
+  {
+    this.name = this.flagService.getGuildName();
   }
 
   selectFlag(flag: string) {
@@ -45,6 +51,8 @@ export class CreateComponent {
   }
 
   goToCustomize() {
+    const guildName = this.guildNameInput.nativeElement.value;
+    this.flagService.setGuildName(guildName);
     this.router.navigate(['/flagcreator']);
   }
 
@@ -58,11 +66,11 @@ export class CreateComponent {
       return;
     }
     const guildName = this.guildNameInput.nativeElement.value;
-    this.flagService.setGuildName(guildName);
     if (!guildName) {
       window.alert("Please enter a name");
       return;
     }
+    this.flagService.setGuildName(guildName);
     
     window.alert("Flag saved successfully");
     this.goToViewGuild();
