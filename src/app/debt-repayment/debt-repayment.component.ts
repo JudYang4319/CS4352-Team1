@@ -75,6 +75,9 @@ export class DebtRepaymentComponent {
   isCustomCategory: boolean = false;
   minDate: string;
 
+  // Info popup
+  isInfoOpen: boolean = false;
+
   constructor(private rewardsService: RewardsService, private planService: PlansService) {
     const today = new Date();
     this.minDate = today.toISOString().split('T')[0];
@@ -177,5 +180,16 @@ export class DebtRepaymentComponent {
     this.amount = 0;
     this.deadline = null;
     this.occurrence = "";
+  }
+
+  // Info popup
+  loadInfo(): void
+  {
+    this.isInfoOpen = true;
+  }
+
+  closeInfo(): void
+  {
+    this.isInfoOpen = false;
   }
 }

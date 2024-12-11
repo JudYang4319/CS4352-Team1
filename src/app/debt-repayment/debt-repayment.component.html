@@ -42,8 +42,25 @@
             <label for="limitInput">Limit:</label>
             <input type="number" id="limitInput" [(ngModel)]="limit" name="limit" required />
         </div>
-        <h3>Set Milestones</h3>
-        <p>You can set a dollar amount to be repaid by your deadline as a milestone. You can also select reminders leading up to your milestone.</p>
+
+        <br>
+        <br>
+
+        <h3>Set Milestones
+        <button class="transparent-button" (click)="loadInfo()">
+            <img src="images/info.png" alt="information icon">
+        </button>
+        </h3>
+        <div class="modal" *ngIf="isInfoOpen">
+            <div class="modal-content">
+                <h1>What is a Milestone?</h1>
+                <p>A Milestone is a specific dollar amount that you aim to repay by a certain deadline. 
+                    Setting milestones helps you track your progress and stay motivated on your debt repayment journey.</p>
+                <p>You can set a dollar amount to be repaid by your deadline as a milestone. You can also select reminders leading up to your milestone.</p>
+                <button class="close-btn" (click)="closeInfo()">Close</button>
+            </div>
+        </div>
+        
         <div class="form-group">
             <label for="amountInput">Milestone Amount:</label>
             <input type="number" id="amountInput" [(ngModel)]="amount" name="amount" required />
