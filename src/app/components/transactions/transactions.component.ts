@@ -65,6 +65,10 @@ export class TransactionsComponent {
 
   // Submit income
   submitIncome() {
+    if (this.incomeInputAmount < 0) {
+      alert('Income amount cannot be negative.');
+      return;
+    }
     if (this.incomeInputAmount > 0 && this.incomeCategory) {
       this.transactionHistory.push({
         type: 'Income',
@@ -82,6 +86,10 @@ export class TransactionsComponent {
 
   // Submit expense
   submitExpense() {
+    if (this.expenseInputAmount < 0) {
+      alert('Income amount cannot be negative.');
+      return;
+    }
     if (this.expenseInputAmount > 0 && this.expenseCategory) {
       this.transactionHistory.push({
         type: 'Expense',

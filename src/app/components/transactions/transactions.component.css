@@ -98,6 +98,10 @@
   z-index: 1000;
 }
 
+.modal-content .close-btn {
+  color: gray;
+}
+
 .modal-content {
   background-color: white;
   padding: 25px;
@@ -110,15 +114,29 @@
   position: relative;
 }
 
-.close-btn {
+.modal-content .btn {
+  margin: 10px; /* Adjust the margin as needed */
+}
+
+/* Style the close button */
+.modal-content .close-btn {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  /* Larger close button */
+  top: -10px;
+  right: 10px;
+  width: 35px;
+  height: 30px;
+  border-radius: 5px; /* Adjust the radius as needed */
+  background-color: #ccc; /* Subtle gray */
+  color: white;
+  text-align: center;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-size: 18px; /* Adjust font size as needed */
+  line-height: 9px; /* Adjust line height to match font size and button height */
+
+  &:hover {
+    background-color: #999; /* Darker gray on hover */
+  }
 }
 
 .modal-content input,
