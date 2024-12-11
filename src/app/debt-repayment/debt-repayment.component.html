@@ -1,6 +1,11 @@
 <div *ngIf="currentTab == homeTab" class="container">
     <img src="images/debtrepaymentimg.jpg" class="debt-image"/>
-    <p class="text-info">Debt repayment strategies are essential for effectively managing and eliminating debt. Two popular methods are the snowball and avalanche approaches. The snowball method focuses on paying off the smallest debts first to build momentum, while the avalanche method targets debts with the highest interest rates to minimize the total interest paid over time. Both methods have their advantages: the snowball approach offers psychological wins with quicker debt eliminations, while the avalanche method is more cost-efficient in the long run. Choosing the right strategy depends on individual financial priorities and emotional preferences.</p>
+    <div class="text-info">
+    <p>Debt repayment strategies are essential for effectively managing and eliminating debt. Two popular methods are the snowball and avalanche approaches.</p>
+    <p>The snowball method focuses on paying off the smallest debts first to build momentum, while the avalanche method targets debts with the highest interest rates to minimize the total interest paid over time.</p> 
+    <p>Both methods have their advantages: the snowball approach offers psychological wins with quicker debt eliminations, while the avalanche method is more cost-efficient in the long run.</p> 
+    <p>Choosing the right strategy depends on individual financial priorities and emotional preferences.</p>
+    </div>
     <button class="plan-button" (click)="currentTab = createPlanTab">Create Plan</button>
     <button class="plan-button" (click)="viewPlans()">Your Plans</button>
 </div>
